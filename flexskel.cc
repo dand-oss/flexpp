@@ -40,7 +40,11 @@
 #define YY_USE_CLASS
 #endif
 #ifndef _MSDOS
+#ifndef __GNUG__
+#ifndef __GNUC__
 #include <osfcn.h>
+#endif
+#endif
 #endif
 #else   /* ! __cplusplus */
 #ifdef __STDC__
