@@ -75,7 +75,6 @@
 /* read' : unresolved external  */
 /* #define fileno _fileno' : unresolved external */
 #include <io.h>
-#include <string.h>
 #define mktemp _mktemp
 #define unlink remove
 #define read _read
@@ -84,20 +83,7 @@
 #include <unistd.h>
 #endif
 
-#ifdef SYS_V
 #include <string.h>
-#else
-#ifdef lint
-char *sprintf(); /* keep lint happy */
-#endif
-#ifdef SCO_UNIX
-void *memset();
-#else
-#if defined(ATARI) || defined(TURBO)
-char *memset();
-#endif
-#endif
-#endif
 
 #ifdef ATARI
 #define SYS_V
