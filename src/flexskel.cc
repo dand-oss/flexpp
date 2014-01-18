@@ -34,7 +34,6 @@
 
 #ifdef __cplusplus
 #include <stdlib.h>
-#define YY_USE_CONST
 #define YY_USE_PROTOS
 #ifndef YY_USE_CLASS
 #define YY_USE_CLASS
@@ -43,23 +42,14 @@
 #ifdef __STDC__
 #include <stdlib.h>
 #define YY_USE_PROTOS
-#define YY_USE_CONST
 #endif  /* __STDC__ */
 #endif  /* ! __cplusplus */
-#ifdef __TURBOC__
-#define YY_USE_CONST
-#endif
 #include <stdio.h>
 
 
 /*********************************************/
 /* COMPILER DEPENDENT   MACROS               */
 /*********************************************/
-/* use prototypes in function declarations */
-/* the "const" storage-class-modifier is valid */
-#ifndef YY_USE_CONST
-#define const
-#endif
 /* use prototypes in function declarations */
 #ifndef YY_PROTO
 #ifdef YY_USE_PROTOS
