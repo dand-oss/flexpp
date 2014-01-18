@@ -16,28 +16,8 @@
 #endif
 #endif
 #ifdef __cplusplus
-#ifndef YY_USE_PROTOS
-#define YY_USE_PROTOS
-#endif
 #ifndef YY_USE_CLASS
 #define YY_USE_CLASS
-#endif
-#else	/* ! __cplusplus */
-#ifdef __STDC__
-#ifndef YY_USE_PROTOS
-#define YY_USE_PROTOS
-#endif
-#endif	/* __STDC__ */
-#endif	/* ! __cplusplus */
-/*********************************************/
-/* COMPILER DEPENDENT   MACROS               */
-/*********************************************/
-/* use prototypes in function declarations */
-#ifndef YY_PROTO
-#ifdef YY_USE_PROTOS
-#define YY_PROTO(proto) proto
-#else
-#define YY_PROTO(proto) ()
 #endif
 #endif
 #include <stdio.h>
@@ -118,11 +98,7 @@
 #endif
 
 #ifndef YY_@_LEX_PARAM
-#ifndef YY_USE_PROTOS
-#define YY_@_LEX_PARAM
-#else
 #define YY_@_LEX_PARAM void
-#endif
 #else
 #ifndef YY_@_LEX_DEFINED
 #define YY_@_LEX_DEFINED
@@ -192,12 +168,12 @@
 #endif
 typedef struct yy_buffer_state *YY_BUFFER_STATE;
 
-extern void YY_@_RESTART YY_PROTO(( YY_@_IFILE *input_file ));
-extern void YY_@_SWITCH_TO_BUFFER YY_PROTO(( YY_BUFFER_STATE new_buffer ));
-extern void YY_@_LOAD_BUFFER_STATE YY_PROTO(( void ));
-extern YY_BUFFER_STATE YY_@_CREATE_BUFFER YY_PROTO(( YY_@_IFILE *file, int size ));
-extern void YY_@_DELETE_BUFFER YY_PROTO(( YY_BUFFER_STATE b ));
-extern void YY_@_INIT_BUFFER YY_PROTO(( YY_BUFFER_STATE b, YY_@_IFILE *file ));
+extern void YY_@_RESTART( YY_@_IFILE *input_file );
+extern void YY_@_SWITCH_TO_BUFFER( YY_BUFFER_STATE new_buffer );
+extern void YY_@_LOAD_BUFFER_STATE( void );
+extern YY_BUFFER_STATE YY_@_CREATE_BUFFER( YY_@_IFILE *file, int size );
+extern void YY_@_DELETE_BUFFER( YY_BUFFER_STATE b );
+extern void YY_@_INIT_BUFFER( YY_BUFFER_STATE b, YY_@_IFILE *file );
 
 #if YY_@_DEBUG != 0
 extern int YY_@_DEBUG_FLAG ;

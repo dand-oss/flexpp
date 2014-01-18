@@ -33,31 +33,12 @@
 #endif
 
 #ifdef __cplusplus
-#include <stdlib.h>
-#define YY_USE_PROTOS
 #ifndef YY_USE_CLASS
 #define YY_USE_CLASS
 #endif
-#else   /* ! __cplusplus */
-#ifdef __STDC__
+#endif
 #include <stdlib.h>
-#define YY_USE_PROTOS
-#endif  /* __STDC__ */
-#endif  /* ! __cplusplus */
 #include <stdio.h>
-
-
-/*********************************************/
-/* COMPILER DEPENDENT   MACROS               */
-/*********************************************/
-/* use prototypes in function declarations */
-#ifndef YY_PROTO
-#ifdef YY_USE_PROTOS
-#define YY_PROTO(proto) proto
-#else
-#define YY_PROTO(proto) ()
-#endif
-#endif
 
 
 /*********************/
@@ -143,7 +124,7 @@
 /* default declaration of generated scanner - a define so the user can
  * easily add parameters
  */
-#define YY_DECL int yylex YY_PROTO(( void ))
+#define YY_DECL int yylex( void )
 #else
 /* c++ */
 #define ECHO yy___echo()
@@ -276,9 +257,9 @@ YY_@_IFILE  *yy___in = (YY_@_IFILE  *) 0;
 YY_@_OFILE *yy___out = (YY_@_OFILE  *) 0;
 
 #ifdef __cplusplus
-static int yyinput YY_PROTO(( void ));
+static int yyinput( void );
 #else
-static int input YY_PROTO(( void ));
+static int input( void );
 #endif
 /* these variables are all declared out here so that section 3 code can
  * manipulate them
@@ -293,8 +274,8 @@ static int yy_start = 0;        /* start state number */
  */
 static int yy_did_buffer_switch_on_eof;
 
-static int yy_get_next_buffer YY_PROTO(( void ));
-static void yyunput YY_PROTO(( YY_@_CHAR c, YY_@_CHAR *buf_ptr ));
+static int yy_get_next_buffer( void );
+static void yyunput( YY_@_CHAR c, YY_@_CHAR *buf_ptr );
 
 #else
 /* c++ */
@@ -354,8 +335,8 @@ YY_@_CLASS::~YY_@_CLASS()
 
 %% data tables for the DFA go here
 #ifndef YY_USE_CLASS
-static yy_state_type yy_get_previous_state YY_PROTO(( void ));
-static yy_state_type yy_try_NUL_trans YY_PROTO(( yy_state_type current_state ));
+static yy_state_type yy_get_previous_state( void );
+static yy_state_type yy_try_NUL_trans( yy_state_type current_state );
 #else
 #define yy_get_previous_state() ((yy_state_type)(yy_get_previous_state_()))
 #define yy_try_NUL_trans(c) ((yy_state_type)(yy_try_NUL_trans_(c)))
@@ -715,12 +696,7 @@ long YY_@_CLASS::yy_get_previous_state_()
  */
 
 #ifndef YY_USE_CLASS
-#ifdef YY_USE_PROTOS
 static yy_state_type yy_try_NUL_trans( register yy_state_type yy_current_state )
-#else
-static yy_state_type yy_try_NUL_trans( yy_current_state )
-register yy_state_type yy_current_state;
-#endif
 #else
 long YY_@_CLASS::yy_try_NUL_trans_(long yy_current_state_)
 #endif
@@ -741,13 +717,7 @@ long YY_@_CLASS::yy_try_NUL_trans_(long yy_current_state_)
     }
 
 #ifndef YY_USE_CLASS
-#ifdef YY_USE_PROTOS
 static void yyunput( YY_@_CHAR c, register YY_@_CHAR *yy_bp )
-#else
-static void yyunput( c, yy_bp )
-YY_@_CHAR c;
-register YY_@_CHAR *yy_bp;
-#endif
 #else
 void YY_@_CLASS::yyunput( YY_@_CHAR c, YY_@_CHAR *yy_bp )
 #endif
@@ -867,12 +837,7 @@ int YY_@_CLASS::input()
 
 
 #ifndef YY_USE_CLASS
-#ifdef YY_USE_PROTOS
 void YY_@_RESTART( YY_@_IFILE  *input_file )
-#else
-void YY_@_RESTART( input_file )
-YY_@_IFILE  *input_file;
-#endif
 #else
 void YY_@_CLASS::YY_@_RESTART ( YY_@_IFILE  *input_file )
 #endif
@@ -884,12 +849,7 @@ void YY_@_CLASS::YY_@_RESTART ( YY_@_IFILE  *input_file )
 
 
 #ifndef YY_USE_CLASS
-#ifdef YY_USE_PROTOS
 void YY_@_SWITCH_TO_BUFFER( YY_BUFFER_STATE new_buffer )
-#else
-void YY_@_SWITCH_TO_BUFFER( new_buffer )
-YY_BUFFER_STATE new_buffer;
-#endif
 #else
 void YY_@_CLASS::YY_@_SWITCH_TO_BUFFER( YY_BUFFER_STATE new_buffer )
 #endif
@@ -919,11 +879,7 @@ void YY_@_CLASS::YY_@_SWITCH_TO_BUFFER( YY_BUFFER_STATE new_buffer )
 
 
 #ifndef YY_USE_CLASS
-#ifdef YY_USE_PROTOS
 void YY_@_LOAD_BUFFER_STATE( void )
-#else
-void YY_@_LOAD_BUFFER_STATE()
-#endif
 #else
 void YY_@_CLASS::YY_@_LOAD_BUFFER_STATE(  )
 #endif
@@ -937,13 +893,7 @@ void YY_@_CLASS::YY_@_LOAD_BUFFER_STATE(  )
 
 
 #ifndef YY_USE_CLASS
-#ifdef YY_USE_PROTOS
 YY_BUFFER_STATE YY_@_CREATE_BUFFER( YY_@_IFILE  *file, int size )
-#else
-YY_BUFFER_STATE YY_@_CREATE_BUFFER( file, size )
-YY_@_IFILE  *file;
-int size;
-#endif
 #else
 YY_BUFFER_STATE YY_@_CLASS::YY_@_CREATE_BUFFER( YY_@_IFILE  *file, int size )
 #endif
@@ -973,12 +923,7 @@ YY_BUFFER_STATE YY_@_CLASS::YY_@_CREATE_BUFFER( YY_@_IFILE  *file, int size )
 
 
 #ifndef YY_USE_CLASS
-#ifdef YY_USE_PROTOS
 void YY_@_DELETE_BUFFER( YY_BUFFER_STATE b )
-#else
-void YY_@_DELETE_BUFFER( b )
-YY_BUFFER_STATE b;
-#endif
 #else
 void YY_@_CLASS::YY_@_DELETE_BUFFER( YY_BUFFER_STATE b )
 #endif
@@ -993,13 +938,7 @@ void YY_@_CLASS::YY_@_DELETE_BUFFER( YY_BUFFER_STATE b )
 
 
 #ifndef YY_USE_CLASS
-#ifdef YY_USE_PROTOS
 void YY_@_INIT_BUFFER( YY_BUFFER_STATE b, YY_@_IFILE  *file )
-#else
-void YY_@_INIT_BUFFER( b, file )
-YY_BUFFER_STATE b;
-YY_@_IFILE  *file;
-#endif
 #else
 void YY_@_CLASS::YY_@_INIT_BUFFER( YY_BUFFER_STATE b, YY_@_IFILE  *file)
 #endif

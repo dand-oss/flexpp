@@ -36,10 +36,10 @@ static char rcsid[] =
 
 /* declare functions that have forward references */
 
-void gen_next_state PROTO((int));
-void genecs PROTO(());
-void indent_put2s PROTO((char [], char []));
-void indent_puts PROTO((char []));
+void gen_next_state(int);
+void genecs();
+void indent_put2s(char [], char []);
+void indent_puts(char []);
 
 
 static int indent_level = 0; /* each level is 4 spaces */

@@ -44,8 +44,8 @@ static char rcsid[] =
 
 /* declare functions that have forward references */
 
-void dataflush PROTO(());
-int otoi PROTO((Char []));
+void dataflush();
+int otoi(Char []);
 
 
 

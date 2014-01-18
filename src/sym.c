@@ -36,7 +36,7 @@ static char rcsid[] =
 
 /* declare functions that have forward references */
 
-int hashfunct PROTO((register char[], int));
+int hashfunct(register char[], int);
 
 
 struct hash_entry *ndtbl[NAME_TABLE_HASH_SIZE];
