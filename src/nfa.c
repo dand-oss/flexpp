@@ -6,7 +6,7 @@
  *
  * This code is derived from software contributed to Berkeley by
  * Vern Paxson.
- * 
+ *
  * The United States Government has rights in this work pursuant
  * to contract no. DE-AC03-76SF00098 between the United States
  * Department of Energy and the University of California.
@@ -261,7 +261,7 @@ int mach, variable_trail_rule, headcnt, trailcnt;
 	    else
 		fprintf( temp_action_file,
 			 "%s -= %d;\n", scanner_cp, trailcnt );
-	
+
 	    fprintf( temp_action_file,
 		     "YY_DO_BEFORE_ACTION; /* set up yytext again */\n" );
 	    }
@@ -607,7 +607,7 @@ int sym;
 	if ( (current_mns += MNS_INCREMENT) >= MAXIMUM_MNS )
 	    lerrif( "input rules are too complicated (>= %d NFA states)",
 		    current_mns );
-	
+
 	++num_reallocs;
 
 	firstst = reallocate_integer_array( firstst, current_mns );

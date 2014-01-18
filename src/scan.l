@@ -1,4 +1,3 @@
-
 /* scan.l - scanner for flex input */
 
 %{
@@ -8,7 +7,7 @@
  *
  * This code is derived from software contributed to Berkeley by
  * Vern Paxson.
- * 
+ *
  * The United States Government has rights in this work pursuant
  * to contract no. DE-AC03-76SF00098 between the United States
  * Department of Energy and the University of California.
@@ -97,7 +96,7 @@ ESCSEQ		\\([^\n\r]|[0-9]{1,3}|x[0-9a-f]{1,2})
 ^"%x"{NAME}?		return ( XSCDECL );
 ^"%name"{WS}		BEGIN(NAME_DECLARE);
 ^"%define"{WS}		BEGIN(DEFINE_DECLARE);
-	
+
 
 ^"%{".*{LINEFEED}		{
 			++linenum;
@@ -178,7 +177,7 @@ ESCSEQ		\\([^\n\r]|[0-9]{1,3}|x[0-9a-f]{1,2})
 {SCNAME}		RETURNNAME;
 ^{OPTWS}{LINEFEED}		++linenum; /* allows blank lines in section 1 */
 {OPTWS}{LINEFEED}		++linenum; return ( '\n' );
-.			{synerr( "illegal character" ); 
+.			{synerr( "illegal character" );
                          fprintf(stderr,
                            "Char : \\0x%x\n",yytext[yyleng-1]);
 			BEGIN(RECOVER);}
@@ -501,7 +500,7 @@ ESCSEQ		\\([^\n\r]|[0-9]{1,3}|x[0-9a-f]{1,2})
 			    {
 			    if ( ! doing_codeblock )
 				fputs( "\tYY_BREAK\n", temp_action_file );
-			    
+
 			    doing_codeblock = false;
 			    BEGIN(SECT2);
 			    }
@@ -513,7 +512,7 @@ ESCSEQ		\\([^\n\r]|[0-9]{1,3}|x[0-9a-f]{1,2})
 <ACTION>"}"		ACTION_ECHO; --bracelevel;
 <ACTION>[^a-z_{}"'/\n\r]+	ACTION_ECHO;
 <ACTION>{NAME}		ACTION_ECHO;
-<ACTION>"//".*{LINEFEED}	++linenum;ACTION_ECHO; 
+<ACTION>"//".*{LINEFEED}	++linenum;ACTION_ECHO;
 <ACTION>"/*"		ACTION_ECHO; BEGIN(ACTION_COMMENT);
 <ACTION>"'"([^'\\\n\r]|\\.)*"'"	ACTION_ECHO; /* character constant */
 <ACTION>\"		ACTION_ECHO; BEGIN(ACTION_STRING);
@@ -597,4 +596,3 @@ char *file;
 	infilename = "<stdin>";
 	}
     }
-

@@ -6,7 +6,7 @@
  *
  * This code is derived from software contributed to Berkeley by
  * Vern Paxson.
- * 
+ *
  * The United States Government has rights in this work pursuant
  * to contract no. DE-AC03-76SF00098 between the United States
  * Department of Energy and the University of California.
@@ -78,7 +78,7 @@ int table_size;
 	    { /* entry already exists */
 	    return ( -1 );
 	    }
-	
+
 	sym_entry = sym_entry->next;
 	}
 
@@ -178,7 +178,7 @@ int table_size;
     return ( &empty_entry );
     }
 
-    
+
 /* hashfunct - compute the hash value for "str" and hash size "hash_size"
  *
  * synopsis

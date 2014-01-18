@@ -6,7 +6,7 @@
  *
  * This code is derived from software contributed to Berkeley by
  * Vern Paxson.
- * 
+ *
  * The United States Government has rights in this work pursuant
  * to contract no. DE-AC03-76SF00098 between the United States
  * Department of Energy and the University of California.
@@ -160,7 +160,7 @@ int ds;
     int rule_set[MAX_ASSOC_RULES + 1];
     int *dset = dss[ds];
     int size = dfasiz[ds];
-    
+
     for ( i = 1; i <= size; ++i )
 	{
 	register rule_num = rule_linenum[assoc_rule[dset[i]]];
@@ -184,10 +184,10 @@ int ds;
 	{
 	if ( i % 8 == 1 )
 	    putc( '\n', file );
-	
+
 	fprintf( file, "\t%d", rule_set[i] );
 	}
-    
+
     putc( '\n', file );
     }
 
@@ -218,7 +218,7 @@ int state[];
 	ec = abs( ecgroup[i] );
 	out_char_set[i] = state[ec];
 	}
-    
+
     fprintf( file, " out-transitions: " );
 
     list_character_set( file, out_char_set );
@@ -263,7 +263,7 @@ int *t, *ns_addr, accset[], *nacc_addr, *hv_addr;
     register int stkpos, ns, tsp;
     int numstates = *ns_addr, nacc, hashval, transsym, nfaccnum;
     int stkend, nstate;
-    static int did_stk_init = false, *stk; 
+    static int did_stk_init = false, *stk;
 
 #define MARK_STATE(state) \
 	trans1[state] = trans1[state] - MARKER_DIFFERENCE;

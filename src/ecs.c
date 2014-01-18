@@ -6,7 +6,7 @@
  *
  * This code is derived from software contributed to Berkeley by
  * Vern Paxson.
- * 
+ *
  * The United States Government has rights in this work pursuant
  * to contract no. DE-AC03-76SF00098 between the United States
  * Department of Energy and the University of California.
@@ -180,7 +180,7 @@ int ecmap[];
 	    {
 	    if ( did_default_xlation_class )
 		ecmap[i] = -num_xlations;
-	    
+
 	    else
 		{
 		/* make an equivalence class for those characters not

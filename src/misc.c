@@ -6,7 +6,7 @@
  *
  * This code is derived from software contributed to Berkeley by
  * Vern Paxson.
- * 
+ *
  * The United States Government has rights in this work pursuant
  * to contract no. DE-AC03-76SF00098 between the United States
  * Department of Energy and the University of California.
@@ -783,7 +783,7 @@ int use_name;
 int *back_lf;
 {int ch;
  int col=0;
- if(thefile==0 ) 
+ if(thefile==0 )
    return;
  if ( gen_line_dirs && thecounter!=(int *)0 && thename !=NULL && *back_lf!=1)
        {char *p;
@@ -800,7 +800,7 @@ int *back_lf;
    else if(ch=='\n' && *back_lf==-1) *back_lf=1;
    else if(ch=='%' && *back_lf==1) *back_lf=1;
    else *back_lf=0;
-   if(ch=='@' && use_name) 
+   if(ch=='@' && use_name)
      {if(name_defined==0)
         { fprintf(thefile,"@Undefined_name@");
           if(thecounter!=(int *)0 && thename !=NULL)
@@ -814,9 +814,9 @@ int *back_lf;
        col=0;
        if(thecounter!=(int *)0)
           (*thecounter)++;}
-   else if(col==1 && ch=='%') 
+   else if(col==1 && ch=='%')
      {fprintf(thefile,"/* ");
-      while((ch=getc(theskel))!=EOF && ch!='\n') 
+      while((ch=getc(theskel))!=EOF && ch!='\n')
          putc(ch,thefile);
       fprintf(thefile," */ %s\n",(*back_lf==1)?"\\":"");  /* use \\\n to continue macros def */
       if(thecounter!=(int *)0)
@@ -848,7 +848,7 @@ void action_out()
  *
  * DESCRIPTION
  *    Copies from skelfile to stdout until a line beginning with "%" or
- *    EOF is found.... 
+ *    EOF is found....
  */
 void skelout()
 {static int skel_line=1,bklf=0;
@@ -914,7 +914,7 @@ char *name;
     }
   else if(name_defined)
     {synerr( "Multiple %%name declaration" );return;}
-  else 
+  else
    {strncpy(lexer_name,name,sizeof(lexer_name)-1);
     name_defined++;
    }

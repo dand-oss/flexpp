@@ -1,4 +1,3 @@
-
 /* parse.y - parser for flex input */
 
 %token CHAR NUMBER SECTEND SCDECL XSCDECL WHITESPACE NAME PREVCCL EOF_OP
@@ -10,7 +9,7 @@
  *
  * This code is derived from software contributed to Berkeley by
  * Vern Paxson.
- * 
+ *
  * The United States Government has rights in this work pursuant
  * to contract no. DE-AC03-76SF00098 between the United States
  * Department of Energy and the University of California.
@@ -145,7 +144,7 @@ flexrule        :  scon '^' rule
 			    bol_needed = true;
 
 			    if ( performance_report )
-				pinpoint_message( 
+				pinpoint_message(
 			    "'^' operator results in sub-optimal performance" );
 			    }
 			}
@@ -298,7 +297,7 @@ rule            :  re2 re
 			    add_accept( $1, num_rules | YY_TRAILING_HEAD_MASK );
 			    variable_trail_rule = true;
 			    }
-			
+
 			else
 			    trailcnt = rulelen;
 

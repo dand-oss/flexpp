@@ -6,7 +6,7 @@
  *
  * This code is derived from software contributed to Berkeley by
  * Vern Paxson.
- * 
+ *
  * The United States Government has rights in this work pursuant
  * to contract no. DE-AC03-76SF00098 between the United States
  * Department of Energy and the University of California.
@@ -241,7 +241,7 @@ void cmptmps()
 
 	nummecs = cre8ecs( tecfwd, tecbck, numecs );
 	}
-    
+
     else
 	nummecs = numecs;
 
@@ -334,7 +334,7 @@ void expand_nxt_chk()
 
 int find_table_space( state, numtrans )
 int *state, numtrans;
-    
+
     {
     /* firstfree is the position of the first possible occurrence of two
      * consecutive unused records in the chk and nxt arrays

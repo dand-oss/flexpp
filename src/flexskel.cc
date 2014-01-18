@@ -79,7 +79,7 @@
 #endif
 /* size of default input buffer */
 #ifndef YY_BUF_SIZE
-#define YY_BUF_SIZE (YY_READ_BUF_SIZE * 2) 
+#define YY_BUF_SIZE (YY_READ_BUF_SIZE * 2)
 #endif
 
 /***********************************/
@@ -153,8 +153,8 @@
 /* default declaration of generated scanner - a define so the user can
  * easily add parameters
  */
-#define YY_DECL int yylex YY_PROTO(( void )) 
-#else 
+#define YY_DECL int yylex YY_PROTO(( void ))
+#else
 /* c++ */
 #define ECHO yy___echo()
 #define YY_INPUT(buf,result,max_size) \
@@ -170,7 +170,7 @@
 #define YY_NULL 0
 #define YY_END_OF_BUFFER_CHAR 0
 /* special action meaning "start processing a new file" */
-#define YY_NEW_FILE yy___newfile 
+#define YY_NEW_FILE yy___newfile
 /* enter a start condition.  This macro really ought to take a parameter,
  * but we do it the disgusting crufty way forced on us by the ()-less
  * definition of BEGIN
@@ -247,7 +247,7 @@ struct yy_buffer_state
     YY_@_CHAR *yy_buf_pos;      /* current position in input buffer */
 
     /* size of input buffer in bytes, not including room for EOB characters */
-    int yy_buf_size;    
+    int yy_buf_size;
 
     /* number of characters read into yy_ch_buf, not including EOB characters */
     int yy_n_chars;
@@ -345,7 +345,7 @@ YY_@_CLASS::YY_@_CLASS(YY_@_CONSTRUCTOR_PARAM) YY_@_CONSTRUCTOR_INIT
 {yy_initialize();
  YY_@_CONSTRUCTOR_CODE;
 }
-YY_@_CLASS::~YY_@_CLASS() 
+YY_@_CLASS::~YY_@_CLASS()
 {YY_@_DESTRUCTOR_CODE;
  if(YY_@_CURRENT_BUFFER)
   YY_@_DELETE_BUFFER(YY_@_CURRENT_BUFFER);
@@ -391,7 +391,7 @@ YY_@_LEX_RETURN YY_@_CLASS::YY_@_LEX ( YY_@_LEX_PARAM)
 
     if ( yy_init )
 	{
-	 
+
 	 {
 	 YY_USER_INIT;
 	 }
@@ -446,7 +446,7 @@ do_action:      /* this label is used only to access EOF actions */
 #endif
 		else if ( yy_act < YY_END_OF_BUFFER -1 )
 #ifndef YY_@_IOSTREAM
-			fprintf( yy___stderr , 
+			fprintf( yy___stderr ,
 			 "--accepting rule at line %d (\"%s\")\n",
 			 yy_rule_linenum[yy_act], yy___text );
 #else
@@ -456,7 +456,7 @@ do_action:      /* this label is used only to access EOF actions */
 #endif
 		else if ( yy_act == YY_END_OF_BUFFER -1 )
 #ifndef YY_@_IOSTREAM
-			fprintf( yy___stderr , 
+			fprintf( yy___stderr ,
 			 "--accepting default rule (\"%s\")\n",
 			 yy___text );
 #else
@@ -604,9 +604,9 @@ do_action:      /* this label is used only to access EOF actions */
  *
  * synopsis
  *     int yy_get_next_buffer();
- *     
+ *
  * returns a code representing an action
- *     EOB_ACT_LAST_MATCH - 
+ *     EOB_ACT_LAST_MATCH -
  *     EOB_ACT_CONTINUE_SCAN - continue scanning from current position
  *     EOB_ACT_END_OF_FILE - end of file
  */

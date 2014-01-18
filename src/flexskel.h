@@ -45,13 +45,13 @@
 
 
 
-%% here is the declaration from section1 %header{ 
+%% here is the declaration from section1 %header{
 
 #ifdef YY_USE_CLASS
 #ifdef YY_@_IOSTREAM
 #include <iostream>
-#define YY_@_IFILE  std::istream
-#define YY_@_OFILE std::ostream 
+#define YY_@_IFILE std::istream
+#define YY_@_OFILE std::ostream
 #define YY_@_ERRFILE std::cerr
 
 #ifndef YY_@_IFILE_DEFAULT
@@ -66,11 +66,11 @@
 #endif
 
 #ifndef YY_@_IFILE
-#define YY_@_IFILE FILE 
+#define YY_@_IFILE FILE
 #endif
 
 #ifndef YY_@_OFILE
-#define YY_@_OFILE FILE 
+#define YY_@_OFILE FILE
 #endif
 
 #ifndef YY_@_ERRFILE
@@ -105,7 +105,7 @@
 #define YY_@_LEX_RETURN int
 #else
 #ifndef YY_@_LEX_DEFINED
-#define YY_@_LEX_DEFINED 
+#define YY_@_LEX_DEFINED
 #endif
 #endif
 
@@ -113,19 +113,19 @@
 #define YY_@_LEX yylex
 #else
 #ifndef YY_@_LEX_DEFINED
-#define YY_@_LEX_DEFINED 
+#define YY_@_LEX_DEFINED
 #endif
 #endif
 
 #ifndef YY_@_LEX_PARAM
 #ifndef YY_USE_PROTOS
-#define YY_@_LEX_PARAM 
+#define YY_@_LEX_PARAM
 #else
 #define YY_@_LEX_PARAM void
 #endif
 #else
 #ifndef YY_@_LEX_DEFINED
-#define YY_@_LEX_DEFINED 
+#define YY_@_LEX_DEFINED
 #endif
 #endif
 
@@ -133,7 +133,7 @@
 #define YY_@_LEX_PARAM_DEF
 #else
 #ifndef YY_@_LEX_DEFINED
-#define YY_@_LEX_DEFINED 
+#define YY_@_LEX_DEFINED
 #endif
 #endif
 
@@ -285,7 +285,7 @@ YY_@_LEX_PARAM_DEF
 #define YY_@_INHERIT
 #endif
 #ifndef YY_@_MEMBERS
-#define YY_@_MEMBERS 
+#define YY_@_MEMBERS
 #endif
 #ifndef YY_@_CONSTRUCTOR_PARAM
 #define YY_@_CONSTRUCTOR_PARAM
@@ -360,7 +360,7 @@ class YY_@_CLASS YY_@_INHERIT
  int YY_@_DEBUG_FLAG;
 #endif
  public: /* added members */
- YY_@_MEMBERS 
+ YY_@_MEMBERS
 };
 #endif
 

@@ -6,7 +6,7 @@
  *
  * This code is derived from software contributed to Berkeley by
  * Vern Paxson.
- * 
+ *
  * The United States Government has rights in this work pursuant
  * to contract no. DE-AC03-76SF00098 between the United States
  * Department of Energy and the University of California.
@@ -324,10 +324,10 @@ int status;
 	if ( headerfilename )
 	    fprintf( stderr, " -h%s", headerfilename );
 
-	if ( includefilename && headerfilename && 
+	if ( includefilename && headerfilename &&
 	     ! strcmp(includefilename,headerfilename ))
 	    fprintf( stderr, " -g%s", includefilename );
-	    
+
 	if ( skelname && strcmp( skelname, DEFAULT_SKELETON_FILE ) )
 	    fprintf( stderr, " -S%s", skelname );
 
@@ -670,7 +670,7 @@ get_next_arg: /* used by -C and -S flags in lieu of a "continue 2" control */
 #endif
 	lerrsf( "can't open skeleton header file %s", skelheaderfilename );
     if(headerfilename==NULL) headerfile=stdout;
-    else  
+    else
      {
       if(headerfilename[0]=='\0')
        {char **suffix;
@@ -685,7 +685,7 @@ get_next_arg: /* used by -C and -S flags in lieu of a "continue 2" control */
 	    { *(headerfilename+strlen(headerfilename)-strlen(*suffix))='\0';
 	     break;}
 	  };
-	strcat(headerfilename,".h");     
+	strcat(headerfilename,".h");
 	}
       if(includefilename==NULL)
 	 includefilename=headerfilename;
@@ -858,14 +858,14 @@ get_next_arg: /* used by -C and -S flags in lieu of a "continue 2" control */
 
 void readin()
 
-    {    
+    {
     char *ch_type;
 
     if(headerfilename!=NULL)
      {char symb[32],ch;
       char *p=headerfilename;
       int i=0;symb[0]='\0';
-      while(*p) 
+      while(*p)
        {
 	if(*p=='/'
 #ifdef MS_DOS
@@ -874,21 +874,21 @@ void readin()
 	   ) {symb[0]='\0';i=0;}
 	else {
 	 if((*p>='A' && *p<='Z')||((*p>='a' && *p<='z'))
-             ||((*p>='0' && *p<='9'))||(ch=='_')) 
+             ||((*p>='0' && *p<='9'))||(ch=='_'))
           ch=*p;
-	 else 
+	 else
           ch='_';
 	 if(i<sizeof(symb)-1)
 	  {symb[i++]=ch;symb[i]='\0';}
 	 }
-	p++; 
+	p++;
        };
       fprintf(headerfile,"#ifndef FLEX_HEADER_%s\n",symb );
       fprintf(headerfile,"#define FLEX_HEADER_%s\n",symb );
      }
-     if ( csize == 256 ) 
+     if ( csize == 256 )
       ch_type="unsigned char";
-     else 
+     else
       ch_type="char";
     if ( ddebug )
       fprintf(stdout, "#define FLEX_DEBUG\n" );
