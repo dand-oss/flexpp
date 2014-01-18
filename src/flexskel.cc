@@ -39,9 +39,6 @@
 #ifndef YY_USE_CLASS
 #define YY_USE_CLASS
 #endif
-#ifndef _MSDOS
-#include <osfcn.h>
-#endif
 #else   /* ! __cplusplus */
 #ifdef __STDC__
 #ifdef __GNUC__
