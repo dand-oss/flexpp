@@ -24,9 +24,6 @@
 #endif
 #else	/* ! __cplusplus */
 #ifdef __STDC__
-#ifdef __GNUC__
-#else
-#endif	/* __GNUC__ */
 #ifndef YY_USE_PROTOS
 #define YY_USE_PROTOS
 #endif

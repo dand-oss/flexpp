@@ -41,14 +41,7 @@
 #endif
 #else   /* ! __cplusplus */
 #ifdef __STDC__
-#ifdef __GNUC__
-#include <stddef.h>
-void *malloc( size_t );
-void free( void* );
-int read();
-#else
 #include <stdlib.h>
-#endif  /* __GNUC__ */
 #define YY_USE_PROTOS
 #define YY_USE_CONST
 #endif  /* __STDC__ */
