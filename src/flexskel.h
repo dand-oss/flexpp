@@ -256,7 +256,7 @@ YY_@_LEX_PARAM_DEF
 #endif
 
 #ifdef YY_@_FATAL_ERROR_PURE
-#define YY_@_FATAL_ERRO_NOCODE
+#define YY_@_FATAL_ERROR_NOCODE
 #endif
 #ifndef YY_@_FATAL_ERROR
 #define YY_@_FATAL_ERROR yy_fatal_error
