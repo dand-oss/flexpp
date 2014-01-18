@@ -115,12 +115,9 @@ char *memset();
 #endif
 
 #ifdef AMIGA
-#define bzero(s, n) setmem((char *)(s), n, '\0')
 #ifndef abs
 #define abs(x) ((x) < 0 ? -(x) : (x))
 #endif
-#else
-#define bzero(s, n) (void) memset((char *)(s), '\0', n)
 #endif
 
 #ifdef VMS
