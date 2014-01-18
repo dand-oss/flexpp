@@ -129,15 +129,7 @@ char *memset();
 #endif
 
 #ifdef __STDC__
-
-#ifdef __GNUC__
-#include <stddef.h>
-void *malloc( size_t );
-void free( void* );
-#else
 #include <stdlib.h>
-#endif
-
 #else   /* ! __STDC__ */
 char *malloc(), *realloc();
 #endif
