@@ -81,10 +81,7 @@
 #define read _read
 #define fileno _fileno
 #else
-/* The Unix kernel calls used here */
-extern int read PROTO((int, char*, int));
-extern int unlink PROTO((char*));
-extern int write PROTO((int, char*, int));
+#include <unistd.h>
 #endif
 
 #ifdef SYS_V
