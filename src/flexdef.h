@@ -105,11 +105,7 @@
 #define SHORT_FILE_NAMES
 #endif
 
-#ifdef __STDC__
 #include <stdlib.h>
-#else   /* ! __STDC__ */
-char *malloc(), *realloc();
-#endif
 
 
 /* maximum line length we'll have to deal with */
