@@ -90,9 +90,6 @@ extern int write PROTO((int, char*, int));
 #ifdef SYS_V
 #include <string.h>
 #else
-#ifndef _MSDOS
-#include <strings.h>
-#endif /* end _MSDOS */
 #ifdef lint
 char *sprintf(); /* keep lint happy */
 #endif
