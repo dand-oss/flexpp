@@ -27,11 +27,6 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-#ifndef lint
-static char rcsid[] =
-    "@(#) $Header: /usr/fsys/odin/a/vern/flex/RCS/scan.l,v 2.9 90/06/27 23:48:34 vern Exp $ (LBL)";
-#endif
-
 #undef yywrap
 
 #include "flexdef.h"

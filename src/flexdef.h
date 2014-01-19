@@ -26,9 +26,6 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* @(#) $Header: /usr/fsys/odin/a/vern/flex/RCS/flexdef.h,v 2.10 90/08/03 14:09:52 vern Exp $ (LBL) */
-
-
 #ifndef FILE
 #include <stdio.h>
 #endif

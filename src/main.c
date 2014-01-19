@@ -32,12 +32,6 @@ char copyright[] =
  All rights reserved.\n";
 #endif /* not lint */
 
-#ifndef lint
-static char rcsid[] =
-    "@(#) $Header: /usr/fsys/odin/a/vern/flex/RCS/main.c,v 2.9 90/06/27 23:48:24 vern Exp $ (LBL)";
-#endif
-
-
 #include "flexdef.h"
 
 static char flex_version[] = "2.3.8-7 (flex++), based on 2.3.8 and modified by coetmeur@icdc.fr for c++";
