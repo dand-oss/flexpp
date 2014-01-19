@@ -813,7 +813,7 @@ int *back_lf;
      {fprintf(thefile,"/* ");
       while((ch=getc(theskel))!=EOF && ch!='\n')
          putc(ch,thefile);
-      fprintf(thefile," */ %s\n",(*back_lf==1)?"\\":"");  /* use \\\n to continue macros def */
+      fprintf(thefile," */%s\n",(*back_lf==1)?" \\":"");  /* use \\\n to continue macros def */
       if(thecounter!=(int *)0)
           (*thecounter)++;
       return;

@@ -184,7 +184,7 @@ ESCSEQ		\\([^\n\r]|[0-9]{1,3}|x[0-9a-f]{1,2})
 
 <DEFINE_DECLARE>{NAME}	{ set_lexer_name((char *)0);
 			line_directive_out( headerfile );
-			fprintf(headerfile,"#define YY_%s_%s ",lexer_name,yytext);
+			fprintf(headerfile,"#define YY_%s_%s",lexer_name,yytext);
 			 BEGIN(DEFINE_CONTENT);
 			}
 
