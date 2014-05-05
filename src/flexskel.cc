@@ -404,7 +404,7 @@ do_action:      /* this label is used only to access EOF actions */
 #ifndef YY_@_IOSTREAM
 			fprintf( yy___stderr , "--scanner backtracking\n" );
 #else
-			yy___stderr <<"--scanner backtracking"<<endl;
+			yy___stderr <<"--scanner backtracking"<<std::endl;
 #endif
 		else if ( yy_act < YY_END_OF_BUFFER -1 )
 #ifndef YY_@_IOSTREAM
@@ -414,7 +414,7 @@ do_action:      /* this label is used only to access EOF actions */
 #else
 			yy___stderr <<"--accepting rule at line "
                           <<(int)yy_rule_linenum[yy_act]
-                          <<" (\""<<(char *)yy___text<<"\")"<<endl;
+                          <<" (\""<<(char *)yy___text<<"\")"<<std::endl;
 #endif
 		else if ( yy_act == YY_END_OF_BUFFER -1 )
 #ifndef YY_@_IOSTREAM
@@ -423,19 +423,19 @@ do_action:      /* this label is used only to access EOF actions */
 			 yy___text );
 #else
 			yy___stderr <<"--accepting default rule"
-                          <<" (\""<<(char *)yy___text<<"\")"<<endl;
+                          <<" (\""<<(char *)yy___text<<"\")"<<std::endl;
 #endif
 		else if ( yy_act == YY_END_OF_BUFFER )
 #ifndef YY_@_IOSTREAM
 			fprintf( yy___stderr , "--(end of buffer or a NUL)\n" );
 #else
-			yy___stderr <<"--(end of buffer or a NUL)"<<endl;
+			yy___stderr <<"--(end of buffer or a NUL)"<<std::endl;
 #endif
 		else
 #ifndef YY_@_IOSTREAM
 			fprintf( yy___stderr , "--EOF\n" );
 #else
-			yy___stderr <<"--EOF"<<endl;
+			yy___stderr <<"--EOF"<<std::endl;
 #endif
 		}
 #endif
@@ -551,7 +551,7 @@ do_action:      /* this label is used only to access EOF actions */
 #ifndef YY_@_IOSTREAM
 		fprintf(yy___stderr , "action # %d\n", yy_act );
 #else
-		yy___stderr <<"action # "<<(int)yy_act<<endl;
+		yy___stderr <<"action # "<<(int)yy_act<<std::endl;
 #endif
 #endif
 		YY_FATAL_ERROR(
