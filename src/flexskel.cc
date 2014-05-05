@@ -10,12 +10,6 @@
 /* #define YY_CHAR 'unsigned char' if 8bit or 'char' if 7bit */
 /* #define FLEX_DEBUG if debug mode */
 #define FLEX_SCANNER
-/* cfront 1.2 defines "c_plusplus" instead of "__cplusplus" */
-#ifdef c_plusplus
-#ifndef __cplusplus
-#define __cplusplus
-#endif
-#endif
 /* Old MSC, before c7 */
 #ifdef MSDOS
 #ifndef _MSDOS
