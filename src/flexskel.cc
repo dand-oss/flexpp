@@ -318,7 +318,6 @@ static yy_state_type yy_try_NUL_trans( yy_state_type current_state );
 #ifndef YY_USE_CLASS
 #ifdef YY_@_LEX_DEFINED
 YY_@_LEX_RETURN YY_@_LEX ( YY_@_LEX_PARAM )
-YY_@_LEX_PARAM_DEF
 #else
 YY_DECL
 #endif

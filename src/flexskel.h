@@ -99,14 +99,6 @@
 #endif
 #endif
 
-#ifndef YY_@_LEX_PARAM_DEF
-#define YY_@_LEX_PARAM_DEF
-#else
-#ifndef YY_@_LEX_DEFINED
-#define YY_@_LEX_DEFINED
-#endif
-#endif
-
 #ifndef YY_@_RESTART
 #define YY_@_RESTART yyrestart
 #endif
@@ -178,11 +170,9 @@ extern YY_@_IFILE *YY_@_IN;
 extern YY_@_OFILE *YY_@_OUT;
 #ifdef YY_@_LEX_DEFINED
 extern YY_@_LEX_RETURN YY_@_LEX ( YY_@_LEX_PARAM )
-YY_@_LEX_PARAM_DEF
 #else
 #ifndef YY_DECL
 extern YY_@_LEX_RETURN YY_@_LEX ( YY_@_LEX_PARAM )
-YY_@_LEX_PARAM_DEF
 #else
 /* no declaration if oldstyle flex */
 #endif
