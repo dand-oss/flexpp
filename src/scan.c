@@ -12,24 +12,6 @@
 /* #define YY_CHAR 'unsigned char' if 8bit or 'char' if 7bit */
 /* #define FLEX_DEBUG if debug mode */
 #define FLEX_SCANNER
-/* cfront 1.2 defines "c_plusplus" instead of "__cplusplus" */
-#ifdef c_plusplus
-#ifndef __cplusplus
-#define __cplusplus
-#endif
-#endif
-/* Old MSC, before c7 */
-#ifdef MSDOS
-#ifndef _MSDOS
-#define _MSDOS
-#endif
-#endif
-/* turboc */
-#ifdef __MSDOS__
-#ifndef _MSDOS
-#define _MSDOS
-#endif
-#endif
 
 #ifdef __cplusplus
 #ifndef YY_USE_CLASS
@@ -81,16 +63,10 @@
 /* gets input and stuffs it into "buf".  number of characters read, or YY_NULL,
  * is returned in "result".
  */
-#ifdef _MSDOS
 #define YY_INPUT(buf,result,max_size) \
 	if ( (result = fread(buf,1,max_size,yy___in)) < 0 ) \
 	    YY_FATAL_ERROR( "fread() in flex scanner failed" );
-#else
-#define YY_INPUT(buf,result,max_size) \
-	if ( (result = read( fileno(yy___in), (char *) buf, max_size )) < 0 ) \
-	    YY_FATAL_ERROR( "read() in flex scanner failed" );
 
-#endif
 /* report a fatal error */
 
 /* The funky do-while is used to turn this macro definition into
@@ -255,12 +231,6 @@
 /*********************************************/
 /* SYSTEM dependent declaration, includes... */
 /*********************************************/
-/* cfront 1.2 defines "c_plusplus" instead of "__cplusplus" */
-#ifdef c_plusplus
-#ifndef __cplusplus
-#define __cplusplus
-#endif
-#endif
 #ifdef __cplusplus
 #ifndef YY_USE_CLASS
 #define YY_USE_CLASS
@@ -275,7 +245,7 @@
 #line 80 "scan.l"
 #line 80 "scan.l"
 #line 556 "scan.l"
-#line 29 "/usr/local/share/flex++/flexskel.h"
+#line 23 "/usr/local/share/flex++/flexskel.h"
 
 #ifdef YY_USE_CLASS
 #ifdef YY_lex_IOSTREAM
@@ -355,14 +325,6 @@
 #endif
 #endif
 
-#ifndef YY_lex_LEX_PARAM_DEF
-#define YY_lex_LEX_PARAM_DEF
-#else
-#ifndef YY_lex_LEX_DEFINED
-#define YY_lex_LEX_DEFINED
-#endif
-#endif
-
 #ifndef YY_lex_RESTART
 #define YY_lex_RESTART yyrestart
 #endif
@@ -434,11 +396,9 @@ extern YY_lex_IFILE *YY_lex_IN;
 extern YY_lex_OFILE *YY_lex_OUT;
 #ifdef YY_lex_LEX_DEFINED
 extern YY_lex_LEX_RETURN YY_lex_LEX ( YY_lex_LEX_PARAM )
-YY_lex_LEX_PARAM_DEF
 #else
 #ifndef YY_DECL
 extern YY_lex_LEX_RETURN YY_lex_LEX ( YY_lex_LEX_PARAM )
-YY_lex_LEX_PARAM_DEF
 #else
 /* no declaration if oldstyle flex */
 #endif
@@ -454,9 +414,6 @@ YY_lex_LEX_PARAM_DEF
 #ifndef YY_lex_ECHO
 #define YY_lex_ECHO yy_echo
 #endif
-#ifdef YY_lex_ECHO_PURE
-#define YY_lex_ECHO_NOCODE
-#endif
 
 #ifndef YY_lex_ECHO_CODE
 #ifndef YY_lex_IOSTREAM
@@ -469,9 +426,6 @@ YY_lex_LEX_PARAM_DEF
 #ifndef YY_lex_INPUT
 #define YY_lex_INPUT yy_input
 #endif
-#ifdef YY_lex_INPUT_PURE
-#define YY_lex_INPUT_NOCODE
-#endif
 
 #ifndef YY_lex_INPUT_CODE
 #ifndef YY_lex_IOSTREAM
@@ -481,9 +435,6 @@ YY_lex_LEX_PARAM_DEF
 #endif
 #endif
 
-#ifdef YY_lex_FATAL_ERROR_PURE
-#define YY_lex_FATAL_ERROR_NOCODE
-#endif
 #ifndef YY_lex_FATAL_ERROR
 #define YY_lex_FATAL_ERROR yy_fatal_error
 #endif
@@ -498,9 +449,6 @@ YY_lex_LEX_PARAM_DEF
 
 #ifndef YY_lex_WRAP
 #define YY_lex_WRAP yy_wrap
-#endif
-#ifdef YY_lex_WRAP_PURE
-#define YY_lex_WRAP_NOCODE
 #endif
 #ifndef YY_lex_WRAP_CODE
 #define YY_lex_WRAP_CODE return 1;
@@ -595,7 +543,7 @@ class YY_lex_CLASS YY_lex_INHERIT
 /* declaration of externs for public use of yylex scanner */
 
 /* % here is the declaration from section2 %header{ */
-#line 154 "/usr/local/share/flex++/flexskel.cc"
+#line 130 "/usr/local/share/flex++/flexskel.cc"
 
 #define yy___stderr YY_lex_ERRFILE
 #define yy___text YY_lex_TEXT
@@ -722,22 +670,22 @@ static void yyunput( YY_lex_CHAR c, YY_lex_CHAR *buf_ptr );
 
 #else
 /* c++ */
-#ifndef YY_lex_ECHO_NOCODE
+#ifndef YY_lex_ECHO_PURE
 void YY_lex_CLASS::yy___echo()
 {YY_lex_ECHO_CODE
 }
 #endif
-#ifndef YY_lex_INPUT_NOCODE
+#ifndef YY_lex_INPUT_PURE
 int  YY_lex_CLASS::yy___input(char * buffer,int &result,int max_size)
 {YY_lex_INPUT_CODE
 }
 #endif
-#ifndef YY_lex_FATAL_ERROR_NOCODE
+#ifndef YY_lex_FATAL_ERROR_PURE
 void YY_lex_CLASS::yy___fatal_error(const char *msg)
 {YY_lex_FATAL_ERROR_CODE
 }
 #endif
-#ifndef YY_lex_WRAP_NOCODE
+#ifndef YY_lex_WRAP_PURE
 int  YY_lex_CLASS::yy___wrap()
 {YY_lex_WRAP_CODE
 }
@@ -1659,7 +1607,7 @@ goto find_rule; \
 }
 #define yymore() yymore_used_but_not_detected
 #define YY_MORE_ADJ 0
-#line 334 "/usr/local/share/flex++/flexskel.cc"
+#line 310 "/usr/local/share/flex++/flexskel.cc"
 #ifndef YY_USE_CLASS
 static yy_state_type yy_get_previous_state( void );
 static yy_state_type yy_try_NUL_trans( yy_state_type current_state );
@@ -1671,7 +1619,6 @@ static yy_state_type yy_try_NUL_trans( yy_state_type current_state );
 #ifndef YY_USE_CLASS
 #ifdef YY_lex_LEX_DEFINED
 YY_lex_LEX_RETURN YY_lex_LEX ( YY_lex_LEX_PARAM )
-YY_lex_LEX_PARAM_DEF
 #else
 YY_DECL
 #endif
@@ -1692,7 +1639,7 @@ YY_lex_LEX_RETURN YY_lex_CLASS::YY_lex_LEX ( YY_lex_LEX_PARAM)
     Char nmdef[MAXLINE], myesc();
 
 /* % end of prolog */
-#line 359 "/usr/local/share/flex++/flexskel.cc"
+#line 334 "/usr/local/share/flex++/flexskel.cc"
 
     if ( yy_init )
 	{
@@ -1721,7 +1668,7 @@ YY_lex_LEX_RETURN YY_lex_CLASS::YY_lex_LEX ( YY_lex_LEX_PARAM)
     while ( 1 )         /* loops until end-of-file is reached */
 	{
 /* % yymore()-related code goes here */
-#line 387 "/usr/local/share/flex++/flexskel.cc"
+#line 362 "/usr/local/share/flex++/flexskel.cc"
 	yy_cp = yy_c_buf_p;
 
 	/* support of yy___text */
@@ -1753,7 +1700,7 @@ yy_match:
 	    ++yy_cp;
 	    }
 	while ( yy_current_state != 529 );
-#line 398 "/usr/local/share/flex++/flexskel.cc"
+#line 373 "/usr/local/share/flex++/flexskel.cc"
 
 yy_find_action:
 /* % code to find the action number goes here */
@@ -1794,7 +1741,7 @@ find_rule: /* we branch to this label when backtracking */
 	    yy_current_state = *--yy_state_ptr;
 	    yy_lp = yy_accept[yy_current_state];
 	    }
-#line 401 "/usr/local/share/flex++/flexskel.cc"
+#line 376 "/usr/local/share/flex++/flexskel.cc"
 
 	YY_DO_BEFORE_ACTION;
 	YY_USER_ACTION;
@@ -1807,7 +1754,7 @@ do_action:      /* this label is used only to access EOF actions */
 #ifndef YY_lex_IOSTREAM
 			fprintf( yy___stderr , "--scanner backtracking\n" );
 #else
-			yy___stderr <<"--scanner backtracking"<<endl;
+			yy___stderr <<"--scanner backtracking"<<std::endl;
 #endif
 		else if ( yy_act < YY_END_OF_BUFFER -1 )
 #ifndef YY_lex_IOSTREAM
@@ -1817,7 +1764,7 @@ do_action:      /* this label is used only to access EOF actions */
 #else
 			yy___stderr <<"--accepting rule at line "
                           <<(int)yy_rule_linenum[yy_act]
-                          <<" (\""<<(char *)yy___text<<"\")"<<endl;
+                          <<" (\""<<(char *)yy___text<<"\")"<<std::endl;
 #endif
 		else if ( yy_act == YY_END_OF_BUFFER -1 )
 #ifndef YY_lex_IOSTREAM
@@ -1826,19 +1773,19 @@ do_action:      /* this label is used only to access EOF actions */
 			 yy___text );
 #else
 			yy___stderr <<"--accepting default rule"
-                          <<" (\""<<(char *)yy___text<<"\")"<<endl;
+                          <<" (\""<<(char *)yy___text<<"\")"<<std::endl;
 #endif
 		else if ( yy_act == YY_END_OF_BUFFER )
 #ifndef YY_lex_IOSTREAM
 			fprintf( yy___stderr , "--(end of buffer or a NUL)\n" );
 #else
-			yy___stderr <<"--(end of buffer or a NUL)"<<endl;
+			yy___stderr <<"--(end of buffer or a NUL)"<<std::endl;
 #endif
 		else
 #ifndef YY_lex_IOSTREAM
 			fprintf( yy___stderr , "--EOF\n" );
 #else
-			yy___stderr <<"--EOF"<<endl;
+			yy___stderr <<"--EOF"<<std::endl;
 #endif
 		}
 #endif
@@ -2722,7 +2669,7 @@ YY_FATAL_ERROR( "flex scanner jammed" );
 	    case YY_STATE_EOF(DEFINE_DECLARE):
 	    case YY_STATE_EOF(DEFINE_CONTENT):
 		yyterminate();
-#line 451 "/usr/local/share/flex++/flexskel.cc"
+#line 426 "/usr/local/share/flex++/flexskel.cc"
 
 	    case YY_END_OF_BUFFER:
 		{
@@ -2771,7 +2718,7 @@ YY_FATAL_ERROR( "flex scanner jammed" );
 		    else
 			{
 /* % code to do backtracking for compressed tables and set up yy_cp goes here */
-#line 499 "/usr/local/share/flex++/flexskel.cc"
+#line 474 "/usr/local/share/flex++/flexskel.cc"
 			goto yy_find_action;
 			}
 		    }
@@ -2833,7 +2780,7 @@ YY_FATAL_ERROR( "flex scanner jammed" );
 #ifndef YY_lex_IOSTREAM
 		fprintf(yy___stderr , "action # %d\n", yy_act );
 #else
-		yy___stderr <<"action # "<<(int)yy_act<<endl;
+		yy___stderr <<"action # "<<(int)yy_act<<std::endl;
 #endif
 #endif
 		YY_FATAL_ERROR(
@@ -2955,7 +2902,7 @@ long YY_lex_CLASS::yy_get_previous_state_()
 	++yy_current_state;
     yy_state_ptr = yy_state_buf;
     *yy_state_ptr++ = yy_current_state;
-#line 675 "/usr/local/share/flex++/flexskel.cc"
+#line 650 "/usr/local/share/flex++/flexskel.cc"
 
     for ( yy_cp = yy___text + YY_MORE_ADJ; yy_cp < yy_c_buf_p; ++yy_cp )
 	{
@@ -2969,7 +2916,7 @@ long YY_lex_CLASS::yy_get_previous_state_()
 	    }
 	yy_current_state = yy_nxt[yy_base[yy_current_state] + yy_c];
 	*yy_state_ptr++ = yy_current_state;
-#line 679 "/usr/local/share/flex++/flexskel.cc"
+#line 654 "/usr/local/share/flex++/flexskel.cc"
 	}
 
 #ifndef YY_USE_CLASS
@@ -3010,7 +2957,7 @@ long YY_lex_CLASS::yy_try_NUL_trans_(long yy_current_state_)
     yy_current_state = yy_nxt[yy_base[yy_current_state] + yy_c];
     *yy_state_ptr++ = yy_current_state;
     yy_is_jam = (yy_current_state == 529);
-#line 708 "/usr/local/share/flex++/flexskel.cc"
+#line 683 "/usr/local/share/flex++/flexskel.cc"
 
 #ifndef YY_USE_CLASS
     return ( yy_is_jam ? 0 : yy_current_state );
