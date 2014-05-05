@@ -10,18 +10,6 @@
 /* #define YY_CHAR 'unsigned char' if 8bit or 'char' if 7bit */
 /* #define FLEX_DEBUG if debug mode */
 #define FLEX_SCANNER
-/* Old MSC, before c7 */
-#ifdef MSDOS
-#ifndef _MSDOS
-#define _MSDOS
-#endif
-#endif
-/* turboc */
-#ifdef __MSDOS__
-#ifndef _MSDOS
-#define _MSDOS
-#endif
-#endif
 
 #ifdef __cplusplus
 #ifndef YY_USE_CLASS
@@ -73,16 +61,10 @@
 /* gets input and stuffs it into "buf".  number of characters read, or YY_NULL,
  * is returned in "result".
  */
-#ifdef _MSDOS
 #define YY_INPUT(buf,result,max_size) \
 	if ( (result = fread(buf,1,max_size,yy___in)) < 0 ) \
 	    YY_FATAL_ERROR( "fread() in flex scanner failed" );
-#else
-#define YY_INPUT(buf,result,max_size) \
-	if ( (result = read( fileno(yy___in), (char *) buf, max_size )) < 0 ) \
-	    YY_FATAL_ERROR( "read() in flex scanner failed" );
 
-#endif
 /* report a fatal error */
 
 /* The funky do-while is used to turn this macro definition into
