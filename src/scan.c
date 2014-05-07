@@ -414,6 +414,9 @@ extern YY_lex_LEX_RETURN YY_lex_LEX ( YY_lex_LEX_PARAM )
 #ifndef YY_lex_ECHO
 #define YY_lex_ECHO yy_echo
 #endif
+#ifdef YY_lex_ECHO_PURE
+#define YY_lex_ECHO_NOCODE
+#endif
 
 #ifndef YY_lex_ECHO_CODE
 #ifndef YY_lex_IOSTREAM
@@ -426,6 +429,9 @@ extern YY_lex_LEX_RETURN YY_lex_LEX ( YY_lex_LEX_PARAM )
 #ifndef YY_lex_INPUT
 #define YY_lex_INPUT yy_input
 #endif
+#ifdef YY_lex_INPUT_PURE
+#define YY_lex_INPUT_NOCODE
+#endif
 
 #ifndef YY_lex_INPUT_CODE
 #ifndef YY_lex_IOSTREAM
@@ -435,6 +441,9 @@ extern YY_lex_LEX_RETURN YY_lex_LEX ( YY_lex_LEX_PARAM )
 #endif
 #endif
 
+#ifdef YY_lex_FATAL_ERROR_PURE
+#define YY_lex_FATAL_ERROR_NOCODE
+#endif
 #ifndef YY_lex_FATAL_ERROR
 #define YY_lex_FATAL_ERROR yy_fatal_error
 #endif
@@ -449,6 +458,9 @@ extern YY_lex_LEX_RETURN YY_lex_LEX ( YY_lex_LEX_PARAM )
 
 #ifndef YY_lex_WRAP
 #define YY_lex_WRAP yy_wrap
+#endif
+#ifdef YY_lex_WRAP_PURE
+#define YY_lex_WRAP_NOCODE
 #endif
 #ifndef YY_lex_WRAP_CODE
 #define YY_lex_WRAP_CODE return 1;
@@ -670,22 +682,22 @@ static void yyunput( YY_lex_CHAR c, YY_lex_CHAR *buf_ptr );
 
 #else
 /* c++ */
-#ifndef YY_lex_ECHO_PURE
+#ifndef YY_lex_ECHO_NOCODE
 void YY_lex_CLASS::yy___echo()
 {YY_lex_ECHO_CODE
 }
 #endif
-#ifndef YY_lex_INPUT_PURE
+#ifndef YY_lex_INPUT_NOCODE
 int  YY_lex_CLASS::yy___input(char * buffer,int &result,int max_size)
 {YY_lex_INPUT_CODE
 }
 #endif
-#ifndef YY_lex_FATAL_ERROR_PURE
+#ifndef YY_lex_FATAL_ERROR_NOCODE
 void YY_lex_CLASS::yy___fatal_error(const char *msg)
 {YY_lex_FATAL_ERROR_CODE
 }
 #endif
-#ifndef YY_lex_WRAP_PURE
+#ifndef YY_lex_WRAP_NOCODE
 int  YY_lex_CLASS::yy___wrap()
 {YY_lex_WRAP_CODE
 }
