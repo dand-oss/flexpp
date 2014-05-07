@@ -252,22 +252,22 @@ static void yyunput( YY_@_CHAR c, YY_@_CHAR *buf_ptr );
 
 #else
 /* c++ */
-#ifndef YY_@_ECHO_PURE
+#ifndef YY_@_ECHO_NOCODE
 void YY_@_CLASS::yy___echo()
 {YY_@_ECHO_CODE
 }
 #endif
-#ifndef YY_@_INPUT_PURE
+#ifndef YY_@_INPUT_NOCODE
 int  YY_@_CLASS::yy___input(char * buffer,int &result,int max_size)
 {YY_@_INPUT_CODE
 }
 #endif
-#ifndef YY_@_FATAL_ERROR_PURE
+#ifndef YY_@_FATAL_ERROR_NOCODE
 void YY_@_CLASS::yy___fatal_error(const char *msg)
 {YY_@_FATAL_ERROR_CODE
 }
 #endif
-#ifndef YY_@_WRAP_PURE
+#ifndef YY_@_WRAP_NOCODE
 int  YY_@_CLASS::yy___wrap()
 {YY_@_WRAP_CODE
 }

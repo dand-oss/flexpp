@@ -188,6 +188,9 @@ extern YY_@_LEX_RETURN YY_@_LEX ( YY_@_LEX_PARAM )
 #ifndef YY_@_ECHO
 #define YY_@_ECHO yy_echo
 #endif
+#ifdef YY_@_ECHO_PURE
+#define YY_@_ECHO_NOCODE
+#endif
 
 #ifndef YY_@_ECHO_CODE
 #ifndef YY_@_IOSTREAM
@@ -200,6 +203,9 @@ extern YY_@_LEX_RETURN YY_@_LEX ( YY_@_LEX_PARAM )
 #ifndef YY_@_INPUT
 #define YY_@_INPUT yy_input
 #endif
+#ifdef YY_@_INPUT_PURE
+#define YY_@_INPUT_NOCODE
+#endif
 
 #ifndef YY_@_INPUT_CODE
 #ifndef YY_@_IOSTREAM
@@ -209,6 +215,9 @@ extern YY_@_LEX_RETURN YY_@_LEX ( YY_@_LEX_PARAM )
 #endif
 #endif
 
+#ifdef YY_@_FATAL_ERROR_PURE
+#define YY_@_FATAL_ERROR_NOCODE
+#endif
 #ifndef YY_@_FATAL_ERROR
 #define YY_@_FATAL_ERROR yy_fatal_error
 #endif
@@ -223,6 +232,9 @@ extern YY_@_LEX_RETURN YY_@_LEX ( YY_@_LEX_PARAM )
 
 #ifndef YY_@_WRAP
 #define YY_@_WRAP yy_wrap
+#endif
+#ifdef YY_@_WRAP_PURE
+#define YY_@_WRAP_NOCODE
 #endif
 #ifndef YY_@_WRAP_CODE
 #define YY_@_WRAP_CODE return 1;
