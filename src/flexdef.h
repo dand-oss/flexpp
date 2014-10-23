@@ -52,6 +52,7 @@
 #else
 #ifdef _MSDOS
 #define MS_DOS
+#define _MS_DOS
 #endif
 #endif
 #endif
