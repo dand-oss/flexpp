@@ -1889,12 +1889,12 @@ case 12:
 			set_lexer_name((char *)0);
 			sectnum = 2;
 			line_directive_out( headerfile );
-      			if(headerfilename!=NULL)
+			if(headerfilename!=NULL)
 		        {
-      			 fprintf(stdout,
+			 fprintf(stdout,
                           "#include \"%s\"\n",includefilename);
- 			 header_skeleton_out();
-    		 	};
+			 header_skeleton_out();
+			};
 			line_directive_out( stdout );
 			BEGIN(SECT2PROLOG);
 			return ( SECTEND );
