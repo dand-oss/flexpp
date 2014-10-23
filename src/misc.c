@@ -383,7 +383,7 @@ char *flex_gettime()
     time_t t, time();
     char *result, *ctime(), *copy_string();
 
-    t = time( (long *) 0 );
+    t = time( (time_t *) 0 );
 
     result = copy_string( ctime( &t ) );
 
