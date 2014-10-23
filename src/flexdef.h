@@ -52,6 +52,7 @@
 #else
 #ifdef _MSDOS
 #define MS_DOS
+#define _MS_DOS
 #endif
 #endif
 #endif
@@ -60,7 +61,7 @@
 #define SYS_V
 #endif
 
-#ifdef MS_DOS
+#ifdef _MS_DOS
 /* read' : unresolved external  */
 /* #define fileno _fileno' : unresolved external */
 #include <io.h>
