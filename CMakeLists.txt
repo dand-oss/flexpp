@@ -20,38 +20,41 @@ if ( WIN32 )
     add_definitions(-D_MSDOS)
 endif()
 
+include_directories(src ${CMAKE_CURRENT_BINARY_DIR})
+
 foreach(s
     ccl.c dfa.c ecs.c gen.c main.c misc.c nfa.c
-    sym.c tblcmp.c yylex.c parse.c
+    sym.c tblcmp.c yylex.c
 )
   list(APPEND flexpp_sources src/${s})
+  list(APPEND flexpp_sources ${CMAKE_CURRENT_BINARY_DIR}/parse.c)
 endforeach()
 
 #scan.c and yylex.c need parse.h
 
 # make parse.c/h from parse.y
 add_custom_command(
-  OUTPUT src/parse.c
-         src/parse.h
-	 COMMAND bison -y -d -o src/parse.c src/parse.y
+  OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/parse.c
+         ${CMAKE_CURRENT_BINARY_DIR}/parse.h
+	 COMMAND bison -y -d -o ${CMAKE_CURRENT_BINARY_DIR}/parse.c ${CMAKE_CURRENT_SOURCE_DIR}/src/parse.y
   DEPENDS src/parse.y
   COMMENT "yacc parse.c/h"
 )
 
 # run the first
-# alternative - copy parse.[ch] files from "src/firstflex-output"
+# alternative - copy scan.[ch] files from "src/firstflex-output"
 set (DO_FIRSTFLEX TRUE)
 
 if (DO_FIRSTFLEX)
   # make scan.c from scan.l
   add_custom_command(
-    OUTPUT src/scan.c
+    OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/scan.c
            src/scan.h
-           COMMAND firstflex -ist -Ssrc/flexskel.cc -Hsrc./flexskel.h src/scan.l |
-           sed 's=\"./flexskel.=\"/usr/local/lib/flexskel.=' > src/scan.c
+    COMMAND firstflex -ist -S${CMAKE_CURRENT_SOURCE_DIR}/src/flexskel.cc -H${CMAKE_CURRENT_SOURCE_DIR}/src/flexskel.h ${CMAKE_CURRENT_SOURCE_DIR}/src/scan.l |
+           sed 's=\"./flexskel.=\"/usr/local/lib/flexskel.=' > ${CMAKE_CURRENT_BINARY_DIR}/scan.c
+    DEPENDS firstflex
     DEPENDS src/scan.l
-    DEPENDS src/parse.h
-    MAIN_DEPENDS firstflex
+    DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/parse.h
     COMMENT "firstflex scan.c"
   )
 endif (DO_FIRSTFLEX)
@@ -63,7 +66,7 @@ add_executable(firstflex ${flexpp_sources} src/initscan.c)
 add_library(libflex++ src/libmain.c)
 
 # finally, flex
-add_executable(flex++ ${flexpp_sources} src/scan.c)
+add_executable(flex++ ${flexpp_sources} ${CMAKE_CURRENT_BINARY_DIR}/scan.c)
 
 # copy exe
 install(TARGETS flex++ DESTINATION bin)
