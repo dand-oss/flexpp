@@ -8,7 +8,6 @@ include(asv_cmake_defaults)
 asv_cmake_defaults( )
 ###############
 
-
 # for all files
 add_definitions(-DSTDC_HEADERS=1 -DHAVE_STRING_H=1 -DDEFAULT_CSIZE=256)
 
@@ -32,32 +31,40 @@ endforeach()
 
 #scan.c and yylex.c need parse.h
 
+set (HAS_BISON TRUE)
+
 # make parse.c/h from parse.y
-add_custom_command(
-  OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/parse.c
-         ${CMAKE_CURRENT_BINARY_DIR}/parse.h
-	 COMMAND bison -y -d -o ${CMAKE_CURRENT_BINARY_DIR}/parse.c ${CMAKE_CURRENT_SOURCE_DIR}/src/parse.y
-  DEPENDS src/parse.y
-  COMMENT "yacc parse.c/h"
-)
-
-# run the first
-# alternative - copy scan.[ch] files from "src/firstflex-output"
-set (DO_FIRSTFLEX TRUE)
-
-if (DO_FIRSTFLEX)
-  # make scan.c from scan.l
+# bootstrap with bison
+# alternative - copy parse.[ch] files from "src"
+if(HAS_BISON)
   add_custom_command(
-    OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/scan.c
-           src/scan.h
-    COMMAND firstflex -ist -S${CMAKE_CURRENT_SOURCE_DIR}/src/flexskel.cc -H${CMAKE_CURRENT_SOURCE_DIR}/src/flexskel.h ${CMAKE_CURRENT_SOURCE_DIR}/src/scan.l |
-           sed 's=\"./flexskel.=\"/usr/local/lib/flexskel.=' > ${CMAKE_CURRENT_BINARY_DIR}/scan.c
-    DEPENDS firstflex
-    DEPENDS src/scan.l
-    DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/parse.h
-    COMMENT "firstflex scan.c"
-  )
-endif (DO_FIRSTFLEX)
+    OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/parse.c
+           ${CMAKE_CURRENT_BINARY_DIR}/parse.h
+             COMMAND bison -y -d -o ${CMAKE_CURRENT_BINARY_DIR}/parse.c ${CMAKE_CURRENT_SOURCE_DIR}/src/parse.y
+    DEPENDS src/parse.y
+    COMMENT "yacc parse.c/h"
+    )
+else(HAS_BISON)
+  add_custom_command(
+    OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/parse.c
+           ${CMAKE_CURRENT_BINARY_DIR}/parse.h
+      COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_CURRENT_SOURCE_DIR}/src/parse.c ${CMAKE_CURRENT_BINARY_DIR}/parse.c
+      COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_CURRENT_SOURCE_DIR}/src/parse.h ${CMAKE_CURRENT_BINARY_DIR}/parse.h
+    DEPENDS src/parse.c src/parse.h
+    COMMENT "yacc parse.c/h"
+    )
+endif(HAS_BISON)
+
+# make scan.c from scan.l
+add_custom_command(
+  OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/scan.c
+         src/scan.h
+    COMMAND firstflex -ist -S${CMAKE_CURRENT_SOURCE_DIR}/src/flexskel.cc -H${CMAKE_CURRENT_SOURCE_DIR}/src/flexskel.h ${CMAKE_CURRENT_SOURCE_DIR}/src/scan.l > ${CMAKE_CURRENT_BINARY_DIR}/scan.c
+  DEPENDS firstflex
+  DEPENDS src/scan.l
+  DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/parse.h
+  COMMENT "firstflex scan.c"
+)
 
 # intermediate flex to generate scan.c, built with initscan,
 add_executable(firstflex ${flexpp_sources} src/initscan.c)
