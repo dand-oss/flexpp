@@ -37,13 +37,23 @@ set (HAS_BISON TRUE)
 # bootstrap with bison
 # alternative - copy parse.[ch] files from "src"
 if(HAS_BISON)
-  add_custom_command(
-    OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/parse.c
-           ${CMAKE_CURRENT_BINARY_DIR}/parse.h
-             COMMAND bison -y -d -o ${CMAKE_CURRENT_BINARY_DIR}/parse.c ${CMAKE_CURRENT_SOURCE_DIR}/src/parse.y
-    DEPENDS src/parse.y
-    COMMENT "yacc parse.c/h"
-    )
+   if("$ENV{WINVER}" STREQUAL "5.01")
+      add_custom_command(
+        OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/parse.c
+               ${CMAKE_CURRENT_BINARY_DIR}/parse.h
+                 COMMAND ${ASV_3RDPARTY}/bin/bison++.exe -S ${ASV_3RDPARTY}/lib/bison.cc -H ${ASV_3RDPARTY}/lib/bison.h -y -d -o ${CMAKE_CURRENT_BINARY_DIR}/parse.c ${CMAKE_CURRENT_SOURCE_DIR}/src/parse.y
+        DEPENDS src/parse.y
+        COMMENT "yacc parse.c/h"
+        )
+   else("$ENV{WINVER}" STREQUAL "5.01")
+      add_custom_command(
+        OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/parse.c
+               ${CMAKE_CURRENT_BINARY_DIR}/parse.h
+                 COMMAND ${ASV_3RDPARTY}/bin/bison++ -S ${ASV_3RDPARTY}/lib/bison.cc -H ${ASV_3RDPARTY}/lib/bison.h -y -d -o ${CMAKE_CURRENT_BINARY_DIR}/parse.c ${CMAKE_CURRENT_SOURCE_DIR}/src/parse.y
+        DEPENDS src/parse.y
+        COMMENT "yacc parse.c/h"
+        )
+   endif("$ENV{WINVER}" STREQUAL "5.01")
 else(HAS_BISON)
   add_custom_command(
     OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/parse.c
