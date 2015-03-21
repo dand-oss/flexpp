@@ -50,8 +50,7 @@
 	-{"OUT"} The output file pointer. Default "yyout". See "yyout" in "flex".
 	-{"LEX"} The scanner function name. Default "yylex". See "yylex" in "flex". Replaces "#define YYDECL".
 	-{"LEX_RETURN"} The scanner function return type. Default "int". See "yylex" in "flex". Replaces "#define YYDECL".
-	-{"LEX_PARAM"} The scanner function parameter list. Default "void", or empty in old-C. See "yylex" in "flex". Replaces "#define YYDECL".
-	-{"LEX_PARAM_DEF"} The scanner function parameter declaration for old-C. Defined and used only in old-C. Default empty. See "yylex" in "flex". Replaces "#define YYDECL". For example to pass an "int", named "x", "LEX_PARAM" is set to "x", and "LEX_PARAM_DEF" to "int x ;".
+	-{"LEX_PARAM"} The scanner function parameter list. Default "void". See "yylex" in "flex". Replaces "#define YYDECL".
 	-{"RESTART"} The restart function name. Default "yyrestart". See "yyrestart" in "flex".
 	-{"SWITCH_TO_BUFFER"}
 	-{"LOAD_BUFFER_STATE"}
@@ -96,7 +95,7 @@
 	-{"yyinput()"} In C++, the member function "yyinput()" is equivalent to "input()" that read one char. It is kept for compatibility with old flex behaviour, that replaced in C++, the function "input()" with "yyinput()" not to collide with stream library. Don't mismatch it with "yy_input(char *buf, int &result, int max_size)" which reads a block to be buffered.
 :SECTION "OBSOLETED PREPROCESSOR SYMBOLS"
 	If you use new features, the following symbols should not be used, though they are proposed. Incoherence may arise if they are defined simultaneously with the new symbol.
-	-{"YYDECL"} In C only. Prefer "\%define LEX", "\%define LEX_RETURN", "\%define LEX_PARAM", "\%define LEX_PARAM_DEF". Totally ignored with classes, or if you "\%define" one of these symbols, or the symbol "LEX_DEFINED", since it mean you use the new ways to redefine yylex declaration. Never use it if header are generated, since the declared function would be wrong.
+	-{"YYDECL"} In C only. Prefer "\%define LEX", "\%define LEX_RETURN", "\%define LEX_PARAM". Totally ignored with classes, or if you "\%define" one of these symbols, or the symbol "LEX_DEFINED", since it mean you use the new ways to redefine yylex declaration. Never use it if header are generated, since the declared function would be wrong.
 	-{"yy_new_buffer"} In C only. Prefer "\%define CREATE_BUFFER".
 	-{"YY_CHAR"} Like with old "flex". You should better use the "\%define"d symbol "CHAR", or not use this yourself, since you know if you are 8 or 7-bit. Not defined in separate header.
 	-{"FLEX_DEBUG"} Like with old "flex". Activate trace. Prefer the automatically added "\%define DEBUG ". Defined if debug option "-d" set.

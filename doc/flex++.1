@@ -60,9 +60,7 @@ The scanner function name\. Default \fByylex\fP\. See \fByylex\fP in \fBflex\fP\
 .IP "\\fBLEX_RETURN\\fP"
 The scanner function return type\. Default \fBint\fP\. See \fByylex\fP in \fBflex\fP\. Replaces \fB#define YYDECL\fP\.
 .IP "\\fBLEX_PARAM\\fP"
-The scanner function parameter list\. Default \fBvoid\fP, or empty in old\-C\. See \fByylex\fP in \fBflex\fP\. Replaces \fB#define YYDECL\fP\.
-.IP "\\fBLEX_PARAM_DEF\\fP"
-The scanner function parameter declaration for old\-C\. Defined and used only in old\-C\. Default empty\. See \fByylex\fP in \fBflex\fP\. Replaces \fB#define YYDECL\fP\. For example to pass an \fBint\fP, named \fBx\fP, \fBLEX_PARAM\fP is set to \fBx\fP, and \fBLEX_PARAM_DEF\fP to \fBint x ;\fP\.
+The scanner function parameter list\. Default \fBvoid\fP\. See \fByylex\fP in \fBflex\fP\. Replaces \fB#define YYDECL\fP\.
 .IP "\\fBRESTART\\fP"
 The restart function name\. Default \fByyrestart\fP\. See \fByyrestart\fP in \fBflex\fP\.
 .IP "\\fBSWITCH_TO_BUFFER\\fP"
@@ -136,7 +134,7 @@ In C++, the member function \fByyinput()\fP is equivalent to \fBinput()\fP that 
 If you use new features, the following symbols should not be used, though they are proposed\. Incoherence may arise if they are defined simultaneously with the new symbol\.
 .\"bloc1[
 .IP "\\fBYYDECL\\fP"
-In C only\. Prefer \fB%define LEX\fP, \fB%define LEX_RETURN\fP, \fB%define LEX_PARAM\fP, \fB%define LEX_PARAM_DEF\fP\. Totally ignored with classes, or if you \fB%define\fP one of these symbols, or the symbol \fBLEX_DEFINED\fP, since it mean you use the new ways to redefine yylex declaration\. Never use it if header are generated, since the declared function would be wrong\.
+In C only\. Prefer \fB%define LEX\fP, \fB%define LEX_RETURN\fP, \fB%define LEX_PARAM\fP\. Totally ignored with classes, or if you \fB%define\fP one of these symbols, or the symbol \fBLEX_DEFINED\fP, since it mean you use the new ways to redefine yylex declaration\. Never use it if header are generated, since the declared function would be wrong\.
 .IP "\\fByy_new_buffer\\fP"
 In C only\. Prefer \fB%define CREATE_BUFFER\fP\.
 .IP "\\fBYY_CHAR\\fP"
