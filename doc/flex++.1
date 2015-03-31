@@ -6,7 +6,7 @@ flex++ \- generate a scanner in C or C++\.
 .SH "DESCRIPTION" 
 Generate a scanner\. Based on \fBflex\fP version 2\.3\.7\. See \fBflex\fP(1) and \fBflexdoc\fP(1) for details of main functionality\. Only changes are reported here\.
 .PP
-You now generate a C++ class if you are compiling with a C++ compiler\. A generated header can be generated, and is made from a skeleton\-header\. The code skeleton is also more adaptable\. It permits you to modify much things only by changing the two skeletons\.
+You now generate a C++ class if you are compiling with a C++ compiler\. A header can be generated, and is made from a skeleton\-header\. The code skeleton is also more adaptable\. It permits you to modify many things only by changing the two skeletons\.
 .PP
 In plain C, \fBflex++\fP is compatible with standard \fBflex\fP\.
 .PP
@@ -175,12 +175,12 @@ Like with old \fBflex\fP\. With classes it is mapped to the virtual function yy_
 .SH "OTHER ADDED PREPROCESSOR SYMBOLS" 
 .\"bloc1[
 .IP "\\fBYY_USE_CLASS\\fP"
-indicate that class will be produced\. Default if C++\.
+Indicate that class will be produced\. Default if C++\.
 .\"bloc1]
 .SH "C++ CLASS GENERATED" 
 To simplify the notation, we note \fB%SYMBOLNAME\fP the preprocessor symbol generated with a \fB%define\fP of this name\. In fact see the use of \fB%define\fP for its real name\.
 .PP
-Note that there is sometime symbols that differ by only an underscore \fB_\fP, like \fByywrap\fP and \fByy_wrap\fP\. They are much different\. In this case \fByy_wrap()\fP is a virtual member function, and \fByywrap()\fP is a macro\.
+Note that there are sometimes symbols that differ by only an underscore \fB_\fP, like \fByywrap\fP and \fByy_wrap\fP\. They are much different\. In this case \fByy_wrap()\fP is a virtual member function, and \fByywrap()\fP is a macro\.
 .SS "General Class declaration" 
 // Here is the declaration made in the header
 .PP
@@ -388,10 +388,10 @@ main skeleton\.
 .IP "\\fBflexskel\\.h\\fP"
 header skeleton\.
 .\"bloc1]
-.SH "ENVIRONNMENT" 
+.SH "ENVIRONMENT" 
 .SH "DIAGNOSTICS" 
 .SH "SEE ALSO" 
-\fBflex\fP(1),\fBflexdoc\fP(1),\fBbison++\fP(1)\.
+\fBflex\fP(1), \fBflexdoc\fP(1), \fBbison++\fP(1)\.
 .SH "DOCUMENTATION" 
 .SH "BUGS" 
 Tell us more!
@@ -406,7 +406,7 @@ The automatic \fB%define\fP symbols \fBFLEX_DEBUG\fP, \fBFLEX_SCANNER\fP and \fB
 .SH "FUTURE WORKS" 
 Tell us!
 .PP
-POSIX compliance\. isn't it good now?
+POSIX compliance\. Isn't it good now?
 .PP
 Compatibility with \fBflex 2\.4\fP, possible?
 .SH "INSTALLATION" 

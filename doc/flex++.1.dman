@@ -23,7 +23,7 @@
 
 :SECTION "DESCRIPTION"
 	Generate a scanner. Based on "flex" version 2.3.7. See "flex"(1) and "flexdoc"(1) for details of main functionality. Only changes are reported here.
-	You now generate a C++ class if you are compiling with a C++ compiler. A generated header can be generated, and is made from a skeleton-header. The code skeleton is also more adaptable. It permits you to modify much things only by changing the two skeletons.
+	You now generate a C++ class if you are compiling with a C++ compiler. A header can be generated, and is made from a skeleton-header. The code skeleton is also more adaptable. It permits you to modify many things only by changing the two skeletons.
 	In plain C, "flex++" is compatible with standard "flex".
 	If no header is generated, it is in fact merged, instead of included.
 :SECTION "OPTIONS"
@@ -115,10 +115,10 @@
 	-{"YY_FATAL_ERROR"} Like with old "flex". With classes it is mapped to the virtual function yy_fatal_error(), and you should not modify the macro itself. This name can be changed with "\%define FATAL_ERROR".
 	-{"yywrap"} Like with old "flex". With classes it is mapped to the virtual function yy_wrap(), and you should not modify the macro itself. This name can be changed with "\%define WRAP".
 :SECTION "OTHER ADDED PREPROCESSOR SYMBOLS"
-	-{"YY_USE_CLASS"} indicate that class will be produced. Default if C++.
+	-{"YY_USE_CLASS"} Indicate that class will be produced. Default if C++.
 :SECTION "C++ CLASS GENERATED"
 	To simplify the notation, we note "\%SYMBOLNAME" the preprocessor symbol generated with a "\%define" of this name. In fact see the use of "\%define" for its real name.
-	Note that there is sometime symbols that differ by only an underscore "_", like "yywrap" and "yy_wrap". They are much different. In this case "yy_wrap()" is a virtual member function, and "yywrap()" is a macro.
+	Note that there are sometimes symbols that differ by only an underscore "_", like "yywrap" and "yy_wrap". They are much different. In this case "yy_wrap()" is a virtual member function, and "yywrap()" is a macro.
   :SSECTION "General Class declaration"
 	// Here is the declaration made in the header
 	class \%CLASS \%INHERIT
@@ -229,10 +229,10 @@
 :SECTION "FILES"
 	-{"flexskel.cc"} main skeleton.
 	-{"flexskel.h"} header skeleton.
-:SECTION "ENVIRONNMENT"
+:SECTION "ENVIRONMENT"
 :SECTION "DIAGNOSTICS"
 :SECTION "SEE ALSO"
-	"flex"(1),"flexdoc"(1),"bison++"(1).
+	"flex"(1), "flexdoc"(1), "bison++"(1).
 :SECTION "DOCUMENTATION"
 :SECTION "BUGS"
 	Tell us more!
@@ -242,7 +242,7 @@
 	The automatic "\%define" symbols "FLEX_DEBUG", "FLEX_SCANNER" and "CHAR", are added only after the "\%name" directive, or at the "\%\%" between section 1 and 2. You cannot use them before, neither in "\%header\{", nor "\%\{". A good practice is to always give a name, and to give it first. The old "#define" symbols are still defined at top for backward compatibility.
 :SECTION "FUTURE WORKS"
 	Tell us!
-	POSIX compliance. isn't it good now?
+	POSIX compliance. Isn't it good now?
 	Compatibility with "flex 2.4", possible?
 
 :SECTION "INSTALLATION"
