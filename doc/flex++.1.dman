@@ -52,11 +52,7 @@
 	-{"LEX_RETURN"} The scanner function return type. Default "int". See "yylex" in "flex". Replaces "#define YYDECL".
 	-{"LEX_PARAM"} The scanner function parameter list. Default "void". See "yylex" in "flex". Replaces "#define YYDECL".
 	-{"RESTART"} The restart function name. Default "yyrestart". See "yyrestart" in "flex".
-	-{"SWITCH_TO_BUFFER"}
-	-{"LOAD_BUFFER_STATE"}
-	-{"CREATE_BUFFER"}
-	-{"DELETE_BUFFER"}
-	-{"INIT_BUFFER"} The buffer control function names. Defaults are "yy_switch_to_buffer", "yy_load_buffer_state", "yy_create_buffer", "yy_delete_buffer", "yy_init_buffer". See these functions in "flex".
+	-{"SWITCH_TO_BUFFER"} {"LOAD_BUFFER_STATE"} {"CREATE_BUFFER"} {"DELETE_BUFFER"} {"INIT_BUFFER"} The buffer control function names. Defaults are "yy_switch_to_buffer", "yy_load_buffer_state", "yy_create_buffer", "yy_delete_buffer", "yy_init_buffer". See these functions in "flex".
 	-{"CURRENT_BUFFER"} The name of the pointer to the current buffer. Without class, it is yy_current_buffer, and the old macro YY_CURRENT_BUFFER is defined to its value. With class, the default value is YY_CURRENT_BUFFER, and there is no macro YY_CURRENT_BUFFER.
 
 	These are only used if class is generated.
@@ -67,18 +63,9 @@
 	-{"INPUT"} The block input member function. This function is called inside the macro YY_INPUT. It reads a block of text to be scanned. Default is to read "yyin". See "YY_INPUT".
 	-{"FATAL_ERROR"} The error message member function. This function is called inside the macro YY_FATAL_ERROR.  Default is to write the message to stderr and exit. See "YY_FATAL_ERROR".
 	-{"WRAP"} The wrap member function. This function is called inside the macro "yywrap()".  Default is to return 1. See "yywrap()" in "flex".
-	-{"ECHO_PURE"}
-	-{"INPUT_PURE"}
-	-{"FATAL_ERROR_PURE"}
-	-{"WRAP_PURE"} Indicate that the corresponding member function is to be pure. It implies automatically the <function>"_NOCODE" symbol
-	-{"ECHO_NOCODE"}
-	-{"INPUT_NOCODE"}
-	-{"FATAL_ERROR_NOCODE"}
-	-{"WRAP_NOCODE"} Indicate that the corresponding member function is not to be defined in the generated code, but outside by yourself. Activated automatically by the <function>"_PURE" symbols.
-	-{"ECHO_CODE"}
-	-{"INPUT_CODE"}
-	-{"FATAL_ERROR_CODE"}
-	-{"WRAP_CODE"} Give the body code of the corresponding member function. Default is to implement standard behaviour. Ignored if <function>"_PURE" or <function>"_NOCODE" are defined.
+	-{"ECHO_PURE"} {"INPUT_PURE"} {"FATAL_ERROR_PURE"} {"WRAP_PURE"} Indicate that the corresponding member function is to be pure. It implies automatically the <function>"_NOCODE" symbol
+	-{"ECHO_NOCODE"} {"INPUT_NOCODE"} {"FATAL_ERROR_NOCODE"} {"WRAP_NOCODE"} Indicate that the corresponding member function is not to be defined in the generated code, but outside by yourself. Activated automatically by the <function>"_PURE" symbols.
+	-{"ECHO_CODE"} {"INPUT_CODE"} {"FATAL_ERROR_CODE"} {"WRAP_CODE"} Give the body code of the corresponding member function. Default is to implement standard behaviour. Ignored if <function>"_PURE" or <function>"_NOCODE" are defined.
 	-{"CONSTRUCTOR_PARAM"} List of parameters of the constructor. Don't allows default value.
 	-{"CONSTRUCTOR_INIT"} List of initialisation before constructor call. If not empty don't forget the ":" before list of initialisation.
 	-{"CONSTRUCTOR_CODE"} Code added after internal initialisations in constructor.

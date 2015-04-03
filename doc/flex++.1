@@ -64,10 +64,12 @@ The scanner function parameter list\. Default \fBvoid\fP\. See \fByylex\fP in \f
 .IP "\\fBRESTART\\fP"
 The restart function name\. Default \fByyrestart\fP\. See \fByyrestart\fP in \fBflex\fP\.
 .IP "\\fBSWITCH_TO_BUFFER\\fP"
+.PD 0
 .IP "\\fBLOAD_BUFFER_STATE\\fP"
 .IP "\\fBCREATE_BUFFER\\fP"
 .IP "\\fBDELETE_BUFFER\\fP"
 .IP "\\fBINIT_BUFFER\\fP"
+.PD
 The buffer control function names\. Defaults are \fByy_switch_to_buffer\fP, \fByy_load_buffer_state\fP, \fByy_create_buffer\fP, \fByy_delete_buffer\fP, \fByy_init_buffer\fP\. See these functions in \fBflex\fP\.
 .IP "\\fBCURRENT_BUFFER\\fP"
 The name of the pointer to the current buffer\. Without class, it is yy_current_buffer, and the old macro YY_CURRENT_BUFFER is defined to its value\. With class, the default value is YY_CURRENT_BUFFER, and there is no macro YY_CURRENT_BUFFER\.
@@ -90,19 +92,25 @@ The error message member function\. This function is called inside the macro YY_
 .IP "\\fBWRAP\\fP"
 The wrap member function\. This function is called inside the macro \fByywrap()\fP\. Default is to return 1\. See \fByywrap()\fP in \fBflex\fP\.
 .IP "\\fBECHO_PURE\\fP"
+.PD 0
 .IP "\\fBINPUT_PURE\\fP"
 .IP "\\fBFATAL_ERROR_PURE\\fP"
 .IP "\\fBWRAP_PURE\\fP"
+.PD
 Indicate that the corresponding member function is to be pure\. It implies automatically the \fIfunction\fP\fB_NOCODE\fP symbol
 .IP "\\fBECHO_NOCODE\\fP"
+.PD 0
 .IP "\\fBINPUT_NOCODE\\fP"
 .IP "\\fBFATAL_ERROR_NOCODE\\fP"
 .IP "\\fBWRAP_NOCODE\\fP"
+.PD
 Indicate that the corresponding member function is not to be defined in the generated code, but outside by yourself\. Activated automatically by the \fIfunction\fP\fB_PURE\fP symbols\.
 .IP "\\fBECHO_CODE\\fP"
+.PD 0
 .IP "\\fBINPUT_CODE\\fP"
 .IP "\\fBFATAL_ERROR_CODE\\fP"
 .IP "\\fBWRAP_CODE\\fP"
+.PD
 Give the body code of the corresponding member function\. Default is to implement standard behaviour\. Ignored if \fIfunction\fP\fB_PURE\fP or \fIfunction\fP\fB_NOCODE\fP are defined\.
 .IP "\\fBCONSTRUCTOR_PARAM\\fP"
 List of parameters of the constructor\. Don't allows default value\.
