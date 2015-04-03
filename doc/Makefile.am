@@ -6,12 +6,10 @@ dist_noinst_MANS = \
 	flex.1 \
 	flexdoc.1
 
-# The .dman file and the rule below is/was used to generate the man page.
-# According to the man page, it was with a flex++/bison++ parser.
-# The source code for that parser is probably lost.
-#%: %.dman
-#	dman < $*.dman > $@
-#	pman -t $@ > $*.ps
+# Generate the man page from its .dman source file.
+# The dman utility is a parser from the flex++/bison++ examples.
+%: %.dman
+	dman < $*.dman > $@
 
 # FIXME:  For some reason automake isn't distributing the noinst files,
 # so place them in EXTRA_DIST to force their inclusion.
