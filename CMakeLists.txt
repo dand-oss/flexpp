@@ -8,6 +8,9 @@ include(asv_cmake_defaults)
 asv_cmake_defaults( )
 ###############
 
+set(ASV_PLAT_PORTS $ENV{ASV_PLAT_PORTS}
+  CACHE PATH "ASV platform ports directory")
+
 # for all files
 add_definitions(-DSTDC_HEADERS=1 -DHAVE_STRING_H=1 -DDEFAULT_CSIZE=256)
 
@@ -41,7 +44,7 @@ if(HAS_BISON)
       add_custom_command(
         OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/parse.c
                ${CMAKE_CURRENT_BINARY_DIR}/parse.h
-                 COMMAND ${ASV_3RDPARTY}/bin/bison++.exe -S ${ASV_3RDPARTY}/lib/bison.cc -H ${ASV_3RDPARTY}/lib/bison.h -y -d -o ${CMAKE_CURRENT_BINARY_DIR}/parse.c ${CMAKE_CURRENT_SOURCE_DIR}/src/parse.y
+                 COMMAND ${ASV_PLAT_PORTS}/bin/bison++.exe -S ${ASV_PLAT_PORTS}/lib/bison.cc -H ${ASV_PLAT_PORTS}/lib/bison.h -y -d -o ${CMAKE_CURRENT_BINARY_DIR}/parse.c ${CMAKE_CURRENT_SOURCE_DIR}/src/parse.y
         DEPENDS src/parse.y
         COMMENT "yacc parse.c/h"
         )
@@ -49,7 +52,7 @@ if(HAS_BISON)
       add_custom_command(
         OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/parse.c
                ${CMAKE_CURRENT_BINARY_DIR}/parse.h
-                 COMMAND ${ASV_3RDPARTY}/bin/bison++ -S ${ASV_3RDPARTY}/lib/bison.cc -H ${ASV_3RDPARTY}/lib/bison.h -y -d -o ${CMAKE_CURRENT_BINARY_DIR}/parse.c ${CMAKE_CURRENT_SOURCE_DIR}/src/parse.y
+                 COMMAND ${ASV_PLAT_PORTS}/bin/bison++ -S ${ASV_PLAT_PORTS}/lib/bison.cc -H ${ASV_PLAT_PORTS}/lib/bison.h -y -d -o ${CMAKE_CURRENT_BINARY_DIR}/parse.c ${CMAKE_CURRENT_SOURCE_DIR}/src/parse.y
         DEPENDS src/parse.y
         COMMENT "yacc parse.c/h"
         )
