@@ -1,0 +1,4 @@
+#!/bin/sh
+
+autoreconf -vif
+touch doc/flex++.1
