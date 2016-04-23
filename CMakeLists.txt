@@ -84,6 +84,7 @@ add_executable(firstflex ${flexpp_sources} src/initscan.c)
 
 # library with one file
 add_library(libflex++ src/libmain.c)
+install_static_pdb(libflex++) # ASV
 
 # finally, flex
 add_executable(flex++ ${flexpp_sources} ${CMAKE_CURRENT_BINARY_DIR}/scan.c)
