@@ -19,7 +19,6 @@ EXTRA_DIST = \
 	notesevolution \
 	misc/Atari.patches \
 	misc/MSDOS.notes \
-	misc/Makefile.VMS \
 	misc/README \
 	misc/Turbo-C.notes \
 	misc/flex.skel.old \

@@ -1,7 +1,5 @@
 Miscellaneous flex stuff.  In here you'll find:
 
-  - a VMS makefile for flex
-
   - out-of-date patches for flex on the Atari and for Minix,
     from Ronald Lamprecht (V61%DHDURZ1.BITNET@CUNYVM.CUNY.EDU,
     ...!unido!DHDURZ1.bitnet!V61, V61@DHDURZ1 (Bitnet));
