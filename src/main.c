@@ -26,6 +26,10 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
+#ifdef HAVE_CONFIG_H
+#include "config.h"
+#endif
+
 #ifndef lint
 char copyright[] =
 "@(#) Copyright (c) 1990 The Regents of the University of California.\n\
@@ -34,7 +38,7 @@ char copyright[] =
 
 #include "flexdef.h"
 
-static char flex_version[] = "2.3.8-7 (flex++), based on 2.3.8 and modified by coetmeur@icdc.fr for c++";
+static char flex_version[] = PACKAGE_STRING ", based on 2.3.8 and modified by coetmeur@icdc.fr for c++";
 
 /* declare functions that have forward references */
 
@@ -271,8 +275,8 @@ int status;
 	{
 	endtime = flex_gettime();
 
-	fprintf( stderr, "%s version %s usage statistics:\n", program_name,
-		 flex_version );
+	fprintf( stderr, "%s\n", flex_version );
+	fprintf( stderr, "usage statistics:\n" );
 	fprintf( stderr, "  started at %s, finished at %s\n",
 		 starttime, endtime );
 
@@ -804,9 +808,10 @@ get_next_arg: /* used by -C and -S flags in lieu of a "continue 2" control */
  int flexinfo(status)
  int status;
  {
-    fprintf(stderr,"Syntax  :  flex  [options...] inp_file\n");
-    fprintf(stderr,"Function: fast lexical analyzer generator C/C++  V%s\n",flex_version);
-    fprintf(stderr,"Options : \n");
+    fprintf(stderr,"Syntax  : flex [options...] inp_file\n");
+    fprintf(stderr,"Function: fast lexical analyzer generator\n");
+    fprintf(stderr,"Version : %s\n",flex_version);
+    fprintf(stderr,"Options :\n");
     fprintf(stderr,"	-a dir_path  : directory path for temporary files\n");
     fprintf(stderr,"	-b  : generate backtracking information to lex.backtrack\n");
     fprintf(stderr,"	-c  : compressed table, no equiv., no meta equiv.classes\n");
