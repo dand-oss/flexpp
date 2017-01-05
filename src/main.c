@@ -28,6 +28,9 @@
 
 #ifdef HAVE_CONFIG_H
 #include "config.h"
+#else
+// using CMake, configure not run
+#define PACKAGE_STRING "2.3.8-7 (flex++)"
 #endif
 
 #ifndef lint
