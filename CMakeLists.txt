@@ -83,17 +83,19 @@ add_custom_command(
 add_executable(firstflex ${flexpp_sources} src/initscan.c)
 
 # library with one file
-add_library(libflex++ src/libmain.c)
-install_static_pdb(libflex++) # ASV
+set(libname libflex++)
+add_library(${libname} src/libmain.c)
+install_static_pdb(${libname}) # ASV
 
 # finally, flex
-add_executable(flex++ ${flexpp_sources} ${CMAKE_CURRENT_BINARY_DIR}/scan.c)
+set(exename flex++)
+add_executable(${exename} ${flexpp_sources} ${CMAKE_CURRENT_BINARY_DIR}/scan.c)
 
 # copy exe
-install(TARGETS flex++ DESTINATION bin)
+install(TARGETS ${exename} DESTINATION bin)
 
 # copy lib
-install(TARGETS libflex++ DESTINATION lib)
+install(TARGETS ${libname} DESTINATION lib)
 
 # copy support files
 install(FILES src/flexskel.cc src/flexskel.h DESTINATION lib)
