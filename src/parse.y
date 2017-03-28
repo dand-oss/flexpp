@@ -73,6 +73,7 @@ initlex         :
 
 			/* create default DFA start condition */
 			scinstal( "INITIAL", false );
+			line_directive_out( stdout );
 			}
 		;
 
@@ -100,10 +101,16 @@ startconddecl   :  SCDECL
 		;
 
 namelist1	:  namelist1 WHITESPACE NAME
-			{ scinstal( nmstr, xcluflg ); }
+			{
+			line_directive_out( stdout );
+			scinstal( nmstr, xcluflg );
+			}
 
 		|  NAME
-			{ scinstal( nmstr, xcluflg ); }
+			{
+			line_directive_out( stdout );
+			scinstal( nmstr, xcluflg );
+			}
 
 		|  error
                         { synerr( "bad start condition list" ); }

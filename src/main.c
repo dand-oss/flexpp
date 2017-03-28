@@ -893,7 +893,6 @@ void readin()
       fprintf(stdout, "#define FLEX_DEBUG\n" );
     fprintf(stdout, "#define YY_CHAR %s\n",ch_type );
     skelout();
-    line_directive_out( stdout );
 
     if ( yyparse() )
 	{

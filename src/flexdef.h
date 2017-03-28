@@ -781,7 +781,7 @@ extern void lerrif(char[], int);
 /* report an error message formatted with one string argument */
 extern void lerrsf(char[], char[]);
 
-/* spit out a "# line" statement */
+/* spit out a "#line" statement */
 extern void line_directive_out(FILE*);
 
 /* generate a data statment for a two-dimensional array */

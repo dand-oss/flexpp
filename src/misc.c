@@ -483,7 +483,7 @@ int ch;
     }
 
 
-/* line_directive_out - spit out a "# line" statement */
+/* line_directive_out - spit out a "#line" statement */
 
 void line_directive_out( output_file_name )
 FILE *output_file_name;
@@ -786,7 +786,7 @@ int *back_lf;
         for(p=thename;*p;p++)
           if(*p=='"' || *p=='\\') fprintf(thefile,"\\%c",*p);
           else if(!isprint(*p)) fprintf(thefile,"\\%3.3o",*p);
-           else fprintf(thefile,"%c",*p);
+          else fprintf(thefile,"%c",*p);
         fprintf( thefile,"\"\n");
       }
  while((ch=getc(theskel))!=EOF)
