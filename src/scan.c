@@ -129,8 +129,8 @@
 
 
 /* % section 1 definitions go here */
-#line 1 "scan.l"
 #define INITIAL 0
+#line 1 "scan.l"
 /* scan.l - scanner for flex input */
 #line 4 "scan.l"
 /*-
@@ -191,31 +191,57 @@
 #define CHECK_YYMORE(str) \
 	if ( all_lower( str ) ) \
 	    yymore_used = true;
+#line 64 "scan.l"
 #define SECT2 1
+#line 64 "scan.l"
 #define SECT2PROLOG 2
+#line 64 "scan.l"
 #define SECT3 3
+#line 64 "scan.l"
 #define CODEBLOCK 4
+#line 64 "scan.l"
 #define PICKUPDEF 5
+#line 64 "scan.l"
 #define SC 6
+#line 64 "scan.l"
 #define CARETISBOL 7
+#line 64 "scan.l"
 #define NUM 8
+#line 64 "scan.l"
 #define QUOTE 9
+#line 65 "scan.l"
 #define FIRSTCCL 10
+#line 65 "scan.l"
 #define CCL 11
+#line 65 "scan.l"
 #define ACTION 12
+#line 65 "scan.l"
 #define RECOVER 13
+#line 65 "scan.l"
 #define BRACEERROR 14
+#line 65 "scan.l"
 #define C_COMMENT 15
+#line 65 "scan.l"
 #define ACTION_COMMENT 16
+#line 66 "scan.l"
 #define ACTION_STRING 17
+#line 66 "scan.l"
 #define PERCENT_BRACE_ACTION 18
+#line 66 "scan.l"
 #define USED_LIST 19
+#line 66 "scan.l"
 #define CODEBLOCK_2 20
+#line 66 "scan.l"
 #define XLATION 21
+#line 67 "scan.l"
 #define HEADER_BLOC 22
+#line 67 "scan.l"
 #define HEADER2_BLOC 23
+#line 67 "scan.l"
 #define NAME_DECLARE 24
+#line 67 "scan.l"
 #define DEFINE_DECLARE 25
+#line 67 "scan.l"
 #define DEFINE_CONTENT 26
 #define YY_lex_FLEX_SCANNER
 #define YY_lex_CHAR unsigned char
