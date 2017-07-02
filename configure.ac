@@ -4,6 +4,8 @@
 AC_PREREQ([2.69])
 AC_INIT([flex++],[2.3.8-7],[coetmeur@icdc.fr],[flex++])
 AC_CONFIG_SRCDIR([src/yylex.c])
+AC_CONFIG_AUX_DIR([build-aux])
+AC_CONFIG_MACRO_DIR([m4])
 AC_CONFIG_HEADERS([src/config.h])
 AM_INIT_AUTOMAKE([foreign])
 
