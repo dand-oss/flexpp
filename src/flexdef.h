@@ -757,10 +757,10 @@ extern int flexinfo();
 extern void action_out();
 
 /* true if a string is all lower case */
-extern int all_lower(register Char *);
+extern int all_lower(Char *);
 
 /* true if a string is all upper case */
-extern int all_upper(register Char *);
+extern int all_upper(Char *);
 
 /* bubble sort an integer array */
 extern void bubble(int [], int);
@@ -823,7 +823,7 @@ extern int link_machines(int, int);
 /* mark each "beginning" state in a machine as being a "normal" (i.e.,
  * not trailing context associated) state
  */
-extern void mark_beginning_as_normal(register int);
+extern void mark_beginning_as_normal(int);
 
 /* make a machine that branches to two machines */
 extern int mkbranch(int, int);
