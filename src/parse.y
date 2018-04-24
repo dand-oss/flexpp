@@ -657,7 +657,7 @@ string		:  string CHAR
 void build_eof_action()
 
     {
-    register int i;
+    int i;
 
     for ( i = 1; i <= actvp; ++i )
 	{

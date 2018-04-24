@@ -57,7 +57,7 @@ static char C_state_decl[] =
 void do_indent()
 
     {
-    register int i = indent_level * 4;
+    int i = indent_level * 4;
 
     while ( i >= 8 )
 	{
@@ -134,7 +134,7 @@ void gen_bt_action()
 void genctbl()
 
     {
-    register int i;
+    int i;
     int end_of_buffer_action = num_rules + 1;
 
     /* table of verify for transition and offset to next state */
@@ -169,7 +169,7 @@ void genctbl()
     /* make sure every state has a end-of-buffer transition and an action # */
     for ( i = 0; i <= lastdfa; ++i )
 	{
-	register int anum = dfaacc[i].dfaacc_state;
+	int anum = dfaacc[i].dfaacc_state;
 
 	chk[base[i]] = EOB_POSITION;
 	chk[base[i] - 1] = ACTION_POSITION;
@@ -219,7 +219,7 @@ void genctbl()
 void genecs()
 
     {
-    register int i, j;
+    int i, j;
     static char C_char_decl[] = "static const %s %s[%d] =\n    {   0,\n";
     int numrows;
     Char clower();
@@ -389,7 +389,7 @@ void gen_find_action()
 void genftbl()
 
     {
-    register int i;
+    int i;
     int end_of_buffer_action = num_rules + 1;
 
     printf( C_short_decl, "yy_accept", lastdfa + 1 );
@@ -399,7 +399,7 @@ void genftbl()
 
     for ( i = 1; i <= lastdfa; ++i )
 	{
-	register int anum = dfaacc[i].dfaacc_state;
+	int anum = dfaacc[i].dfaacc_state;
 
 	mkdata( anum );
 
@@ -424,7 +424,7 @@ void gen_next_compressed_state( char_map )
 char *char_map;
 
     {
-    indent_put2s( "register YY_CHAR yy_c = %s;", char_map );
+    indent_put2s( "YY_CHAR yy_c = %s;", char_map );
 
     /* save the backtracking info \before/ computing the next state
      * because we always compute one more state than needed - we
@@ -504,8 +504,8 @@ void gen_next_match()
     else if ( fullspd )
 	{
 	indent_puts( "{" );
-	indent_puts( "register const struct yy_trans_info *yy_trans_info;\n" );
-	indent_puts( "register YY_CHAR yy_c;\n" );
+	indent_puts( "const struct yy_trans_info *yy_trans_info;\n" );
+	indent_puts( "YY_CHAR yy_c;\n" );
 	indent_put2s( "for ( yy_c = %s;", char_map );
 	indent_puts(
 	"      (yy_trans_info = &yy_current_state[yy_c])->yy_verify == yy_c;" );
@@ -628,7 +628,7 @@ void gen_NUL_trans()
 
     if ( need_backtracking )
 	/* we'll need yy_cp lying around for the gen_backtracking() */
-	indent_puts( "register YY_CHAR *yy_cp = yy_c_buf_p;" );
+	indent_puts( "YY_CHAR *yy_cp = yy_c_buf_p;" );
 
     putchar( '\n' );
 
@@ -649,10 +649,10 @@ void gen_NUL_trans()
     else if ( fullspd )
 	{
 	do_indent();
-	printf( "register int yy_c = %d;\n", NUL_ec );
+	printf( "int yy_c = %d;\n", NUL_ec );
 
 	indent_puts(
-	    "register const struct yy_trans_info *yy_trans_info;\n" );
+	    "const struct yy_trans_info *yy_trans_info;\n" );
 	indent_puts( "yy_trans_info = &yy_current_state[yy_c];" );
 	indent_puts( "yy_current_state += yy_trans_info->yy_nxt;" );
 
@@ -898,7 +898,7 @@ void gentabs()
 
     for ( i = 1; i <= lastdfa; ++i )
 	{
-	register int d = def[i];
+	int d = def[i];
 
 	if ( base[i] == JAMSTATE )
 	    base[i] = jambase;
@@ -1001,7 +1001,7 @@ char str[];
 void make_tables()
 
     {
-    register int i;
+    int i;
     int did_eof_rule = false;
 
     skelout();
@@ -1262,7 +1262,7 @@ void make_tables()
     skelout();
 
     if ( bol_needed )
-	indent_puts( "register YY_CHAR *yy_bp = yy___text;\n" );
+	indent_puts( "YY_CHAR *yy_bp = yy___text;\n" );
 
     gen_start_state();
 

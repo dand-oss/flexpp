@@ -31,7 +31,7 @@
 
 /* declarations for functions that have forward references */
 
-void mkentry(register int*, int, int, int, int);
+void mkentry(int*, int, int, int, int);
 void mkprot(int[], int, int);
 void mktemplate(int[], int, int);
 void mv2front(int);
@@ -223,7 +223,7 @@ void cmptmps()
 
     {
     int tmpstorage[CSIZE + 1];
-    register int *tmp = tmpstorage, i, j;
+    int *tmp = tmpstorage, i, j;
     int totaltrans, trans;
 
     peakpairs = numtemps * numecs + tblend;
@@ -294,7 +294,7 @@ void cmptmps()
 void expand_nxt_chk()
 
     {
-    register int old_max = current_max_xpairs;
+    int old_max = current_max_xpairs;
 
     current_max_xpairs += MAX_XPAIRS_INCREMENT;
 
@@ -334,9 +334,9 @@ int *state, numtrans;
     /* firstfree is the position of the first possible occurrence of two
      * consecutive unused records in the chk and nxt arrays
      */
-    register int i;
-    register int *state_ptr, *chk_ptr;
-    register int *ptr_to_last_entry_in_state;
+    int i;
+    int *state_ptr, *chk_ptr;
+    int *ptr_to_last_entry_in_state;
 
     /* if there are too many out-transitions, put the state at the end of
      * nxt and chk
@@ -428,7 +428,7 @@ int *state, numtrans;
 void inittbl()
 
     {
-    register int i;
+    int i;
 
     memset( (char *) chk, '\0', current_max_xpairs * sizeof( int ) / sizeof( char ) );
 
@@ -514,11 +514,11 @@ void mkdeftbl()
  */
 
 void mkentry( state, numchars, statenum, deflink, totaltrans )
-register int *state;
+int *state;
 int numchars, statenum, deflink, totaltrans;
 
     {
-    register int minec, maxec, i, baseaddr;
+    int minec, maxec, i, baseaddr;
     int tblbase, tbllast;
 
     if ( totaltrans == 0 )
@@ -819,8 +819,8 @@ void place_state( state, statenum, transnum )
 int *state, statenum, transnum;
 
     {
-    register int i;
-    register int *state_ptr;
+    int i;
+    int *state_ptr;
     int position = find_table_space( state, transnum );
 
     /* base is the table of start positions */
@@ -901,8 +901,8 @@ int tbldiff( state, pr, ext )
 int state[], pr, ext[];
 
     {
-    register int i, *sp = state, *ep = ext, *protp;
-    register int numdiff = 0;
+    int i, *sp = state, *ep = ext, *protp;
+    int numdiff = 0;
 
     protp = &protsave[numecs * (pr - 1)];
 
