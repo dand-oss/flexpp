@@ -318,7 +318,7 @@ int first, last;
  */
 
 void mark_beginning_as_normal( mach )
-register int mach;
+int mach;
 
     {
     switch ( state_type[mach] )

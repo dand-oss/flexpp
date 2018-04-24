@@ -2357,7 +2357,7 @@ case 89:
 case 90:
 #line 400 "scan.l"
 {
-			register Char *nmdefptr;
+			Char *nmdefptr;
 			Char *ndlookup();
 
 			(void) strcpy( nmstr, (char *) yytext );

@@ -57,7 +57,7 @@ static char C_state_decl[] =
 void do_indent()
 
     {
-    register int i = indent_level * 4;
+    int i = indent_level * 4;
 
     while ( i >= 8 )
 	{
@@ -134,7 +134,7 @@ void gen_bt_action()
 void genctbl()
 
     {
-    register int i;
+    int i;
     int end_of_buffer_action = num_rules + 1;
 
     /* table of verify for transition and offset to next state */
@@ -169,7 +169,7 @@ void genctbl()
     /* make sure every state has a end-of-buffer transition and an action # */
     for ( i = 0; i <= lastdfa; ++i )
 	{
-	register int anum = dfaacc[i].dfaacc_state;
+	int anum = dfaacc[i].dfaacc_state;
 
 	chk[base[i]] = EOB_POSITION;
 	chk[base[i] - 1] = ACTION_POSITION;
@@ -219,7 +219,7 @@ void genctbl()
 void genecs()
 
     {
-    register int i, j;
+    int i, j;
     static char C_char_decl[] = "static const %s %s[%d] =\n    {   0,\n";
     int numrows;
     Char clower();
@@ -389,7 +389,7 @@ void gen_find_action()
 void genftbl()
 
     {
-    register int i;
+    int i;
     int end_of_buffer_action = num_rules + 1;
 
     printf( C_short_decl, "yy_accept", lastdfa + 1 );
@@ -399,7 +399,7 @@ void genftbl()
 
     for ( i = 1; i <= lastdfa; ++i )
 	{
-	register int anum = dfaacc[i].dfaacc_state;
+	int anum = dfaacc[i].dfaacc_state;
 
 	mkdata( anum );
 
@@ -898,7 +898,7 @@ void gentabs()
 
     for ( i = 1; i <= lastdfa; ++i )
 	{
-	register int d = def[i];
+	int d = def[i];
 
 	if ( base[i] == JAMSTATE )
 	    base[i] = jambase;
@@ -1001,7 +1001,7 @@ char str[];
 void make_tables()
 
     {
-    register int i;
+    int i;
     int did_eof_rule = false;
 
     skelout();

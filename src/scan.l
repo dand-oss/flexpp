@@ -398,7 +398,7 @@ ESCSEQ		\\([^\n\r]|[0-9]{1,3}|x[0-9a-f]{1,2})
 			}
 
 <SECT2>"{"{NAME}"}"	{
-			register Char *nmdefptr;
+			Char *nmdefptr;
 			Char *ndlookup();
 
 			(void) strcpy( nmstr, (char *) yytext );
