@@ -326,9 +326,9 @@ YY_@_LEX_RETURN YY_@_CLASS::YY_@_LEX ( YY_@_LEX_PARAM)
 
 #endif
     {
-    register yy_state_type yy_current_state;
-    register YY_@_CHAR *yy_cp, *yy_bp;
-    register int yy_act;
+    yy_state_type yy_current_state;
+    YY_@_CHAR *yy_cp, *yy_bp;
+    int yy_act;
 
 %% user's declarations go here
 
@@ -559,9 +559,9 @@ static int yy_get_next_buffer()
 int YY_@_CLASS::yy_get_next_buffer()
 #endif
     {
-    register YY_@_CHAR *dest = YY_@_CURRENT_BUFFER->yy_ch_buf;
-    register YY_@_CHAR *source = yy___text - 1; /* copy prev. char, too */
-    register int number_to_move, i;
+    YY_@_CHAR *dest = YY_@_CURRENT_BUFFER->yy_ch_buf;
+    YY_@_CHAR *source = yy___text - 1; /* copy prev. char, too */
+    int number_to_move, i;
     int ret_val;
 
     if ( yy_c_buf_p > &YY_@_CURRENT_BUFFER->yy_ch_buf[yy_n_chars + 1] )
@@ -643,8 +643,8 @@ static yy_state_type yy_get_previous_state()
 long YY_@_CLASS::yy_get_previous_state_()
 #endif
     {
-    register yy_state_type yy_current_state;
-    register YY_@_CHAR *yy_cp;
+    yy_state_type yy_current_state;
+    YY_@_CHAR *yy_cp;
 
 %% code to get the start state into yy_current_state goes here
 
@@ -668,7 +668,7 @@ long YY_@_CLASS::yy_get_previous_state_()
  */
 
 #ifndef YY_USE_CLASS
-static yy_state_type yy_try_NUL_trans( register yy_state_type yy_current_state )
+static yy_state_type yy_try_NUL_trans( yy_state_type yy_current_state )
 #else
 long YY_@_CLASS::yy_try_NUL_trans_(long yy_current_state_)
 #endif
@@ -678,7 +678,7 @@ long YY_@_CLASS::yy_try_NUL_trans_(long yy_current_state_)
 #else
     yy_state_type yy_current_state=(yy_state_type)yy_current_state_;
 #endif
-    register int yy_is_jam;
+    int yy_is_jam;
 %% code to find the next state, and perhaps do backtracking, goes here
 
 #ifndef YY_USE_CLASS
@@ -689,23 +689,23 @@ long YY_@_CLASS::yy_try_NUL_trans_(long yy_current_state_)
     }
 
 #ifndef YY_USE_CLASS
-static void yyunput( YY_@_CHAR c, register YY_@_CHAR *yy_bp )
+static void yyunput( YY_@_CHAR c, YY_@_CHAR *yy_bp )
 #else
 void YY_@_CLASS::yyunput( YY_@_CHAR c, YY_@_CHAR *yy_bp )
 #endif
 
     {
-    register YY_@_CHAR *yy_cp = yy_c_buf_p;
+    YY_@_CHAR *yy_cp = yy_c_buf_p;
 
     /* undo effects of setting up yy___text */
     *yy_cp = yy_hold_char;
 
     if ( yy_cp < YY_@_CURRENT_BUFFER->yy_ch_buf + 2 )
 	{ /* need to shift things up to make room */
-	register int number_to_move = yy_n_chars + 2; /* +2 for EOB chars */
-	register YY_@_CHAR *dest =
+	int number_to_move = yy_n_chars + 2; /* +2 for EOB chars */
+	YY_@_CHAR *dest =
 	    &YY_@_CURRENT_BUFFER->yy_ch_buf[YY_@_CURRENT_BUFFER->yy_buf_size + 2];
-	register YY_@_CHAR *source =
+	YY_@_CHAR *source =
 	    &YY_@_CURRENT_BUFFER->yy_ch_buf[number_to_move];
 
 	while ( source > YY_@_CURRENT_BUFFER->yy_ch_buf )
