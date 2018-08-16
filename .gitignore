@@ -1,0 +1,62 @@
+# stuff we don't look at
+
+# cmake
+CMakeLists.txt.user*
+cmake_install.cmake
+
+# generated files
+*.autosave
+*.kate-swp
+*.pyc
+*.pyo
+*.pyd
+*.obj
+*.lib
+*.exp
+*.exe
+*.dll
+*.pdb
+*.ilk
+*.pch
+*.exp
+*.suo
+*.res
+*.RES
+*.rep
+*-f2c.*
+*-done.*
+*-temp.*
+*.oml
+*.o
+*.f
+*.out
+*.log
+*.zip
+*.msi
+*.a
+*.so
+*.osl
+*.cache
+
+# emacs stools
+\#*\#
+TAGS
+
+# editor files
+.*.sw?
+*~
+
+# logs
+err_log
+oil_err
+debug.log
+audit.log
+oilaudit.log
+oildebug.log
+schema.log
+sqltrace.log
+log-*.txt
+
+# IDE fleas
+.vs/
+.idea/
