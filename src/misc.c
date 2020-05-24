@@ -50,7 +50,7 @@ void *allocate_array( size, element_size )
 int size, element_size;
 
     {
-    register void *mem;
+    void *mem;
 
     /* on 16-bit int machines (e.g., 80286) we might be trying to
      * allocate more than a signed int can hold, and that won't
@@ -77,7 +77,7 @@ int size, element_size;
  */
 
 int all_lower( str )
-register Char *str;
+Char *str;
 
     {
     while ( *str )
@@ -100,7 +100,7 @@ register Char *str;
  */
 
 int all_upper( str )
-register Char *str;
+Char *str;
 
     {
     while ( *str )
@@ -132,7 +132,7 @@ void bubble( v, n )
 int v[], n;
 
     {
-    register int i, j, k;
+    int i, j, k;
 
     for ( i = n; i > 1; --i )
 	for ( j = 1; j < i; ++j )
@@ -154,7 +154,7 @@ int v[], n;
  */
 
 Char clower( c )
-register int c;
+int c;
 
     {
     return ( (isascii( c ) && isupper( c )) ? tolower( c ) : c );
@@ -169,10 +169,10 @@ register int c;
  */
 
 char *copy_string( str )
-register char *str;
+char *str;
 
     {
-    register char *c;
+    char *c;
     char *copy;
 
     /* find length */
@@ -200,10 +200,10 @@ register char *str;
  */
 
 Char *copy_unsigned_string( str )
-register Char *str;
+Char *str;
 
     {
-    register Char *c;
+    Char *c;
     Char *copy;
 
     /* find length */
@@ -598,7 +598,7 @@ Char array[];
 
     {
     Char c, esc_char;
-    register int sptr;
+    int sptr;
 
     switch ( array[1] )
 	{
@@ -700,7 +700,7 @@ Char str[];
  */
 
 char *readable_form( c )
-register int c;
+int c;
 
     {
     static char rform[10];
@@ -741,7 +741,7 @@ void *array;
 int size, element_size;
 
     {
-    register void *new_array;
+    void *new_array;
 
     /* same worry as in allocate_array(): */
     if ( size * element_size <= 0 )
