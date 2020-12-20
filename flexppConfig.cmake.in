@@ -1,0 +1,35 @@
+@PACKAGE_INIT@
+
+include(CMakeFindDependencyMacro)
+
+if(NOT TARGET flexpp::flex++)
+    include("${CMAKE_CURRENT_LIST_DIR}/flexppTargets.cmake")
+endif()
+
+# Set convenience variables for consumers
+# Use a more robust method to get the executable location
+if(TARGET flexpp::flex++)
+    # Try IMPORTED_LOCATION first (works for imported targets)
+    get_target_property(FLEXPP_EXECUTABLE flexpp::flex++ IMPORTED_LOCATION)
+    if(NOT FLEXPP_EXECUTABLE)
+        # Try configuration-specific properties
+        get_target_property(FLEXPP_EXECUTABLE flexpp::flex++ IMPORTED_LOCATION_RELEASE)
+        if(NOT FLEXPP_EXECUTABLE)
+            get_target_property(FLEXPP_EXECUTABLE flexpp::flex++ IMPORTED_LOCATION_DEBUG)
+        endif()
+    endif()
+endif()
+
+# Export support file locations
+# PACKAGE_PREFIX_DIR is set by @PACKAGE_INIT@ and points to the installation root
+set_and_check(FLEXPP_SKELETON_CC "${PACKAGE_PREFIX_DIR}/@CMAKE_INSTALL_LIBDIR@/flexskel.cc")
+set_and_check(FLEXPP_SKELETON_H "${PACKAGE_PREFIX_DIR}/@CMAKE_INSTALL_LIBDIR@/flexskel.h")
+
+# Also export the library target for convenience
+if(TARGET flexpp::libflex++)
+    set(FLEXPP_LIBRARY flexpp::libflex++)
+endif()
+
+set(FLEXPP_FOUND TRUE)
+
+check_required_components(@PROJECT_NAME@)
