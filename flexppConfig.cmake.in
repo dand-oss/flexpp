@@ -1,0 +1,27 @@
+@PACKAGE_INIT@
+
+include(CMakeFindDependencyMacro)
+
+if(NOT TARGET flexpp::flex++)
+    include("${CMAKE_CURRENT_LIST_DIR}/flexppTargets.cmake")
+endif()
+
+# Set convenience variables for consumers
+get_target_property(FLEXPP_EXECUTABLE flexpp::flex++ LOCATION)
+
+# Export support file locations - calculate from config file location
+get_filename_component(_flexpp_install_prefix "${CMAKE_CURRENT_LIST_DIR}/../../.." ABSOLUTE)
+set(FLEXPP_SKELETON_CC "${_flexpp_install_prefix}/lib/flexskel.cc")
+set(FLEXPP_SKELETON_H "${_flexpp_install_prefix}/lib/flexskel.h")
+
+# Verify files exist
+if(NOT EXISTS "${FLEXPP_SKELETON_CC}")
+    message(FATAL_ERROR "FLEXPP_SKELETON_CC file not found: ${FLEXPP_SKELETON_CC}")
+endif()
+if(NOT EXISTS "${FLEXPP_SKELETON_H}")
+    message(FATAL_ERROR "FLEXPP_SKELETON_H file not found: ${FLEXPP_SKELETON_H}")
+endif()
+
+set(FLEXPP_FOUND TRUE)
+
+check_required_components(flexpp)
