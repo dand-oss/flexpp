@@ -4,7 +4,14 @@ project(flexpp VERSION 1.0.0 LANGUAGES C)
 set(exename "flex++")
 set(libname "libflex++")
 
-set(BISON_DIR "/usr/local/bin"
+###############
+# ASI default settings
+list(APPEND CMAKE_MODULE_PATH "$ENV{ASV_CMAKE}")
+include(asv_cmake_defaults)
+asv_cmake_defaults( )
+###############
+
+set(BISON_DIR $ENV{ASV_PLAT_PORTS}
     CACHE PATH "Location of Bison++")
 
 include(GNUInstallDirs)
