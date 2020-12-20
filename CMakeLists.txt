@@ -14,6 +14,16 @@ asv_cmake_defaults( )
 # Option to use bison++ for generating parser
 option(FLEXPP_USE_BISON "Use bison++ to generate parser (requires bison++)" ON)
 
+###############
+# ASI default settings
+list(APPEND CMAKE_MODULE_PATH "$ENV{ASV_CMAKE}")
+include(asv_cmake_defaults)
+asv_cmake_defaults( )
+###############
+
+# redo where bisonpp is
+set(BISON_DIR $ENV{ASV_PLAT_PORTS})
+
 include(GNUInstallDirs)
 include(CMakePackageConfigHelpers)
 
