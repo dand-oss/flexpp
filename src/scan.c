@@ -512,7 +512,7 @@ class YY_lex_CLASS YY_lex_INHERIT
  private: /* functions */
  void yy_initialize();
  int input();
- int yyinput() {return input();};
+ int yyinput() {return input();}
  int yy_get_next_buffer();
  void yyunput( YY_lex_CHAR  c, YY_lex_CHAR  *buf_ptr );
  /* use long instead of yy_state_type because it is undef */

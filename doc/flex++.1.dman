@@ -115,7 +115,7 @@
 	private: /* functions */
 	>void yy_initialize();
 	>int input();
-	>int yyinput() \{return input();\};
+	>int yyinput() \{return input();\}
 	>void yyunput( \%CHAR  c, \%CHAR  *buf_ptr );
 	>// Others are secret, don't use.
 	protected:/* non virtual */
@@ -169,7 +169,7 @@
 	private: /* functions */
 	>void yy_initialize();
 	>int input();
-	>int yyinput() \{return input();\};
+	>int yyinput() \{return input();\}
 	>void yyunput( unsigned char  c, unsigned char  *buf_ptr );
 	>// Others are secret, don't use.
 	protected:/* non virtual */

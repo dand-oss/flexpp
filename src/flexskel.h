@@ -260,7 +260,7 @@ class YY_@_CLASS YY_@_INHERIT
  private: /* functions */
  void yy_initialize();
  int input();
- int yyinput() {return input();};
+ int yyinput() {return input();}
  int yy_get_next_buffer();
  void yyunput( YY_@_CHAR  c, YY_@_CHAR  *buf_ptr );
  /* use long instead of yy_state_type because it is undef */
