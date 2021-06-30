@@ -265,13 +265,11 @@
 #include <stdio.h>
 
 
-
-
 /* % here is the declaration from section1 %header{ */
 #line 80 "scan.l"
 #line 80 "scan.l"
 #line 556 "scan.l"
-#line 23 "/usr/local/share/flex++/flexskel.h"
+#line 21 "/usr/local/share/flex++/flexskel.h"
 
 #ifdef YY_USE_CLASS
 #ifdef YY_lex_IOSTREAM
@@ -310,9 +308,6 @@
 #ifndef YY_lex_OFILE_DEFAULT
 #define YY_lex_OFILE_DEFAULT stdout
 #endif
-
-
-
 
 #ifndef YY_lex_TEXT
 #define YY_lex_TEXT yytext
@@ -376,14 +371,10 @@
 #define YY_lex_INIT_BUFFER yy_init_buffer
 #endif
 
-
-
-#ifdef YY_lex_FLEX_DEBUG
 #ifndef YY_lex_DEBUG
+#ifdef FLEX_DEBUG
 #define YY_lex_DEBUG 1
-#endif
 #else
-#ifndef YY_lex_DEBUG
 #define YY_lex_DEBUG 0
 #endif
 #endif
@@ -396,9 +387,6 @@
 #define YY_lex_DEBUG_INIT 1
 #endif
 #endif
-
-
-
 
 #ifndef YY_USE_CLASS
 #ifndef YY_lex_CURRENT_BUFFER
@@ -491,7 +479,6 @@ extern YY_lex_LEX_RETURN YY_lex_LEX ( YY_lex_LEX_PARAM )
 #ifndef YY_lex_WRAP_CODE
 #define YY_lex_WRAP_CODE return 1;
 #endif
-
 
 #ifndef YY_lex_INHERIT
 #define YY_lex_INHERIT

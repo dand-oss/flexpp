@@ -41,7 +41,7 @@ These are the symbols you can define with \fB%define\fP in the declaration secti
 Automatically defined in the code\. Used for conditioanl code\. It is effectively defined at the point of the \fB%name\fP directive, or at the point of the \fB%%\fP between section 1 and 2\.
 .IP "\\fBCHAR\\fP"
 Automatically defined in the code\. Define the type of char used depending of the 8\-bits flag (\fBunsigned char\fP if 8\-bit, \fBchar\fP if 7\-bit)\. It is effectively defined at the point of the \fB%name\fP directive, or at the point of the \fB%%\fP between section 1 and 2\. You cannot use it before\.
-.IP "\\fBFLEX_DEBUG\\fP"
+.IP "\\fBDEBUG\\fP"
 Automatically defined in the code if debug option \fB\-d\fP set\.
 .IP "\\fBDEBUG_FLAG\\fP"
 The runtime debug flag name\. Default is \fByy_flex_debug\fP\. See \fByy_flex_debug\fP in flex\. Used only in debug mode\.
@@ -148,7 +148,7 @@ In C only\. Prefer \fB%define CREATE_BUFFER\fP\.
 .IP "\\fBYY_CHAR\\fP"
 Like with old \fBflex\fP\. You should better use the \fB%define\fPd symbol \fBCHAR\fP, or not use this yourself, since you know if you are 8 or 7\-bit\. Not defined in separate header\.
 .IP "\\fBFLEX_DEBUG\\fP"
-Like with old \fBflex\fP\. Activate trace\. Prefer the automatically added \fB%define DEBUG \fP\. Defined if debug option \fB\-d\fP set\.
+Like with old \fBflex\fP\. Activate trace\. Prefer the automatically added \fB%define DEBUG 1\fP\. Defined if debug option \fB\-d\fP set\.
 .IP "\\fBFLEX_SCANNER\\fP"
 Like with old \fBflex\fP\. Defined in the scanner itself\.
 .IP "\\fBYY_END_TOK\\fP"
@@ -410,7 +410,7 @@ Parameters are richer than before, and nothing is removed\. POSIX compliance can
 .PP
 The grammar file scanner now supports any EndOfLine sequence (CR, LF, CRLF), event inside the same file\. So dont worry if it accept files from MSDOS, MacIntosh, and UNIX, with neither any message nor any problem\. This is not a bug\.
 .PP
-The automatic \fB%define\fP symbols \fBFLEX_DEBUG\fP, \fBFLEX_SCANNER\fP and \fBCHAR\fP, are added only after the \fB%name\fP directive, or at the \fB%%\fP between section 1 and 2\. You cannot use them before, neither in \fB%header{\fP, nor \fB%{\fP\. A good practice is to always give a name, and to give it first\. The old \fB#define\fP symbols are still defined at top for backward compatibility\.
+The automatic \fB%define\fP symbols \fBDEBUG\fP, \fBFLEX_SCANNER\fP and \fBCHAR\fP, are added only after the \fB%name\fP directive, or at the \fB%%\fP between section 1 and 2\. You cannot use them before, neither in \fB%header{\fP, nor \fB%{\fP\. A good practice is to always give a name, and to give it first\. The old \fB#define\fP symbols are still defined at top for backward compatibility\.
 .SH "FUTURE WORKS" 
 Tell us!
 .PP

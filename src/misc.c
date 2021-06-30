@@ -915,7 +915,7 @@ char *name;
    }
  fprintf(stdout,"#define YY_%s_FLEX_SCANNER\n",lexer_name);
  if ( ddebug )
-   fprintf(headerfile, "#define YY_%s_FLEX_DEBUG\n",lexer_name );
+   fprintf(headerfile, "#define YY_%s_DEBUG 1\n",lexer_name );
 
  if ( csize == 256 )
    fprintf(headerfile, "#define YY_%s_CHAR unsigned char\n",lexer_name );

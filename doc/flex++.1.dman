@@ -41,7 +41,7 @@
 	These are the symbols you can define with "\%define" in the declaration section, or that are already defined. Remember that they are replaced by a preprocessor "#define YY_"'<scanner_name>'"_"'<name>'.
 	-{"FLEX_SCANNER"} Automatically defined in the code. Used for conditioanl code. It is effectively defined at the point of the "\%name" directive, or at the point of the "\%\%" between section 1 and 2.
 	-{"CHAR"} Automatically defined in the code. Define the type of char used depending of the 8-bits flag ("unsigned char" if 8-bit, "char" if 7-bit). It is effectively defined at the point of the "\%name" directive, or at the point of the "\%\%" between section 1 and 2. You cannot use it before.
-	-{"FLEX_DEBUG"} Automatically defined in the code if debug option "-d" set.
+	-{"DEBUG"} Automatically defined in the code if debug option "-d" set.
 	-{"DEBUG_FLAG"} The runtime debug flag name. Default is "yy_flex_debug". See "yy_flex_debug" in flex. Used only in debug mode.
 	-{"DEBUG_INIT"} The runtime debug flag initial value. Default is "1". See "yy_flex_debug" in flex.
 	-{"TEXT"} The scanned text string. Default "yytext". See "yytext" in "flex".
@@ -85,7 +85,7 @@
 	-{"YYDECL"} In C only. Prefer "\%define LEX", "\%define LEX_RETURN", "\%define LEX_PARAM". Totally ignored with classes, or if you "\%define" one of these symbols, or the symbol "LEX_DEFINED", since it mean you use the new ways to redefine yylex declaration. Never use it if header are generated, since the declared function would be wrong.
 	-{"yy_new_buffer"} In C only. Prefer "\%define CREATE_BUFFER".
 	-{"YY_CHAR"} Like with old "flex". You should better use the "\%define"d symbol "CHAR", or not use this yourself, since you know if you are 8 or 7-bit. Not defined in separate header.
-	-{"FLEX_DEBUG"} Like with old "flex". Activate trace. Prefer the automatically added "\%define DEBUG ". Defined if debug option "-d" set.
+	-{"FLEX_DEBUG"} Like with old "flex". Activate trace. Prefer the automatically added "\%define DEBUG 1". Defined if debug option "-d" set.
 	-{"FLEX_SCANNER"} Like with old "flex". Defined in the scanner itself.
 	-{"YY_END_TOK"} Like with old "flex". Indicate the value returned at end by yylex. Don't redefine it, since it is only informative. Value is 0.
 
@@ -226,7 +226,7 @@
 	Because "flex++" puts a "#include" of the generated header in the generated code, the header is necessary, and must be reachable by "cpp". Use the "-g" option to change the pathname of this file. Problems arise when the header is generated in another directory, or is moved.
 	Parameters are richer than before, and nothing is removed. POSIX compliance can be enforced by not using extensions. If you want to forbid them, there is a good job for you.
 	The grammar file scanner now supports any EndOfLine sequence (CR, LF, CRLF), event inside the same file. So dont worry if it accept files from MSDOS, MacIntosh, and UNIX, with neither any message nor any problem. This is not a bug.
-	The automatic "\%define" symbols "FLEX_DEBUG", "FLEX_SCANNER" and "CHAR", are added only after the "\%name" directive, or at the "\%\%" between section 1 and 2. You cannot use them before, neither in "\%header\{", nor "\%\{". A good practice is to always give a name, and to give it first. The old "#define" symbols are still defined at top for backward compatibility.
+	The automatic "\%define" symbols "DEBUG", "FLEX_SCANNER" and "CHAR", are added only after the "\%name" directive, or at the "\%\%" between section 1 and 2. You cannot use them before, neither in "\%header\{", nor "\%\{". A good practice is to always give a name, and to give it first. The old "#define" symbols are still defined at top for backward compatibility.
 :SECTION "FUTURE WORKS"
 	Tell us!
 	POSIX compliance. Isn't it good now?

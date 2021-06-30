@@ -17,8 +17,6 @@
 #include <stdio.h>
 
 
-
-
 %% here is the declaration from section1 %header{
 
 #ifdef YY_USE_CLASS
@@ -58,9 +56,6 @@
 #ifndef YY_@_OFILE_DEFAULT
 #define YY_@_OFILE_DEFAULT stdout
 #endif
-
-
-
 
 #ifndef YY_@_TEXT
 #define YY_@_TEXT yytext
@@ -124,14 +119,10 @@
 #define YY_@_INIT_BUFFER yy_init_buffer
 #endif
 
-
-
-#ifdef YY_@_FLEX_DEBUG
 #ifndef YY_@_DEBUG
+#ifdef FLEX_DEBUG
 #define YY_@_DEBUG 1
-#endif
 #else
-#ifndef YY_@_DEBUG
 #define YY_@_DEBUG 0
 #endif
 #endif
@@ -144,9 +135,6 @@
 #define YY_@_DEBUG_INIT 1
 #endif
 #endif
-
-
-
 
 #ifndef YY_USE_CLASS
 #ifndef YY_@_CURRENT_BUFFER
@@ -239,7 +227,6 @@ extern YY_@_LEX_RETURN YY_@_LEX ( YY_@_LEX_PARAM )
 #ifndef YY_@_WRAP_CODE
 #define YY_@_WRAP_CODE return 1;
 #endif
-
 
 #ifndef YY_@_INHERIT
 #define YY_@_INHERIT
