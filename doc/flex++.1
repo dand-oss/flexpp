@@ -197,78 +197,92 @@ class %CLASS %INHERIT
 {
 .PP
 private:/* data */
-.PP
+.\"bloc1[
+.IP
 // Secret, don't use\.
+.\"bloc1]
 .PP
 private: /* functions */
-.PP
+.\"bloc1[
+.IP
 void yy_initialize();
-.PP
+.IP
 int input();
-.PP
+.IP
 int yyinput() {return input();};
-.PP
+.IP
 void yyunput( %CHAR c, %CHAR *buf_ptr );
-.PP
+.IP
 // Others are secret, don't use\.
+.\"bloc1]
 .PP
 protected:/* non virtual */
-.PP
+.\"bloc1[
+.IP
 YY_BUFFER_STATE %CURRENT_BUFFER;
-.PP
+.IP
 void %RESTART ( %IFILE *input_file );
-.PP
+.IP
 void %SWITCH_TO_BUFFER( YY_BUFFER_STATE new_buffer );
-.PP
+.IP
 void %LOAD_BUFFER_STATE( void );
-.PP
+.IP
 YY_BUFFER_STATE %CREATE_BUFFER( %IFILE *file, int size );
-.PP
+.IP
 void %DELETE_BUFFER( YY_BUFFER_STATE b );
-.PP
+.IP
 void %INIT_BUFFER( YY_BUFFER_STATE b, %IFILE *file );
+.\"bloc1]
 .PP
 protected: /* virtual */
-.PP
+.\"bloc1[
+.IP
 // these 4 virtual function may be declared PURE (=0), with the symbols like %ECHO_PURE,\.\.\.
-.PP
+.IP
 // these 4 virtual function may not be defined in the generated code, with the symbol like %ECHO_NOCODE,\.\.\.
-.PP
+.IP
 // these 4 virtual function may be defined with another code, with the symbol like ECHO_CODE,\.\.\.
-.PP
+.IP
 virtual void %ECHO();
-.PP
+.IP
 virtual int %INPUT(char *buf,int &result,int max_size);
-.PP
+.IP
 virtual void %FATAL_ERROR(const char *msg);
-.PP
+.IP
 virtual int %WRAP();
+.\"bloc1]
 .PP
 public:
-.PP
+.\"bloc1[
+.IP
 %CHAR *%TEXT;
-.PP
+.IP
 int %LENG;
-.PP
+.IP
 %IFILE *%IN;
-.PP
+.IP
 %OFILE *%OUT;
-.PP
+.IP
 %LEX_RETURN %LEX ( %LEX_PARAM);
-.PP
+.IP
 %CLASS(%CONSTRUCTOR_PARAM) ;
-.PP
+.IP
 virtual ~%CLASS() ;
+.\"bloc1]
 .PP
 #if %DEBUG != 0
-.PP
+.\"bloc1[
+.IP
 int %DEBUG_FLAG;
+.\"bloc1]
 .PP
 #endif
 .PP
 public: /* added members */
-.PP
+.\"bloc1[
+.IP
 %MEMBERS
+.\"bloc1]
 .PP
 };
 .PP
@@ -299,66 +313,78 @@ class lexer
 {
 .PP
 private:/* data */
-.PP
+.\"bloc1[
+.IP
 // Secret, don't use\.
+.\"bloc1]
 .PP
 private: /* functions */
-.PP
+.\"bloc1[
+.IP
 void yy_initialize();
-.PP
+.IP
 int input();
-.PP
+.IP
 int yyinput() {return input();};
-.PP
+.IP
 void yyunput( unsigned char c, unsigned char *buf_ptr );
-.PP
+.IP
 // Others are secret, don't use\.
+.\"bloc1]
 .PP
 protected:/* non virtual */
-.PP
+.\"bloc1[
+.IP
 YY_BUFFER_STATE YY_CURRENT_BUFFER;
-.PP
+.IP
 void yyrestart ( FILE *input_file );
-.PP
+.IP
 void yy_switch_to_buffer( YY_BUFFER_STATE new_buffer );
-.PP
+.IP
 void yy_load_buffer_state( void );
-.PP
+.IP
 YY_BUFFER_STATE yy_create_buffer( FILE *file, int size );
-.PP
+.IP
 void yy_delete_buffer( YY_BUFFER_STATE b );
-.PP
+.IP
 void yy_init_buffer( YY_BUFFER_STATE b, FILE *file );
+.\"bloc1]
 .PP
 protected: /* virtual */
-.PP
+.\"bloc1[
+.IP
 virtual void yy_echo();
-.PP
+.IP
 virtual int yy_input(char *buf,int &result,int max_size);
-.PP
+.IP
 virtual void yy_fatal_error(const char *msg);
-.PP
+.IP
 virtual int yy_wrap();
+.\"bloc1]
 .PP
 public:
-.PP
+.\"bloc1[
+.IP
 unsigned char *yytext;
-.PP
+.IP
 int yyleng;
-.PP
+.IP
 FILE *yyin;
-.PP
+.IP
 FILE *yyout;
-.PP
+.IP
 int yylex ( void);
-.PP
+.IP
 lexer() ;
-.PP
+.IP
 virtual ~lexer() ;
+.\"bloc1]
 .PP
 #if YY_lexer_DEBUG != 0
-.PP
+.\"bloc1[
+.IP
 int yy_flex_debug;
+.\"bloc1]
 .PP
 #endif
 .PP
