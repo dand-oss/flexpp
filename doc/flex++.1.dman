@@ -71,12 +71,12 @@
 	-{"CONSTRUCTOR_CODE"} Code added after internal initialisations in constructor.
 	-{"DESTRUCTOR_CODE"} Code added before internal cleanup in destructor.
 
-	-{"IOSTREAM"} If defined, this flag makes flex use the "iostream" library. The behaviour is much the same, but instead of "FILE *", yyin and yyout are "istream *" and "ostream *". They point to "cin" and "cout" by default. Debug messages and fatal errors are printed on "cerr". "BUFFER" refers to "istream *" instead of "FILE *".  These values are default, but like with "stdio" you can change them with the same "\%define". "iostream.h" is also included.
-	-{"IFILE"} Type of the structure that represents IN file ("yyin"). Normally "FILE", or "istream" if "IOSTREAM" is defined. "BUFFER" function use also pointer to this type.
-	-{"IFILE_DEFAULT"} Initial value of "IN" (yyin). Normally "stdin", or "&cin" if "IOSTREAM" is defined.
-	-{"OFILE"} Type of the structure that represent OUT file ("yyout"). Normally "FILE", or "ostream" if "IOSTREAM" is defined.
-	-{"OFILE_DEFAULT"} Initial value of "OUT" (yyout). Normally "stdout", or "&cout" if "IOSTREAM" is defined.
-	-{"ERRFILE"} File handle used to output debug message, and also fatal errors. Default is "stderr" or "cerr" if "IOSTREAM" is defined.
+	-{"IOSTREAM"} If defined, this flag makes flex use the "iostream" library. The behaviour is much the same, but instead of "FILE *", yyin and yyout are "std::istream *" and "std::ostream *". They point to "std::cin" and "std::cout" by default. Debug messages and fatal errors are printed on "std::cerr". "BUFFER" refers to "std::istream *" instead of "FILE *". These values are default, but like with "stdio" you can change them with the same "\%define". "\<iostream\>" is also included.
+	-{"IFILE"} Type of the structure that represents IN file ("yyin"). Normally "FILE", or "std::istream" if "IOSTREAM" is defined. "BUFFER" function use also pointer to this type.
+	-{"IFILE_DEFAULT"} Initial value of "IN" (yyin). Normally "stdin", or "&std::cin" if "IOSTREAM" is defined.
+	-{"OFILE"} Type of the structure that represent OUT file ("yyout"). Normally "FILE", or "std::ostream" if "IOSTREAM" is defined.
+	-{"OFILE_DEFAULT"} Initial value of "OUT" (yyout). Normally "stdout", or "&std::cout" if "IOSTREAM" is defined.
+	-{"ERRFILE"} File handle used to output debug message, and also fatal errors. Default is "stderr" or "std::cerr" if "IOSTREAM" is defined.
 
 :SECTION "OBSOLETED FUNCTIONS"
 	-{"yyinput()"} In C++, the member function "yyinput()" is equivalent to "input()" that read one char. It is kept for compatibility with old flex behaviour, that replaced in C++, the function "input()" with "yyinput()" not to collide with stream library. Don't mismatch it with "yy_input(char *buf, int &result, int max_size)" which reads a block to be buffered.

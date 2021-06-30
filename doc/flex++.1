@@ -121,17 +121,17 @@ Code added after internal initialisations in constructor\.
 .IP "\\fBDESTRUCTOR_CODE\\fP"
 Code added before internal cleanup in destructor\.
 .IP "\\fBIOSTREAM\\fP"
-If defined, this flag makes flex use the \fBiostream\fP library\. The behaviour is much the same, but instead of \fBFILE *\fP, yyin and yyout are \fBistream *\fP and \fBostream *\fP\. They point to \fBcin\fP and \fBcout\fP by default\. Debug messages and fatal errors are printed on \fBcerr\fP\. \fBBUFFER\fP refers to \fBistream *\fP instead of \fBFILE *\fP\. These values are default, but like with \fBstdio\fP you can change them with the same \fB%define\fP\. \fBiostream\.h\fP is also included\.
+If defined, this flag makes flex use the \fBiostream\fP library\. The behaviour is much the same, but instead of \fBFILE *\fP, yyin and yyout are \fBstd::istream *\fP and \fBstd::ostream *\fP\. They point to \fBstd::cin\fP and \fBstd::cout\fP by default\. Debug messages and fatal errors are printed on \fBstd::cerr\fP\. \fBBUFFER\fP refers to \fBstd::istream *\fP instead of \fBFILE *\fP\. These values are default, but like with \fBstdio\fP you can change them with the same \fB%define\fP\. \fB<iostream>\fP is also included\.
 .IP "\\fBIFILE\\fP"
-Type of the structure that represents IN file (\fByyin\fP)\. Normally \fBFILE\fP, or \fBistream\fP if \fBIOSTREAM\fP is defined\. \fBBUFFER\fP function use also pointer to this type\.
+Type of the structure that represents IN file (\fByyin\fP)\. Normally \fBFILE\fP, or \fBstd::istream\fP if \fBIOSTREAM\fP is defined\. \fBBUFFER\fP function use also pointer to this type\.
 .IP "\\fBIFILE_DEFAULT\\fP"
-Initial value of \fBIN\fP (yyin)\. Normally \fBstdin\fP, or \fB&cin\fP if \fBIOSTREAM\fP is defined\.
+Initial value of \fBIN\fP (yyin)\. Normally \fBstdin\fP, or \fB&std::cin\fP if \fBIOSTREAM\fP is defined\.
 .IP "\\fBOFILE\\fP"
-Type of the structure that represent OUT file (\fByyout\fP)\. Normally \fBFILE\fP, or \fBostream\fP if \fBIOSTREAM\fP is defined\.
+Type of the structure that represent OUT file (\fByyout\fP)\. Normally \fBFILE\fP, or \fBstd::ostream\fP if \fBIOSTREAM\fP is defined\.
 .IP "\\fBOFILE_DEFAULT\\fP"
-Initial value of \fBOUT\fP (yyout)\. Normally \fBstdout\fP, or \fB&cout\fP if \fBIOSTREAM\fP is defined\.
+Initial value of \fBOUT\fP (yyout)\. Normally \fBstdout\fP, or \fB&std::cout\fP if \fBIOSTREAM\fP is defined\.
 .IP "\\fBERRFILE\\fP"
-File handle used to output debug message, and also fatal errors\. Default is \fBstderr\fP or \fBcerr\fP if \fBIOSTREAM\fP is defined\.
+File handle used to output debug message, and also fatal errors\. Default is \fBstderr\fP or \fBstd::cerr\fP if \fBIOSTREAM\fP is defined\.
 .\"bloc1]
 .SH "OBSOLETED FUNCTIONS" 
 .\"bloc1[
