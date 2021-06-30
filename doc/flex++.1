@@ -225,7 +225,7 @@ void %RESTART ( %IFILE *input_file );
 .IP
 void %SWITCH_TO_BUFFER( YY_BUFFER_STATE new_buffer );
 .IP
-void %LOAD_BUFFER_STATE( void );
+void %LOAD_BUFFER_STATE();
 .IP
 YY_BUFFER_STATE %CREATE_BUFFER( %IFILE *file, int size );
 .IP
@@ -341,7 +341,7 @@ void yyrestart ( FILE *input_file );
 .IP
 void yy_switch_to_buffer( YY_BUFFER_STATE new_buffer );
 .IP
-void yy_load_buffer_state( void );
+void yy_load_buffer_state();
 .IP
 YY_BUFFER_STATE yy_create_buffer( FILE *file, int size );
 .IP

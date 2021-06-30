@@ -853,7 +853,7 @@ void YY_@_CLASS::YY_@_SWITCH_TO_BUFFER( YY_BUFFER_STATE new_buffer )
 #ifndef YY_USE_CLASS
 void YY_@_LOAD_BUFFER_STATE( void )
 #else
-void YY_@_CLASS::YY_@_LOAD_BUFFER_STATE(  )
+void YY_@_CLASS::YY_@_LOAD_BUFFER_STATE()
 #endif
 
     {

@@ -270,7 +270,7 @@ class YY_@_CLASS YY_@_INHERIT
  YY_BUFFER_STATE YY_@_CURRENT_BUFFER;
  void YY_@_RESTART ( YY_@_IFILE *input_file );
  void YY_@_SWITCH_TO_BUFFER( YY_BUFFER_STATE new_buffer );
- void YY_@_LOAD_BUFFER_STATE( void );
+ void YY_@_LOAD_BUFFER_STATE();
  YY_BUFFER_STATE YY_@_CREATE_BUFFER( YY_@_IFILE *file, int size );
  void YY_@_DELETE_BUFFER( YY_BUFFER_STATE b );
  void YY_@_INIT_BUFFER( YY_BUFFER_STATE b, YY_@_IFILE *file );

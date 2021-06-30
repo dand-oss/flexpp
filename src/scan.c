@@ -522,7 +522,7 @@ class YY_lex_CLASS YY_lex_INHERIT
  YY_BUFFER_STATE YY_lex_CURRENT_BUFFER;
  void YY_lex_RESTART ( YY_lex_IFILE *input_file );
  void YY_lex_SWITCH_TO_BUFFER( YY_BUFFER_STATE new_buffer );
- void YY_lex_LOAD_BUFFER_STATE( void );
+ void YY_lex_LOAD_BUFFER_STATE();
  YY_BUFFER_STATE YY_lex_CREATE_BUFFER( YY_lex_IFILE *file, int size );
  void YY_lex_DELETE_BUFFER( YY_BUFFER_STATE b );
  void YY_lex_INIT_BUFFER( YY_BUFFER_STATE b, YY_lex_IFILE *file );
@@ -3156,7 +3156,7 @@ void YY_lex_CLASS::YY_lex_SWITCH_TO_BUFFER( YY_BUFFER_STATE new_buffer )
 #ifndef YY_USE_CLASS
 void YY_lex_LOAD_BUFFER_STATE( void )
 #else
-void YY_lex_CLASS::YY_lex_LOAD_BUFFER_STATE(  )
+void YY_lex_CLASS::YY_lex_LOAD_BUFFER_STATE()
 #endif
 
     {
