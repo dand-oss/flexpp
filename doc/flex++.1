@@ -240,7 +240,7 @@ virtual void %ECHO();
 .PP
 virtual int %INPUT(char *buf,int &result,int max_size);
 .PP
-virtual void %FATAL_ERROR(char *msg);
+virtual void %FATAL_ERROR(const char *msg);
 .PP
 virtual int %WRAP();
 .PP
@@ -284,7 +284,7 @@ int %CLASS::%INPUT(char * buffer,int &result,int max_size) // read a bloc of tex
 .PP
 {%INPUT_CODE}
 .PP
-void %CLASS::%FATAL_ERROR(char *msg) // print a fatal error
+void %CLASS::%FATAL_ERROR(const char *msg) // print a fatal error
 .PP
 {%FATAL_ERROR_CODE}
 .PP
@@ -336,7 +336,7 @@ virtual void yy_echo();
 .PP
 virtual int yy_input(char *buf,int &result,int max_size);
 .PP
-virtual void yy_fatal_error(char *msg);
+virtual void yy_fatal_error(const char *msg);
 .PP
 virtual int yy_wrap();
 .PP
@@ -376,7 +376,7 @@ int lexer::yy_input(char * buffer,int &result,int max_size) // read a bloc of te
 .PP
 {return result= fread( buffer, 1,max_size, yyin );}
 .PP
-void lexer::yy_fatal_error(char *msg) // print a fatal error
+void lexer::yy_fatal_error(const char *msg) // print a fatal error
 .PP
 {fputs( msg, stderr );putc( 'n', stderr );exit( 1 );}
 .PP

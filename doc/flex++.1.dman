@@ -132,7 +132,7 @@
 	// these 4 virtual function may be defined with another code, with the symbol like ECHO_CODE,... 
  	virtual void \%ECHO(); 
 	virtual int  \%INPUT(char  *buf,int &result,int max_size);
- 	virtual void  \%FATAL_ERROR(char *msg);
+ 	virtual void  \%FATAL_ERROR(const char *msg);
  	virtual int  \%WRAP();
  	public:
  	\%CHAR  *\%TEXT;
@@ -155,7 +155,7 @@
 	\{\%ECHO_CODE\}
 	int  \%CLASS::\%INPUT(char * buffer,int &result,int max_size) // read a bloc of text
 	\{\%INPUT_CODE\}
-	void \%CLASS::\%FATAL_ERROR(char *msg) // print a fatal error
+	void \%CLASS::\%FATAL_ERROR(const char *msg) // print a fatal error
 	\{\%FATAL_ERROR_CODE\}
 	int  \%CLASS::\%WRAP() // decide if we must stop input, or continue
 	\{\%WRAP_CODE\}
@@ -183,7 +183,7 @@
  	protected: /* virtual */
  	virtual void yy_echo(); 
 	virtual int  yy_input(char  *buf,int &result,int max_size);
- 	virtual void  yy_fatal_error(char *msg);
+ 	virtual void  yy_fatal_error(const char *msg);
  	virtual int  yy_wrap();
  	public:
  	unsigned char  *yytext;
@@ -203,7 +203,7 @@
 	\{fwrite( (char *) yytext, yyleng, 1, yyout );\}
 	int  lexer::yy_input(char * buffer,int &result,int max_size) // read a bloc of text
 	\{return result= fread(  buffer, 1,max_size, yyin );\}
-	void lexer::yy_fatal_error(char *msg) // print a fatal error
+	void lexer::yy_fatal_error(const char *msg) // print a fatal error
 	\{fputs( msg, stderr );putc( '\n', stderr );exit( 1 );\}
 	int  lexer::yy_wrap() // decide if we must stop input, or continue
 	\{return 1;\}
