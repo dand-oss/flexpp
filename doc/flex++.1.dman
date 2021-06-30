@@ -141,7 +141,7 @@
  	\%OFILE *\%OUT;
  	\%LEX_RETURN \%LEX ( \%LEX_PARAM);
  	\%CLASS(\%CONSTRUCTOR_PARAM) ;
- 	~\%CLASS() ;
+ 	virtual ~\%CLASS() ;
 	#if \%DEBUG != 0
  	int \%DEBUG_FLAG;
 	#endif
@@ -192,7 +192,7 @@
  	FILE *yyout;
  	int yylex ( void);
  	lexer() ;
- 	~lexer() ;
+ 	virtual ~lexer() ;
 	#if YY_lexer_DEBUG != 0
  	int yy_flex_debug;
 	#endif
