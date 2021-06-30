@@ -732,9 +732,9 @@ void YY_@_CLASS::yyunput( YY_@_CHAR c, YY_@_CHAR *yy_bp )
 
 #ifndef YY_USE_CLASS
 #ifdef __cplusplus
-static int yyinput()
+static int yyinput( void )
 #else
-static int input()
+static int input( void )
 #endif
 #else
 int YY_@_CLASS::input()

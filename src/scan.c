@@ -3035,9 +3035,9 @@ void YY_lex_CLASS::yyunput( YY_lex_CHAR c, YY_lex_CHAR *yy_bp )
 
 #ifndef YY_USE_CLASS
 #ifdef __cplusplus
-static int yyinput()
+static int yyinput( void )
 #else
-static int input()
+static int input( void )
 #endif
 #else
 int YY_lex_CLASS::input()
