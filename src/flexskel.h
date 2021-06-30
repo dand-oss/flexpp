@@ -264,7 +264,7 @@ class YY_@_CLASS YY_@_INHERIT
  int yy_get_next_buffer();
  void yyunput( YY_@_CHAR  c, YY_@_CHAR  *buf_ptr );
  /* use long instead of yy_state_type because it is undef */
- long yy_get_previous_state_ ( void );
+ long yy_get_previous_state_();
  long yy_try_NUL_trans_  ( long current_state_ );
  protected:/* non virtual */
  YY_BUFFER_STATE YY_@_CURRENT_BUFFER;

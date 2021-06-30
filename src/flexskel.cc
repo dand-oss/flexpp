@@ -634,11 +634,11 @@ int YY_@_CLASS::yy_get_next_buffer()
 /* yy_get_previous_state - get the state just before the EOB char was reached
  *
  * synopsis
- *     yy_state_type yy_get_previous_state();
+ *     yy_state_type yy_get_previous_state( void );
  */
 
 #ifndef YY_USE_CLASS
-static yy_state_type yy_get_previous_state()
+static yy_state_type yy_get_previous_state( void )
 #else
 long YY_@_CLASS::yy_get_previous_state_()
 #endif

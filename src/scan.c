@@ -516,7 +516,7 @@ class YY_lex_CLASS YY_lex_INHERIT
  int yy_get_next_buffer();
  void yyunput( YY_lex_CHAR  c, YY_lex_CHAR  *buf_ptr );
  /* use long instead of yy_state_type because it is undef */
- long yy_get_previous_state_ ( void );
+ long yy_get_previous_state_();
  long yy_try_NUL_trans_  ( long current_state_ );
  protected:/* non virtual */
  YY_BUFFER_STATE YY_lex_CURRENT_BUFFER;
@@ -2907,11 +2907,11 @@ int YY_lex_CLASS::yy_get_next_buffer()
 /* yy_get_previous_state - get the state just before the EOB char was reached
  *
  * synopsis
- *     yy_state_type yy_get_previous_state();
+ *     yy_state_type yy_get_previous_state( void );
  */
 
 #ifndef YY_USE_CLASS
-static yy_state_type yy_get_previous_state()
+static yy_state_type yy_get_previous_state( void )
 #else
 long YY_lex_CLASS::yy_get_previous_state_()
 #endif
