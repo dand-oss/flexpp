@@ -123,7 +123,7 @@ Code added before internal cleanup in destructor\.
 .IP "\\fBIOSTREAM\\fP"
 If defined, this flag makes flex use the \fBiostream\fP library\. The behaviour is much the same, but instead of \fBFILE *\fP, yyin and yyout are \fBstd::istream *\fP and \fBstd::ostream *\fP\. They point to \fBstd::cin\fP and \fBstd::cout\fP by default\. Debug messages and fatal errors are printed on \fBstd::cerr\fP\. \fBBUFFER\fP refers to \fBstd::istream *\fP instead of \fBFILE *\fP\. These values are default, but like with \fBstdio\fP you can change them with the same \fB%define\fP\. \fB<iostream>\fP is also included\.
 .IP "\\fBIFILE\\fP"
-Type of the structure that represents IN file (\fByyin\fP)\. Normally \fBFILE\fP, or \fBstd::istream\fP if \fBIOSTREAM\fP is defined\. \fBBUFFER\fP function use also pointer to this type\.
+Type of the structure that represents IN file (\fByyin\fP)\. Normally \fBFILE\fP, or \fBstd::istream\fP if \fBIOSTREAM\fP is defined\. \fBBUFFER\fP functions also use pointer to this type\.
 .IP "\\fBIFILE_DEFAULT\\fP"
 Initial value of \fBIN\fP (yyin)\. Normally \fBstdin\fP, or \fB&std::cin\fP if \fBIOSTREAM\fP is defined\.
 .IP "\\fBOFILE\\fP"
@@ -216,17 +216,17 @@ protected:/* non virtual */
 .PP
 YY_BUFFER_STATE %CURRENT_BUFFER;
 .PP
-void %RESTART ( FILE *input_file );
+void %RESTART ( %IFILE *input_file );
 .PP
 void %SWITCH_TO_BUFFER( YY_BUFFER_STATE new_buffer );
 .PP
 void %LOAD_BUFFER_STATE( void );
 .PP
-YY_BUFFER_STATE %CREATE_BUFFER( FILE *file, int size );
+YY_BUFFER_STATE %CREATE_BUFFER( %IFILE *file, int size );
 .PP
 void %DELETE_BUFFER( YY_BUFFER_STATE b );
 .PP
-void %INIT_BUFFER( YY_BUFFER_STATE b, FILE *file );
+void %INIT_BUFFER( YY_BUFFER_STATE b, %IFILE *file );
 .PP
 protected: /* virtual */
 .PP
@@ -250,7 +250,9 @@ public:
 .PP
 int %LENG;
 .PP
-FILE *%IN, *%OUT;
+%IFILE *%IN;
+.PP
+%OFILE *%OUT;
 .PP
 %LEX_RETURN %LEX ( %LEX_PARAM);
 .PP
@@ -344,7 +346,9 @@ unsigned char *yytext;
 .PP
 int yyleng;
 .PP
-FILE *yyin, *yyout;
+FILE *yyin;
+.PP
+FILE *yyout;
 .PP
 int yylex ( void);
 .PP

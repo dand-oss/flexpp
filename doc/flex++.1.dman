@@ -72,7 +72,7 @@
 	-{"DESTRUCTOR_CODE"} Code added before internal cleanup in destructor.
 
 	-{"IOSTREAM"} If defined, this flag makes flex use the "iostream" library. The behaviour is much the same, but instead of "FILE *", yyin and yyout are "std::istream *" and "std::ostream *". They point to "std::cin" and "std::cout" by default. Debug messages and fatal errors are printed on "std::cerr". "BUFFER" refers to "std::istream *" instead of "FILE *". These values are default, but like with "stdio" you can change them with the same "\%define". "\<iostream\>" is also included.
-	-{"IFILE"} Type of the structure that represents IN file ("yyin"). Normally "FILE", or "std::istream" if "IOSTREAM" is defined. "BUFFER" function use also pointer to this type.
+	-{"IFILE"} Type of the structure that represents IN file ("yyin"). Normally "FILE", or "std::istream" if "IOSTREAM" is defined. "BUFFER" functions also use pointer to this type.
 	-{"IFILE_DEFAULT"} Initial value of "IN" (yyin). Normally "stdin", or "&std::cin" if "IOSTREAM" is defined.
 	-{"OFILE"} Type of the structure that represent OUT file ("yyout"). Normally "FILE", or "std::ostream" if "IOSTREAM" is defined.
 	-{"OFILE_DEFAULT"} Initial value of "OUT" (yyout). Normally "stdout", or "&std::cout" if "IOSTREAM" is defined.
@@ -120,12 +120,12 @@
 	// Others are secret, don't use.
  	protected:/* non virtual */
  	YY_BUFFER_STATE \%CURRENT_BUFFER;
- 	void \%RESTART ( FILE *input_file );
+ 	void \%RESTART ( \%IFILE *input_file );
  	void \%SWITCH_TO_BUFFER( YY_BUFFER_STATE new_buffer );
  	void \%LOAD_BUFFER_STATE( void );
- 	YY_BUFFER_STATE \%CREATE_BUFFER( FILE *file, int size );
+ 	YY_BUFFER_STATE \%CREATE_BUFFER( \%IFILE *file, int size );
  	void \%DELETE_BUFFER( YY_BUFFER_STATE b );
- 	void \%INIT_BUFFER( YY_BUFFER_STATE b, FILE *file );
+ 	void \%INIT_BUFFER( YY_BUFFER_STATE b, \%IFILE *file );
  	protected: /* virtual */
 	// these 4 virtual function may be declared PURE (=0), with the symbols like \%ECHO_PURE,... 
 	// these 4 virtual function may not be defined in the generated code, with the symbol like \%ECHO_NOCODE,... 
@@ -137,7 +137,8 @@
  	public:
  	\%CHAR  *\%TEXT;
  	int \%LENG;
- 	FILE *\%IN, *\%OUT;
+ 	\%IFILE *\%IN;
+ 	\%OFILE *\%OUT;
  	\%LEX_RETURN \%LEX ( \%LEX_PARAM);
  	\%CLASS(\%CONSTRUCTOR_PARAM) ;
  	~\%CLASS() ;
@@ -187,7 +188,8 @@
  	public:
  	unsigned char  *yytext;
  	int yyleng;
- 	FILE *yyin, *yyout;
+ 	FILE *yyin;
+ 	FILE *yyout;
  	int yylex ( void);
  	lexer() ;
  	~lexer() ;
