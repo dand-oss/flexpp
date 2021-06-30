@@ -546,7 +546,7 @@ do_action:      /* this label is used only to access EOF actions */
 /* yy_get_next_buffer - try to read in a new buffer
  *
  * synopsis
- *     int yy_get_next_buffer();
+ *     int yy_get_next_buffer( void );
  *
  * returns a code representing an action
  *     EOB_ACT_LAST_MATCH -
@@ -554,7 +554,7 @@ do_action:      /* this label is used only to access EOF actions */
  *     EOB_ACT_END_OF_FILE - end of file
  */
 #ifndef YY_USE_CLASS
-static int yy_get_next_buffer()
+static int yy_get_next_buffer( void )
 #else
 int YY_@_CLASS::yy_get_next_buffer()
 #endif

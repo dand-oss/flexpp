@@ -2819,7 +2819,7 @@ YY_FATAL_ERROR( "flex scanner jammed" );
 /* yy_get_next_buffer - try to read in a new buffer
  *
  * synopsis
- *     int yy_get_next_buffer();
+ *     int yy_get_next_buffer( void );
  *
  * returns a code representing an action
  *     EOB_ACT_LAST_MATCH -
@@ -2827,7 +2827,7 @@ YY_FATAL_ERROR( "flex scanner jammed" );
  *     EOB_ACT_END_OF_FILE - end of file
  */
 #ifndef YY_USE_CLASS
-static int yy_get_next_buffer()
+static int yy_get_next_buffer( void )
 #else
 int YY_lex_CLASS::yy_get_next_buffer()
 #endif
