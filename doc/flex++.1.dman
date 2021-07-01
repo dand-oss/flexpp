@@ -111,42 +111,42 @@
 	class \%CLASS \%INHERIT
 	\{
 	private:/* data */
-	>// Secret, don't use.
+	>	// Secret, don't use.
 	private: /* functions */
-	>void yy_initialize();
-	>int input();
-	>int yyinput() \{return input();\}
-	>void yyunput( \%CHAR  c, \%CHAR  *buf_ptr );
-	>// Others are secret, don't use.
+	>	void yy_initialize();
+	>	int input();
+	>	int yyinput() \{return input();\}
+	>	void yyunput( \%CHAR  c, \%CHAR  *buf_ptr );
+	>	// Others are secret, don't use.
 	protected:/* non virtual */
-	>YY_BUFFER_STATE \%CURRENT_BUFFER;
-	>void \%RESTART ( \%IFILE *input_file );
-	>void \%SWITCH_TO_BUFFER( YY_BUFFER_STATE new_buffer );
-	>void \%LOAD_BUFFER_STATE();
-	>YY_BUFFER_STATE \%CREATE_BUFFER( \%IFILE *file, int size );
-	>void \%DELETE_BUFFER( YY_BUFFER_STATE b );
-	>void \%INIT_BUFFER( YY_BUFFER_STATE b, \%IFILE *file );
+	>	YY_BUFFER_STATE \%CURRENT_BUFFER;
+	>	void \%RESTART ( \%IFILE *input_file );
+	>	void \%SWITCH_TO_BUFFER( YY_BUFFER_STATE new_buffer );
+	>	void \%LOAD_BUFFER_STATE();
+	>	YY_BUFFER_STATE \%CREATE_BUFFER( \%IFILE *file, int size );
+	>	void \%DELETE_BUFFER( YY_BUFFER_STATE b );
+	>	void \%INIT_BUFFER( YY_BUFFER_STATE b, \%IFILE *file );
 	protected: /* virtual */
-	>// these 4 virtual function may be declared PURE (=0), with the symbols like \%ECHO_PURE,... 
-	>// these 4 virtual function may not be defined in the generated code, with the symbol like \%ECHO_NOCODE,... 
-	>// these 4 virtual function may be defined with another code, with the symbol like ECHO_CODE,... 
-	>virtual void \%ECHO(); 
-	>virtual int  \%INPUT(char  *buf,int &result,int max_size);
-	>virtual void  \%FATAL_ERROR(const char *msg);
-	>virtual int  \%WRAP();
+	>	// these 4 virtual function may be declared PURE (=0), with the symbols like \%ECHO_PURE,... 
+	>	// these 4 virtual function may not be defined in the generated code, with the symbol like \%ECHO_NOCODE,... 
+	>	// these 4 virtual function may be defined with another code, with the symbol like ECHO_CODE,... 
+	>	virtual void \%ECHO(); 
+	>	virtual int  \%INPUT(char  *buf,int &result,int max_size);
+	>	virtual void  \%FATAL_ERROR(const char *msg);
+	>	virtual int  \%WRAP();
 	public:
-	>\%CHAR  *\%TEXT;
-	>int \%LENG;
-	>\%IFILE *\%IN;
-	>\%OFILE *\%OUT;
-	>\%LEX_RETURN \%LEX ( \%LEX_PARAM);
-	>\%CLASS(\%CONSTRUCTOR_PARAM) ;
-	>virtual ~\%CLASS() ;
+	>	\%CHAR  *\%TEXT;
+	>	int \%LENG;
+	>	\%IFILE *\%IN;
+	>	\%OFILE *\%OUT;
+	>	\%LEX_RETURN \%LEX ( \%LEX_PARAM);
+	>	\%CLASS(\%CONSTRUCTOR_PARAM) ;
+	>	virtual ~\%CLASS() ;
 	#if \%DEBUG != 0
-	>int \%DEBUG_FLAG;
+	>	int \%DEBUG_FLAG;
 	#endif
 	public: /* added members */
-	>\%MEMBERS 
+	>	\%MEMBERS 
 	\};
 
 	// this is the code for the virtual function 
@@ -165,36 +165,36 @@
 	class lexer 
 	\{
 	private:/* data */
-	>// Secret, don't use.
+	>	// Secret, don't use.
 	private: /* functions */
-	>void yy_initialize();
-	>int input();
-	>int yyinput() \{return input();\}
-	>void yyunput( unsigned char  c, unsigned char  *buf_ptr );
-	>// Others are secret, don't use.
+	>	void yy_initialize();
+	>	int input();
+	>	int yyinput() \{return input();\}
+	>	void yyunput( unsigned char  c, unsigned char  *buf_ptr );
+	>	// Others are secret, don't use.
 	protected:/* non virtual */
-	>YY_BUFFER_STATE YY_CURRENT_BUFFER;
-	>void yyrestart ( FILE *input_file );
-	>void yy_switch_to_buffer( YY_BUFFER_STATE new_buffer );
-	>void yy_load_buffer_state();
-	>YY_BUFFER_STATE yy_create_buffer( FILE *file, int size );
-	>void yy_delete_buffer( YY_BUFFER_STATE b );
-	>void yy_init_buffer( YY_BUFFER_STATE b, FILE *file );
+	>	YY_BUFFER_STATE YY_CURRENT_BUFFER;
+	>	void yyrestart ( FILE *input_file );
+	>	void yy_switch_to_buffer( YY_BUFFER_STATE new_buffer );
+	>	void yy_load_buffer_state();
+	>	YY_BUFFER_STATE yy_create_buffer( FILE *file, int size );
+	>	void yy_delete_buffer( YY_BUFFER_STATE b );
+	>	void yy_init_buffer( YY_BUFFER_STATE b, FILE *file );
 	protected: /* virtual */
-	>virtual void yy_echo(); 
-	>virtual int  yy_input(char  *buf,int &result,int max_size);
-	>virtual void  yy_fatal_error(const char *msg);
-	>virtual int  yy_wrap();
+	>	virtual void yy_echo(); 
+	>	virtual int  yy_input(char  *buf,int &result,int max_size);
+	>	virtual void  yy_fatal_error(const char *msg);
+	>	virtual int  yy_wrap();
 	public:
-	>unsigned char  *yytext;
-	>int yyleng;
-	>FILE *yyin;
-	>FILE *yyout;
-	>int yylex ( void);
-	>lexer() ;
-	>virtual ~lexer() ;
+	>	unsigned char  *yytext;
+	>	int yyleng;
+	>	FILE *yyin;
+	>	FILE *yyout;
+	>	int yylex ( void);
+	>	lexer() ;
+	>	virtual ~lexer() ;
 	#if YY_lexer_DEBUG != 0
-	>int yy_flex_debug;
+	>	int yy_flex_debug;
 	#endif
 	public: /* added members */
 	\};
