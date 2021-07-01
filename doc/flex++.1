@@ -38,7 +38,7 @@ Like \fB%{\fP, but include this text in the header\. End with \fB%}\fP\. When pu
 These are the symbols you can define with \fB%define\fP in the declaration section, or that are already defined\. Remember that they are replaced by a preprocessor \fB#define YY_\fP'\fIscanner_name\fP'\fB_\fP'\fIname\fP'\.
 .\"bloc1[
 .IP "\\fBFLEX_SCANNER\\fP"
-Automatically defined in the code\. Used for conditioanl code\. It is effectively defined at the point of the \fB%name\fP directive, or at the point of the \fB%%\fP between section 1 and 2\.
+Automatically defined in the code\. Used for conditional code\. It is effectively defined at the point of the \fB%name\fP directive, or at the point of the \fB%%\fP between section 1 and 2\.
 .IP "\\fBCHAR\\fP"
 Automatically defined in the code\. Define the type of char used depending of the 8\-bits flag (\fBunsigned char\fP if 8\-bit, \fBchar\fP if 7\-bit)\. It is effectively defined at the point of the \fB%name\fP directive, or at the point of the \fB%%\fP between section 1 and 2\. You cannot use it before\.
 .IP "\\fBDEBUG\\fP"
@@ -113,7 +113,7 @@ Indicate that the corresponding member function is not to be defined in the gene
 .PD
 Give the body code of the corresponding member function\. Default is to implement standard behaviour\. Ignored if \fIfunction\fP\fB_PURE\fP or \fIfunction\fP\fB_NOCODE\fP are defined\.
 .IP "\\fBCONSTRUCTOR_PARAM\\fP"
-List of parameters of the constructor\. Don't allows default value\.
+List of parameters of the constructor\. Default parameter values are not allowed\.
 .IP "\\fBCONSTRUCTOR_INIT\\fP"
 List of initialisation before constructor call\. If not empty don't forget the \fB:\fP before list of initialisation\.
 .IP "\\fBCONSTRUCTOR_CODE\\fP"
@@ -188,7 +188,7 @@ Indicate that class will be produced\. Default if C++\.
 .SH "C++ CLASS GENERATED" 
 To simplify the notation, we note \fB%SYMBOLNAME\fP the preprocessor symbol generated with a \fB%define\fP of this name\. In fact see the use of \fB%define\fP for its real name\.
 .PP
-Note that there are sometimes symbols that differ by only an underscore \fB_\fP, like \fByywrap\fP and \fByy_wrap\fP\. They are much different\. In this case \fByy_wrap()\fP is a virtual member function, and \fByywrap()\fP is a macro\.
+Note that there are sometimes symbols that differ by only an underscore \fB_\fP, like \fByywrap\fP and \fByy_wrap\fP\. They are very different\. In this case \fByy_wrap()\fP is a virtual member function, and \fByywrap()\fP is a macro\.
 .SS "General Class declaration" 
 // Here is the declaration made in the header
 .PP
@@ -237,11 +237,11 @@ void %INIT_BUFFER( YY_BUFFER_STATE b, %IFILE *file );
 protected: /* virtual */
 .\"bloc1[
 .IP
-// these 4 virtual function may be declared PURE (=0), with the symbols like %ECHO_PURE,\.\.\.
+// these 4 virtual function may be declared PURE (=0), with symbols like %ECHO_PURE,\.\.\.
 .IP
-// these 4 virtual function may not be defined in the generated code, with the symbol like %ECHO_NOCODE,\.\.\.
+// these 4 virtual function may not be defined in the generated code, with symbols like %ECHO_NOCODE,\.\.\.
 .IP
-// these 4 virtual function may be defined with another code, with the symbol like ECHO_CODE,\.\.\.
+// these 4 virtual function may be defined with another code, with symbols like %ECHO_CODE,\.\.\.
 .IP
 virtual void %ECHO();
 .IP
@@ -288,13 +288,13 @@ public: /* added members */
 .PP
 // this is the code for the virtual function
 .PP
-// may be disabled with symbol like ECHO_PURE or ECHO_NOCODE
+// may be disabled with symbols like %ECHO_PURE or %ECHO_NOCODE
 .PP
 void %CLASS::%ECHO() // echo the current token
 .PP
 {%ECHO_CODE}
 .PP
-int %CLASS::%INPUT(char * buffer,int &result,int max_size) // read a bloc of text
+int %CLASS::%INPUT(char * buffer,int &result,int max_size) // read a block of text
 .PP
 {%INPUT_CODE}
 .PP
@@ -398,7 +398,7 @@ void lexer::yy_echo() // echo the current token
 .PP
 {fwrite( (char *) yytext, yyleng, 1, yyout );}
 .PP
-int lexer::yy_input(char * buffer,int &result,int max_size) // read a bloc of text
+int lexer::yy_input(char * buffer,int &result,int max_size) // read a block of text
 .PP
 {return result= fread( buffer, 1,max_size, yyin );}
 .PP
@@ -422,9 +422,9 @@ This man page has been produced through a parser made in C++ with this version o
 .SH "FILES" 
 .\"bloc1[
 .IP "\\fBflexskel\\.cc\\fP"
-main skeleton\.
+Main skeleton\.
 .IP "\\fBflexskel\\.h\\fP"
-header skeleton\.
+Header skeleton\.
 .\"bloc1]
 .SH "ENVIRONMENT" 
 .SH "DIAGNOSTICS" 
@@ -438,7 +438,7 @@ Because \fBflex++\fP puts a \fB#include\fP of the generated header in the genera
 .PP
 Parameters are richer than before, and nothing is removed\. POSIX compliance can be enforced by not using extensions\. If you want to forbid them, there is a good job for you\.
 .PP
-The grammar file scanner now supports any EndOfLine sequence (CR, LF, CRLF), event inside the same file\. So dont worry if it accept files from MSDOS, MacIntosh, and UNIX, with neither any message nor any problem\. This is not a bug\.
+The grammar file scanner now supports any EndOfLine sequence (CR, LF, CRLF), event inside the same file\. So don't worry if it accept files from MSDOS, MacIntosh, and UNIX, with neither any message nor any problem\. This is not a bug\.
 .PP
 The automatic \fB%define\fP symbols \fBDEBUG\fP, \fBFLEX_SCANNER\fP and \fBCHAR\fP, are added only after the \fB%name\fP directive, or at the \fB%%\fP between section 1 and 2\. You cannot use them before, neither in \fB%header{\fP, nor \fB%{\fP\. A good practice is to always give a name, and to give it first\. The old \fB#define\fP symbols are still defined at top for backward compatibility\.
 .SH "FUTURE WORKS" 
@@ -453,6 +453,6 @@ With this install the executable is named flex++\. Rename it flex if you want, b
 .SH "AUTHORS" 
 Alain Coe\*:tmeur (coetmeur@icdc\.fr), R&D department (RDT), Informatique\-CDC, France\.
 .SH "RESTRICTIONS" 
-The words 'we', and 'us' mean the author and colleages, not GNU\. We don't have contacted GNU about this, nowaday\. If you're in GNU, we are ready to propose it to you, and you may tell us what you think about\.
+The words 'we', and 'us' mean the author and colleagues, not GNU\. We have not contacted GNU about this\. If you're in GNU, we are ready to propose it to you, and you may tell us what you think about it\.
 .PP
 Based on GNU version 2\.3\.8 of flex\. Modified by the author\.
