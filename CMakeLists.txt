@@ -5,7 +5,7 @@ set(exename "flex++")
 set(libname "libflex++")
 
 set(BISON_DIR "/usr/local/bin"
-    CACHE PATH "Locatoin of Bison++")
+    CACHE PATH "Location of Bison++")
 
 include(GNUInstallDirs)
 
@@ -18,7 +18,10 @@ add_definitions(
     )
 
 if ( WIN32 )
-    add_definitions(-D_MSDOS -D_CRT_SECURE_NO_WARNINGS)
+    add_definitions(
+        -D_MSDOS
+        -D_CRT_SECURE_NO_WARNINGS
+        )
 endif()
 
 foreach(s
