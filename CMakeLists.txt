@@ -77,6 +77,10 @@ add_custom_command(
 
 # intermediate flex to generate scan.c, built with initscan,
 add_executable(firstflex)
+target_include_directories(firstflex PRIVATE
+    src
+    ${CMAKE_CURRENT_BINARY_DIR}
+    )
 target_compile_definitions(firstflex PRIVATE
     STDC_HEADERS=1
     HAVE_STRING_H=1
@@ -118,6 +122,40 @@ endif(UNIX)
 
 # finally, flex
 add_executable(${exename})
+target_include_directories(${exename} PRIVATE
+    src
+    ${CMAKE_CURRENT_BINARY_DIR}
+    )
+target_compile_definitions(firstflex PRIVATE
+    STDC_HEADERS=1
+    HAVE_STRING_H=1
+    DEFAULT_CSIZE=256
+    )
+if ( WIN32 )
+    target_compile_definitions(firstflex PRIVATE
+        _MSDOS
+        _CRT_SECURE_NO_WARNINGS
+        )
+endif()
+target_sources(firstflex PRIVATE
+    ${flexpp_sources}
+    src/initscan.c)
+if (MSVC)
+endif (MSVC)
+
+# library with one file
+if (WIN32)
+    add_library(${libname} STATIC)
+else (WIN32)
+    add_library(${libname} SHARED)
+endif (WIN32)
+set_target_properties(${libname} PROPERTIES OUTPUT_NAME "flex++")
+target_sources(${libname} PRIVATE
+    src/libmain.c)
+#####
+# Can't get link yet...
+#####
+if(UNIX)
 target_compile_definitions(${exename} PRIVATE
     STDC_HEADERS=1
     HAVE_STRING_H=1
