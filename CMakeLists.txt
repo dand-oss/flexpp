@@ -11,15 +11,6 @@ include(GNUInstallDirs)
 
 # for all files in this directory..
 include_directories(src ${CMAKE_CURRENT_BINARY_DIR})
-add_definitions(
-    -DSTDC_HEADERS=1
-    -DHAVE_STRING_H=1
-    -DDEFAULT_CSIZE=256
-    )
-
-if ( WIN32 )
-    add_definitions(-D_MSDOS -D_CRT_SECURE_NO_WARNINGS)
-endif()
 
 foreach(s
     ccl.c
@@ -86,6 +77,17 @@ add_custom_command(
 
 # intermediate flex to generate scan.c, built with initscan,
 add_executable(firstflex)
+target_compile_definitions(firstflex PRIVATE
+    STDC_HEADERS=1
+    HAVE_STRING_H=1
+    DEFAULT_CSIZE=256
+    )
+if ( WIN32 )
+    target_compile_definitions(firstflex PRIVATE
+        _MSDOS
+        _CRT_SECURE_NO_WARNINGS
+        )
+endif()
 target_sources(firstflex PRIVATE
     ${flexpp_sources}
     src/initscan.c)
@@ -116,6 +118,17 @@ endif(UNIX)
 
 # finally, flex
 add_executable(${exename})
+target_compile_definitions(${exename} PRIVATE
+    STDC_HEADERS=1
+    HAVE_STRING_H=1
+    DEFAULT_CSIZE=256
+    )
+if ( WIN32 )
+    target_compile_definitions(${exename} PRIVATE
+        _MSDOS
+        _CRT_SECURE_NO_WARNINGS
+        )
+endif()
 target_sources(${exename} PRIVATE
     ${flexpp_sources}
     ${CMAKE_CURRENT_BINARY_DIR}/scan.c)
