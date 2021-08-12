@@ -424,7 +424,7 @@ void gen_next_compressed_state( char_map )
 char *char_map;
 
     {
-    indent_put2s( "register YY_CHAR yy_c = %s;", char_map );
+    indent_put2s( "YY_CHAR yy_c = %s;", char_map );
 
     /* save the backtracking info \before/ computing the next state
      * because we always compute one more state than needed - we
@@ -504,8 +504,8 @@ void gen_next_match()
     else if ( fullspd )
 	{
 	indent_puts( "{" );
-	indent_puts( "register const struct yy_trans_info *yy_trans_info;\n" );
-	indent_puts( "register YY_CHAR yy_c;\n" );
+	indent_puts( "const struct yy_trans_info *yy_trans_info;\n" );
+	indent_puts( "YY_CHAR yy_c;\n" );
 	indent_put2s( "for ( yy_c = %s;", char_map );
 	indent_puts(
 	"      (yy_trans_info = &yy_current_state[yy_c])->yy_verify == yy_c;" );
@@ -628,7 +628,7 @@ void gen_NUL_trans()
 
     if ( need_backtracking )
 	/* we'll need yy_cp lying around for the gen_backtracking() */
-	indent_puts( "register YY_CHAR *yy_cp = yy_c_buf_p;" );
+	indent_puts( "YY_CHAR *yy_cp = yy_c_buf_p;" );
 
     putchar( '\n' );
 
@@ -649,10 +649,10 @@ void gen_NUL_trans()
     else if ( fullspd )
 	{
 	do_indent();
-	printf( "register int yy_c = %d;\n", NUL_ec );
+	printf( "int yy_c = %d;\n", NUL_ec );
 
 	indent_puts(
-	    "register const struct yy_trans_info *yy_trans_info;\n" );
+	    "const struct yy_trans_info *yy_trans_info;\n" );
 	indent_puts( "yy_trans_info = &yy_current_state[yy_c];" );
 	indent_puts( "yy_current_state += yy_trans_info->yy_nxt;" );
 
@@ -1262,7 +1262,7 @@ void make_tables()
     skelout();
 
     if ( bol_needed )
-	indent_puts( "register YY_CHAR *yy_bp = yy___text;\n" );
+	indent_puts( "YY_CHAR *yy_bp = yy___text;\n" );
 
     gen_start_state();
 
