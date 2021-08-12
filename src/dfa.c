@@ -158,7 +158,7 @@ int ds;
 
     for ( i = 1; i <= size; ++i )
 	{
-	register rule_num = rule_linenum[assoc_rule[dset[i]]];
+	register int rule_num = rule_linenum[assoc_rule[dset[i]]];
 
 	for ( j = 1; j <= num_associated_rules; ++j )
 	    if ( rule_num == rule_set[j] )
