@@ -94,7 +94,7 @@ int num_backtracking, bol_needed;
 FILE *temp_action_file;
 FILE *backtrack_file;
 int end_of_buffer_state;
-char *action_file_name = NULL;
+char *action_file_name;
 char **input_files;
 int num_input_files;
 char *program_name;
@@ -760,7 +760,7 @@ get_next_arg: /* used by -C and -S flags in lieu of a "continue 2" control */
 	action_file_name = temp_action_file_name;
 	}
 
-    if ( (temp_action_file = fopen( action_file_name, "w" )) == NULL )
+    if ( (temp_action_file = fopen( action_file_name, "w+" )) == NULL )
 	lerrsf( "can't open temporary action file %s", action_file_name );
 
     lastdfa = lastnfa = num_rules = numas = numsnpairs = tmpuses = 0;

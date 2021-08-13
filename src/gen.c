@@ -1171,13 +1171,7 @@ void make_tables()
     if ( ferror( temp_action_file ) )
 	flexfatal( "error occurred when writing temporary action file" );
 
-    else if ( fclose( temp_action_file ) )
-	flexfatal( "error occurred when closing temporary action file" );
-
-    temp_action_file = fopen( action_file_name, "r" );
-
-    if ( temp_action_file == NULL )
-	flexfatal( "could not re-open temporary action file" );
+    rewind( temp_action_file );
 
     /* copy prolog from action_file to output file */
     action_out();

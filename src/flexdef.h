@@ -422,7 +422,6 @@ extern int yymore_really_used, reject_really_used;
 			 (default=headerfilename)
  * headerfile - output header file
  * outputfilename - output  file name
- * action_file_name - name of the temporary file
  * input_files - array holding names of input files
  * num_input_files - size of input_files array
  * program_name - name with which program was invoked
@@ -442,7 +441,6 @@ extern char *includefilename;
 extern FILE *headerfile;
 extern char *skelheaderfilename;
 extern FILE *skelheaderfile;
-extern char *action_file_name;
 extern char **input_files;
 extern int num_input_files;
 extern char *program_name;
