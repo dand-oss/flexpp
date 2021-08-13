@@ -203,7 +203,7 @@ int status;
     if ( skelfile != NULL )
 	{
 	if ( ferror( skelfile ) )
-	    flexfatal( "error occurred when writing skeleton file" );
+	    flexfatal( "error occurred when reading skeleton file" );
 
 	else if ( fclose( skelfile ) )
 	    flexfatal( "error occurred when closing skeleton file" );
@@ -212,7 +212,7 @@ int status;
     if ( skelheaderfile != NULL )
 	{
 	if ( ferror( skelheaderfile ) )
-	    flexfatal( "error occurred when writing header skeleton file" );
+	    flexfatal( "error occurred when reading header skeleton file" );
 
 	else if ( fclose( skelheaderfile ) )
 	    flexfatal( "error occurred when closing haeder skeleton file" );
@@ -221,7 +221,7 @@ int status;
     if ( temp_action_file )
 	{
 	if ( ferror( temp_action_file ) )
-	    flexfatal( "error occurred when writing temporary action file" );
+	    flexfatal( "error occurred when reading/writing temporary action file" );
 
 	else if ( fclose( temp_action_file ) )
 	    flexfatal( "error occurred when closing temporary action file" );
