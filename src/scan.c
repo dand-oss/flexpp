@@ -3246,6 +3246,7 @@ void YY_lex_CLASS::YY_lex_INIT_BUFFER( YY_BUFFER_STATE b, YY_lex_IFILE  *file)
 int yywrap()
 
     {
+    fclose( yyin );
     if ( --num_input_files > 0 )
 	{
 	set_input_file( *++input_files );
