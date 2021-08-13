@@ -1168,6 +1168,8 @@ void make_tables()
 
     skelout();
 
+    fflush( temp_action_file );
+
     if ( ferror( temp_action_file ) )
 	flexfatal( "error occurred when writing temporary action file" );
 
