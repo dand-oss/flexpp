@@ -559,6 +559,7 @@ ESCSEQ		\\([^\n\r]|[0-9]{1,3}|x[0-9a-f]{1,2})
 int yywrap()
 
     {
+    fclose( yyin );
     if ( --num_input_files > 0 )
 	{
 	set_input_file( *++input_files );
