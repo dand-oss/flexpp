@@ -56,15 +56,10 @@
 #endif
 #endif
 
-#ifdef USG
-#define SYS_V
-#endif
-
 #ifdef MS_DOS
 /* read' : unresolved external  */
 /* #define fileno _fileno' : unresolved external */
 #include <io.h>
-#define mktemp _mktemp
 #define unlink remove
 #define read _read
 #define fileno _fileno
@@ -75,7 +70,6 @@
 #include <string.h>
 
 #ifdef ATARI
-#define SYS_V
 #define abs(x) ((x) < 0 ? -(x) : (x))
 #define SHORT_FILE_NAMES
 #ifdef TURBO

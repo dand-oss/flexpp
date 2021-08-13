@@ -435,8 +435,8 @@ char **argv;
 
     {
     int i, sawcmpflag;
-    char *arg, *flex_gettime(), *mktemp();
-	char *tmp_action=(char *)0;
+    char *arg, *flex_gettime();
+    char *tmp_action = NULL;
     printstats = syntaxerror = trace = spprdflt = interactive = caseins = false;
     backtrack_report = performance_report = ddebug = fulltbl = fullspd = false;
     yymore_used = continued_action = reject = false;
@@ -653,7 +653,7 @@ get_next_arg: /* used by -C and -S flags in lieu of a "continue 2" control */
     input_files = argv;
     set_input_file( num_input_files > 0 ? input_files[0] : NULL );
     if ( (skelheaderfile = fopen( skelheaderfilename, "r" )) == NULL )
-#ifdef _MSDOS
+#ifdef MS_DOS
      if(getenv("INIT")!=NULL)
      {char *t;
       t=malloc(strlen(getenv("INIT"))+strlen(skelheaderfilename)+2);
@@ -711,7 +711,7 @@ get_next_arg: /* used by -C and -S flags in lieu of a "continue 2" control */
     /* initialize the statistics */
 
     if ( (skelfile = fopen( skelname, "r" )) == NULL )
-#ifdef _MSDOS
+#ifdef MS_DOS
        if(getenv("INIT")!=NULL)
      {char *t;
       t=malloc(strlen(getenv("INIT"))+strlen(skelname)+2);
@@ -735,17 +735,6 @@ get_next_arg: /* used by -C and -S flags in lieu of a "continue 2" control */
 	(void) strcpy( ftmp, "/flXXXXXX.tmp" );
 #endif
       action_file_name=ftmp;
-      (void) mktemp( action_file_name );
-     }
-    else
-     {
-#ifdef _MSDOS
-      action_file_name=_tempnam(".","flex");
-#else
-#ifdef SYS_V
-    action_file_name = tmpnam( NULL );
-#endif
-#endif
      }
     if ( action_file_name == NULL )
 	{
@@ -756,12 +745,15 @@ get_next_arg: /* used by -C and -S flags in lieu of a "continue 2" control */
 #else
 	(void) strcpy( temp_action_file_name, "flXXXXXX.tmp" );
 #endif
-	(void) mktemp( temp_action_file_name );
 	action_file_name = temp_action_file_name;
 	}
 
-    if ( (temp_action_file = fopen( action_file_name, "w+" )) == NULL )
-	lerrsf( "can't open temporary action file %s", action_file_name );
+#ifndef SHORT_FILE_NAMES
+    if ( (temp_action_file = fdopen( mkstemp( action_file_name ), "w+" )) == NULL )
+#else
+    if ( (temp_action_file = fdopen( mkstemps( action_file_name, 4 ), "w+" )) == NULL )
+#endif
+	flexerror( "can't open temporary action file" );
 
     lastdfa = lastnfa = num_rules = numas = numsnpairs = tmpuses = 0;
     numecs = numeps = eps2 = num_reallocs = hshcol = dfaeql = totnst = 0;
