@@ -229,7 +229,8 @@ int status;
 	if ( unlink( action_file_name ) )
 	    flexfatal( "error occurred when deleting temporary action file" );
 	}
-    else if ( headerfile  )
+
+    if ( headerfilename && headerfile )
 	{
 	if ( ferror( headerfile ) )
 	    flexfatal( "error occurred when writing header file" );
@@ -237,11 +238,11 @@ int status;
 	if ( fclose( headerfile ) )
 	    flexfatal( "error occurred when closing header file" );
 
-	if ( unlink( action_file_name ) )
-	    flexfatal( "error occurred when deleting temporary action file" );
+	if ( status != 0 && unlink( headerfilename ) )
+	    flexfatal( "error occurred when deleting header file" );
 	}
 
-    if ( status != 0 && outfile_created )
+    if ( outfile_created )
 	{
 	if ( ferror( stdout ) )
 	    flexfatal( "error occurred when writing output file" );
@@ -249,7 +250,7 @@ int status;
 	if ( fclose( stdout ) )
 	    flexfatal( "error occurred when closing output file" );
 
-	if ( unlink( outfile ) )
+	if ( status != 0 && unlink( outfile ) )
 	    flexfatal( "error occurred when deleting output file" );
 	}
 
