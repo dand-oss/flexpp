@@ -205,7 +205,7 @@ int status;
 	if ( ferror( skelfile ) )
 	    flexfatal( "error occurred when reading skeleton file" );
 
-	else if ( fclose( skelfile ) )
+	if ( fclose( skelfile ) )
 	    flexfatal( "error occurred when closing skeleton file" );
 	}
 
@@ -214,7 +214,7 @@ int status;
 	if ( ferror( skelheaderfile ) )
 	    flexfatal( "error occurred when reading header skeleton file" );
 
-	else if ( fclose( skelheaderfile ) )
+	if ( fclose( skelheaderfile ) )
 	    flexfatal( "error occurred when closing haeder skeleton file" );
 	}
 
@@ -223,10 +223,10 @@ int status;
 	if ( ferror( temp_action_file ) )
 	    flexfatal( "error occurred when reading/writing temporary action file" );
 
-	else if ( fclose( temp_action_file ) )
+	if ( fclose( temp_action_file ) )
 	    flexfatal( "error occurred when closing temporary action file" );
 
-	else if ( unlink( action_file_name ) )
+	if ( unlink( action_file_name ) )
 	    flexfatal( "error occurred when deleting temporary action file" );
 	}
     else if ( headerfile  )
@@ -234,10 +234,10 @@ int status;
 	if ( ferror( headerfile ) )
 	    flexfatal( "error occurred when writing header file" );
 
-	else if ( fclose( headerfile ) )
+	if ( fclose( headerfile ) )
 	    flexfatal( "error occurred when closing header file" );
 
-	else if ( unlink( action_file_name ) )
+	if ( unlink( action_file_name ) )
 	    flexfatal( "error occurred when deleting temporary action file" );
 	}
 
@@ -246,10 +246,10 @@ int status;
 	if ( ferror( stdout ) )
 	    flexfatal( "error occurred when writing output file" );
 
-	else if ( fclose( stdout ) )
+	if ( fclose( stdout ) )
 	    flexfatal( "error occurred when closing output file" );
 
-	else if ( unlink( outfile ) )
+	if ( unlink( outfile ) )
 	    flexfatal( "error occurred when deleting output file" );
 	}
 
@@ -267,7 +267,7 @@ int status;
 	if ( ferror( backtrack_file ) )
 	    flexfatal( "error occurred when writing backtracking file" );
 
-	else if ( fclose( backtrack_file ) )
+	if ( fclose( backtrack_file ) )
 	    flexfatal( "error occurred when closing backtracking file" );
 	}
 
