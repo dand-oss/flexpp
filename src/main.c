@@ -91,6 +91,7 @@ char *starttime, *endtime, nmstr[MAXLINE];
 int sectnum, nummt, hshcol, dfaeql, numeps, eps2, num_reallocs;
 int tmpuses, totnst, peakpairs, numuniq, numdup, hshsave;
 int num_backtracking, bol_needed;
+int temp_action_fd = -1;
 FILE *temp_action_file;
 FILE *backtrack_file;
 int end_of_buffer_state;
@@ -224,6 +225,14 @@ int status;
 	    flexfatal( "error occurred when reading/writing temporary action file" );
 
 	if ( fclose( temp_action_file ) )
+	    flexfatal( "error occurred when closing temporary action file" );
+
+	if ( unlink( action_file_name ) )
+	    flexfatal( "error occurred when deleting temporary action file" );
+	}
+    else if ( temp_action_fd >= 0 )
+	{
+	if ( close( temp_action_fd ) )
 	    flexfatal( "error occurred when closing temporary action file" );
 
 	if ( unlink( action_file_name ) )
@@ -702,9 +711,6 @@ get_next_arg: /* used by -C and -S flags in lieu of a "continue 2" control */
 	    flexerror( "could not create lex.backtrack" );
 	}
 
-    else
-	backtrack_file = NULL;
-
 
     lastccl = 0;
     lastsc = 0;
@@ -726,34 +732,25 @@ get_next_arg: /* used by -C and -S flags in lieu of a "continue 2" control */
      else
 #endif
 	lerrsf( "can't open skeleton file %s", skelname );
-    if(tmp_action)
-     {char *ftmp;
-      ftmp=malloc(strlen(tmp_action)+1+32);
-      strcpy(ftmp,tmp_action);
-#ifndef SHORT_FILE_NAMES
-	(void) strcat( ftmp, "/flexXXXXXX" );
-#else
-	(void) strcat( ftmp, "/flXXXXXX.tmp" );
-#endif
-      action_file_name=ftmp;
-     }
-    if ( action_file_name == NULL )
-	{
-	static char temp_action_file_name[32];
 
-#ifndef SHORT_FILE_NAMES
-	(void) strcpy( temp_action_file_name, "/tmp/flexXXXXXX" );
+    if ( !tmp_action )
+#ifndef SHORT_FILE_NAMES  // FIxME:  Need better criteria for choosing a temp directory
+	tmp_action = "/tmp";
 #else
-	(void) strcpy( temp_action_file_name, "flXXXXXX.tmp" );
+	tmp_action = "";
 #endif
-	action_file_name = temp_action_file_name;
-	}
-
+    action_file_name = malloc(strlen(tmp_action)+1+32);
+    strcpy(action_file_name, tmp_action);
+    if ( action_file_name[0] && action_file_name[strlen(action_file_name)-1] != '/' )
+	strcat(action_file_name, "/");
 #ifndef SHORT_FILE_NAMES
-    if ( (temp_action_file = fdopen( mkstemp( action_file_name ), "w+" )) == NULL )
+    strcat(action_file_name, "flexXXXXXX");
+    temp_action_fd = mkstemp(action_file_name);
 #else
-    if ( (temp_action_file = fdopen( mkstemps( action_file_name, 4 ), "w+" )) == NULL )
+    strcat(action_file_name, "flXXXXXX.tmp");
+    temp_action_fd = mkstemps(action_file_name, 4);
 #endif
+    if ( temp_action_fd < 0 || (temp_action_file = fdopen( temp_action_fd, "w+" )) == NULL )
 	flexerror( "can't open temporary action file" );
 
     lastdfa = lastnfa = num_rules = numas = numsnpairs = tmpuses = 0;
