@@ -226,17 +226,11 @@ int status;
 
 	if ( fclose( temp_action_file ) )
 	    flexfatal( "error occurred when closing temporary action file" );
-
-	if ( unlink( action_file_name ) )
-	    flexfatal( "error occurred when deleting temporary action file" );
 	}
     else if ( temp_action_fd >= 0 )
 	{
 	if ( close( temp_action_fd ) )
 	    flexfatal( "error occurred when closing temporary action file" );
-
-	if ( unlink( action_file_name ) )
-	    flexfatal( "error occurred when deleting temporary action file" );
 	}
 
     if ( headerfilename && headerfile )
@@ -247,7 +241,7 @@ int status;
 	if ( fclose( headerfile ) )
 	    flexfatal( "error occurred when closing header file" );
 
-	if ( status != 0 && unlink( headerfilename ) )
+	if ( status != 0 && remove( headerfilename ) )
 	    flexfatal( "error occurred when deleting header file" );
 	}
 
@@ -259,7 +253,7 @@ int status;
 	if ( fclose( stdout ) )
 	    flexfatal( "error occurred when closing output file" );
 
-	if ( status != 0 && unlink( outfile ) )
+	if ( status != 0 && remove( outfile ) )
 	    flexfatal( "error occurred when deleting output file" );
 	}
 
@@ -750,6 +744,8 @@ get_next_arg: /* used by -C and -S flags in lieu of a "continue 2" control */
     strcat(action_file_name, "flXXXXXX.tmp");
     temp_action_fd = mkstemps(action_file_name, 4);
 #endif
+    if ( temp_action_fd >= 0 && unlink( action_file_name ) )
+	flexerror( "can't unlink temporary action file" );
     if ( temp_action_fd < 0 || (temp_action_file = fdopen( temp_action_fd, "w+" )) == NULL )
 	flexerror( "can't open temporary action file" );
 

@@ -60,7 +60,6 @@
 /* read' : unresolved external  */
 /* #define fileno _fileno' : unresolved external */
 #include <io.h>
-#define unlink remove
 #define read _read
 #define fileno _fileno
 #else
@@ -84,7 +83,6 @@
 #endif
 
 #ifdef VMS
-#define unlink delete
 #define SHORT_FILE_NAMES
 #endif
 
