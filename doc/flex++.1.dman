@@ -161,7 +161,7 @@
 
   :SSECTION "Default Class Declaration"
 	// Here is the default declaration made in the header when you \%define nothing
-	class lexer 
+	class lex 
 	\{
 	private:/* data */
 	>	// Secret, don't use.
@@ -190,22 +190,22 @@
 	>	FILE *yyin;
 	>	FILE *yyout;
 	>	int yylex ( void);
-	>	lexer() ;
-	>	virtual ~lexer() ;
-	#if YY_lexer_DEBUG != 0
+	>	lex() ;
+	>	virtual ~lex() ;
+	#if YY_lex_DEBUG != 0
 	>	int yy_flex_debug;
 	#endif
 	public: /* added members */
 	\};
 
 	// this is the code for the virtual function
-	void lexer::yy_echo() // echo the current token
+	void lex::yy_echo() // echo the current token
 	\{fwrite( (char *) yytext, yyleng, 1, yyout );\}
-	int  lexer::yy_input(char * buffer,int &result,int max_size) // read a block of text
+	int  lex::yy_input(char * buffer,int &result,int max_size) // read a block of text
 	\{return result= fread(  buffer, 1,max_size, yyin );\}
-	void lexer::yy_fatal_error(const char *msg) // print a fatal error
+	void lex::yy_fatal_error(const char *msg) // print a fatal error
 	\{fputs( msg, stderr );putc( '\n', stderr );exit( 1 );\}
-	int  lexer::yy_wrap() // decide if we must stop input, or continue
+	int  lex::yy_wrap() // decide if we must stop input, or continue
 	\{return 1;\}
 
 :SECTION "USAGE"
