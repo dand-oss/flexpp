@@ -1587,9 +1587,6 @@ static const short int yy_chk[2283] =
       529,  529
     } ;
 
-static yy_state_type yy_last_accepting_state;
-static YY_CHAR *yy_last_accepting_cpos;
-
 #if YY_lex_DEBUG != 0
 static const short int yy_rule_linenum[146] =
     {   0,
