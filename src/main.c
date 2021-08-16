@@ -864,7 +864,7 @@ void readin()
     if(headerfilename!=NULL)
      {char symb[32],ch;
       char *p=headerfilename;
-      int i=0;symb[0]='\0';
+      size_t i=0;symb[0]='\0';
       while(*p)
        {
 	if(*p=='/'
