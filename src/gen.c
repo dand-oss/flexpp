@@ -1065,7 +1065,7 @@ void make_tables()
     else
 	gentabs();
 
-    if ( num_backtracking > 0 )
+    if ( num_backtracking > 0 && ! reject )
 	{
 	indent_puts( "static yy_state_type yy_last_accepting_state;" );
 	indent_puts( "static YY_CHAR *yy_last_accepting_cpos;\n" );
