@@ -41,6 +41,11 @@ char copyright[] =
 
 #include "flexdef.h"
 
+#ifdef _MSC_VER
+#define mkstemp _mktemp
+#define mkstemps(a,b) _mktemp(a)
+#endif // _MSC_VER
+
 static char flex_version[] = PACKAGE_STRING ", based on 2.3.8 and modified by coetmeur@icdc.fr for c++";
 
 /* declare functions that have forward references */
