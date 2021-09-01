@@ -4,6 +4,7 @@ project(flexpp VERSION 1.0.0 LANGUAGES C)
 set(exename "flex++")
 set(libname "libflex++")
 
+set (HAS_BISON TRUE)
 set(BISON_DIR "/usr/local/bin"
     CACHE PATH "Location of Bison++")
 
@@ -18,10 +19,7 @@ add_definitions(
     )
 
 if ( WIN32 )
-    add_definitions(
-        -D_MSDOS
-        -D_CRT_SECURE_NO_WARNINGS
-        )
+    add_definitions(-D_MSDOS -D_CRT_SECURE_NO_WARNINGS)
 endif()
 
 foreach(s
@@ -41,8 +39,6 @@ endforeach()
 list(APPEND flexpp_sources ${CMAKE_CURRENT_BINARY_DIR}/parse.c)
 
 #scan.c and yylex.c need parse.h
-
-set (HAS_BISON TRUE)
 
 # make parse.c/h from parse.y
 # bootstrap with bison
@@ -92,6 +88,8 @@ add_executable(firstflex)
 target_sources(firstflex PRIVATE
     ${flexpp_sources}
     src/initscan.c)
+if (MSVC)
+endif (MSVC)
 
 # library with one file
 if (WIN32)
@@ -116,7 +114,7 @@ else(UNIX) # windows
 endif(UNIX)
 
 # finally, flex
-add_executable(${exename})
+add_executable(${exename} ${flexpp_sources})
 target_sources(${exename} PRIVATE
     ${flexpp_sources}
     ${CMAKE_CURRENT_BINARY_DIR}/scan.c)
