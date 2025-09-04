@@ -20,9 +20,10 @@ if(TARGET flexpp::flex++)
     endif()
 endif()
 
-# Export support file locations using PACKAGE variables
-set_and_check(FLEXPP_SKELETON_CC "@PACKAGE_CMAKE_INSTALL_LIBDIR@/flexskel.cc")
-set_and_check(FLEXPP_SKELETON_H "@PACKAGE_CMAKE_INSTALL_LIBDIR@/flexskel.h")
+# Export support file locations
+# PACKAGE_PREFIX_DIR is set by @PACKAGE_INIT@ and points to the installation root
+set_and_check(FLEXPP_SKELETON_CC "${PACKAGE_PREFIX_DIR}/@CMAKE_INSTALL_LIBDIR@/flexskel.cc")
+set_and_check(FLEXPP_SKELETON_H "${PACKAGE_PREFIX_DIR}/@CMAKE_INSTALL_LIBDIR@/flexskel.h")
 
 # Also export the library target for convenience
 if(TARGET flexpp::libflex++)
