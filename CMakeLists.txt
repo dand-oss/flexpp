@@ -45,7 +45,10 @@ endif()
 # Find or locate bison++ if requested
 if(FLEXPP_USE_BISON)
     # Try to find bisonpp package first
-    find_package(bisonpp QUIET)
+    find_package(bisonpp CONFIG REQUIRED PATHS ${ASV_PLAT_PORTS} NO_DEFAULT_PATH)
+    print_target_properties(
+        bisonpp::bison++
+    )
     
     if(bisonpp_FOUND)
         message(STATUS "Found bisonpp package: ${BISONPP_EXECUTABLE}")
