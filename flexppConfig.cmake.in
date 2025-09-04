@@ -7,21 +7,28 @@ if(NOT TARGET flexpp::flex++)
 endif()
 
 # Set convenience variables for consumers
-get_target_property(FLEXPP_EXECUTABLE flexpp::flex++ LOCATION)
-
-# Export support file locations - calculate from config file location
-get_filename_component(_flexpp_install_prefix "${CMAKE_CURRENT_LIST_DIR}/../../.." ABSOLUTE)
-set(FLEXPP_SKELETON_CC "${_flexpp_install_prefix}/lib/flexskel.cc")
-set(FLEXPP_SKELETON_H "${_flexpp_install_prefix}/lib/flexskel.h")
-
-# Verify files exist
-if(NOT EXISTS "${FLEXPP_SKELETON_CC}")
-    message(FATAL_ERROR "FLEXPP_SKELETON_CC file not found: ${FLEXPP_SKELETON_CC}")
+# Use a more robust method to get the executable location
+if(TARGET flexpp::flex++)
+    # Try IMPORTED_LOCATION first (works for imported targets)
+    get_target_property(FLEXPP_EXECUTABLE flexpp::flex++ IMPORTED_LOCATION)
+    if(NOT FLEXPP_EXECUTABLE)
+        # Try configuration-specific properties
+        get_target_property(FLEXPP_EXECUTABLE flexpp::flex++ IMPORTED_LOCATION_RELEASE)
+        if(NOT FLEXPP_EXECUTABLE)
+            get_target_property(FLEXPP_EXECUTABLE flexpp::flex++ IMPORTED_LOCATION_DEBUG)
+        endif()
+    endif()
 endif()
-if(NOT EXISTS "${FLEXPP_SKELETON_H}")
-    message(FATAL_ERROR "FLEXPP_SKELETON_H file not found: ${FLEXPP_SKELETON_H}")
+
+# Export support file locations using PACKAGE variables
+set_and_check(FLEXPP_SKELETON_CC "@PACKAGE_CMAKE_INSTALL_LIBDIR@/flexskel.cc")
+set_and_check(FLEXPP_SKELETON_H "@PACKAGE_CMAKE_INSTALL_LIBDIR@/flexskel.h")
+
+# Also export the library target for convenience
+if(TARGET flexpp::libflex++)
+    set(FLEXPP_LIBRARY flexpp::libflex++)
 endif()
 
 set(FLEXPP_FOUND TRUE)
 
-check_required_components(flexpp)
+check_required_components(@PROJECT_NAME@)
