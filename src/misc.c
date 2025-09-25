@@ -380,8 +380,8 @@ char msg[];
 char *flex_gettime()
 
     {
-    time_t t, time();
-    char *result, *ctime(), *copy_string();
+    time_t t, time(time_t *);
+    char *result, *ctime(time_t *), *copy_string(char *);
 
     t = time( (time_t *) 0 );
 

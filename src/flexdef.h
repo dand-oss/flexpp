@@ -657,7 +657,7 @@ extern int sectnum, nummt, hshcol, dfaeql, numeps, eps2, num_reallocs;
 extern int tmpuses, totnst, peakpairs, numuniq, numdup, hshsave;
 extern int num_backtracking, bol_needed;
 
-void *allocate_array(), *reallocate_array();
+void *allocate_array(int, int), *reallocate_array(void *, int, int);
 
 #define allocate_integer_array(size) \
 	(int *) allocate_array( size, sizeof( int ) )
@@ -746,7 +746,7 @@ extern void make_tables();      /* generate transition tables */
 
 extern void flexend(int);
 /* help on flex */
-extern int flexinfo();
+extern int flexinfo(int);
 
 
 /* from file misc.c */

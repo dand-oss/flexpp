@@ -81,7 +81,7 @@ ESCSEQ		\\([^\n\r]|[0-9]{1,3}|x[0-9a-f]{1,2})
     static int bracelevel, didadef;
     int i, indented_code, checking_used, new_xlation;
     int doing_codeblock = false;
-    Char nmdef[MAXLINE], myesc();
+    Char nmdef[MAXLINE], myesc(Char[]);
 
 ^{WS}			indented_code = true; BEGIN(CODEBLOCK);
 ^#.*{LINEFEED}			++linenum; /* treat as a comment */
@@ -399,7 +399,7 @@ ESCSEQ		\\([^\n\r]|[0-9]{1,3}|x[0-9a-f]{1,2})
 
 <SECT2>"{"{NAME}"}"	{
 			register Char *nmdefptr;
-			Char *ndlookup();
+			Char *ndlookup(char[]);
 
 			(void) strcpy( nmstr, (char *) yytext );
 			nmstr[yyleng - 1] = '\0';  /* chop trailing brace */

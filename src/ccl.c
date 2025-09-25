@@ -141,7 +141,7 @@ int cset[];
 
     {
     register int i;
-    char *readable_form();
+    char *readable_form(int);
 
     putc( '[', file );
 

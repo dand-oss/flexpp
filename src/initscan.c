@@ -1658,7 +1658,7 @@ YY_lex_LEX_RETURN YY_lex_CLASS::YY_lex_LEX ( YY_lex_LEX_PARAM)
     static int bracelevel, didadef;
     int i, indented_code, checking_used, new_xlation;
     int doing_codeblock = false;
-    Char nmdef[MAXLINE], myesc();
+    Char nmdef[MAXLINE], myesc(Char[]);
 
 /* % end of prolog */
 #line 334 "/usr/local/share/flex++/flexskel.cc"
@@ -2358,7 +2358,7 @@ case 90:
 #line 400 "scan.l"
 {
 			register Char *nmdefptr;
-			Char *ndlookup();
+			Char *ndlookup(char[]);
 
 			(void) strcpy( nmstr, (char *) yytext );
 			nmstr[yyleng - 1] = '\0';  /* chop trailing brace */

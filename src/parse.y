@@ -30,12 +30,12 @@
  */
 
 #include "flexdef.h"
-void yyerror();
+void yyerror(char *);
 void build_eof_action();
 
 int pat, scnum, eps, headcnt, trailcnt, anyccl, lastchar, i, actvp, rulelen;
 int trlcontxt, xcluflg, cclsorted, varlength, variable_trail_rule;
-Char clower();
+Char clower(Char);
 
 static int madeany = false;  /* whether we've made the '.' character class */
 int previous_continued_action;	/* whether the previous rule's action was '|' */

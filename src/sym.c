@@ -38,7 +38,7 @@ struct hash_entry *ndtbl[NAME_TABLE_HASH_SIZE];
 struct hash_entry *sctbl[START_COND_HASH_SIZE];
 struct hash_entry *ccltab[CCL_HASH_SIZE];
 
-struct hash_entry *findsym();
+struct hash_entry *findsym(char[], hash_table, int);
 
 
 /* addsym - add symbol and definitions to symbol table
@@ -118,7 +118,7 @@ int cclnum;
     /* we don't bother checking the return status because we are not called
      * unless the symbol is new
      */
-    Char *copy_unsigned_string();
+    Char *copy_unsigned_string(Char *);
 
     (void) addsym( (char *) copy_unsigned_string( ccltxt ), (char *) 0, cclnum,
 		   ccltab, CCL_HASH_SIZE );
@@ -213,8 +213,8 @@ char nd[];
 Char def[];
 
     {
-    char *copy_string();
-    Char *copy_unsigned_string();
+    char *copy_string(char *);
+    Char *copy_unsigned_string(Char *);
 
     if ( addsym( copy_string( nd ), (char *) copy_unsigned_string( def ), 0,
 		 ndtbl, NAME_TABLE_HASH_SIZE ) )
@@ -254,7 +254,7 @@ char str[];
 int xcluflg;
 
     {
-    char *copy_string();
+    char *copy_string(char *);
 
     /* bit of a hack.  We know how the default start-condition is
      * declared, and don't put out a define for it, because it

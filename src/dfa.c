@@ -411,7 +411,7 @@ void ntod()
     int num_full_table_rows;	/* used only for -f */
     int *nset, *dset;
     int targptr, totaltrans, i, comstate, comfreq, targ;
-    int *epsclosure(), snstods(), symlist[CSIZE + 1];
+    int *epsclosure(int *, int *, int[], int *, int *), snstods(int[], int, int[], int, int, int *), symlist[CSIZE + 1];
     int num_start_states;
     int todo_head, todo_next;
 

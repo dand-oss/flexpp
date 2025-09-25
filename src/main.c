@@ -439,7 +439,7 @@ char **argv;
 
     {
     int i, sawcmpflag;
-    char *arg, *flex_gettime(), *mktemp();
+    char *arg, *flex_gettime(), *mktemp(char *);
 	char *tmp_action=(char *)0;
     printstats = syntaxerror = trace = spprdflt = interactive = caseins = false;
     backtrack_report = performance_report = ddebug = fulltbl = fullspd = false;
