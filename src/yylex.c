@@ -46,7 +46,7 @@
  *     token - return token found
  */
 
-int yylex()
+int yylex(void)
 
     {
     int toktype;

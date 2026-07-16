@@ -117,9 +117,7 @@ static char *c_suffixes[]=
    {".c",".cc",".cpp",".cxx",".C",".CPP",".CXX",".CC",(char *)0};
 
 
-int main( argc, argv )
-int argc;
-char **argv;
+int main(int argc, char **argv)
 
     {
     flexinit( argc, argv );
@@ -196,8 +194,7 @@ char **argv;
  *    This routine does not return.
  */
 
-void flexend( status )
-int status;
+void flexend(int status)
 
     {
     int tblsiz;
@@ -433,9 +430,7 @@ int status;
  *    flexinit( argc, argv );
  */
 
-void flexinit( argc, argv )
-int argc;
-char **argv;
+void flexinit(int argc, char **argv)
 
     {
     int i, sawcmpflag;
@@ -809,8 +804,7 @@ get_next_arg: /* used by -C and -S flags in lieu of a "continue 2" control */
     set_up_initial_allocations();
     }
 
- int flexinfo(status)
- int status;
+ int flexinfo(int status)
  {
     fprintf(stderr,"Syntax  : flex [options...] inp_file\n");
     fprintf(stderr,"Function: fast lexical analyzer generator\n");
@@ -859,7 +853,7 @@ get_next_arg: /* used by -C and -S flags in lieu of a "continue 2" control */
  *    readin();
  */
 
-void readin()
+void readin(void)
 
     {
     char *ch_type;
@@ -932,7 +926,7 @@ void readin()
 
 /* set_up_initial_allocations - allocate memory for internal tables */
 
-void set_up_initial_allocations()
+void set_up_initial_allocations(void)
 
     {
     current_mns = INITIAL_MNS;

@@ -696,7 +696,7 @@ static void yyunput( YY_lex_CHAR c, YY_lex_CHAR *buf_ptr );
 #else
 /* c++ */
 #ifndef YY_lex_ECHO_NOCODE
-void YY_lex_CLASS::yy___echo()
+void YY_lex_CLASS::yy___echo(void)
 {YY_lex_ECHO_CODE
 }
 #endif
@@ -711,11 +711,11 @@ void YY_lex_CLASS::yy___fatal_error(const char *msg)
 }
 #endif
 #ifndef YY_lex_WRAP_NOCODE
-int  YY_lex_CLASS::yy___wrap()
+int  YY_lex_CLASS::yy___wrap(void)
 {YY_lex_WRAP_CODE
 }
 #endif
-void YY_lex_CLASS::yy_initialize()
+void YY_lex_CLASS::yy_initialize(void)
 {
  yy___in=0;yy___out=0;yy_init = 1;
  yy_start=0;
@@ -732,7 +732,7 @@ YY_lex_CLASS::YY_lex_CLASS(YY_lex_CONSTRUCTOR_PARAM) YY_lex_CONSTRUCTOR_INIT
 {yy_initialize();
  YY_lex_CONSTRUCTOR_CODE;
 }
-YY_lex_CLASS::~YY_lex_CLASS()
+YY_lex_CLASS::~YY_lex_CLASS(void)
 {YY_lex_DESTRUCTOR_CODE;
  if(YY_lex_CURRENT_BUFFER)
   YY_lex_DELETE_BUFFER(YY_lex_CURRENT_BUFFER);
@@ -3240,7 +3240,7 @@ void YY_lex_CLASS::YY_lex_INIT_BUFFER( YY_BUFFER_STATE b, YY_lex_IFILE  *file)
 
 
 
-int yywrap()
+int yywrap(void)
 
     {
     fclose( yyin );
@@ -3257,8 +3257,7 @@ int yywrap()
 
 /* set_input_file - open the given file (if NULL, stdin) for scanning */
 
-void set_input_file( file )
-char *file;
+void set_input_file(char *file)
 
     {
     if ( file )

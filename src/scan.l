@@ -556,7 +556,7 @@ ESCSEQ		\\([^\n\r]|[0-9]{1,3}|x[0-9a-f]{1,2})
 %%
 
 
-int yywrap()
+int yywrap(void)
 
     {
     fclose( yyin );
@@ -573,8 +573,7 @@ int yywrap()
 
 /* set_input_file - open the given file (if NULL, stdin) for scanning */
 
-void set_input_file( file )
-char *file;
+void set_input_file(char *file)
 
     {
     if ( file )

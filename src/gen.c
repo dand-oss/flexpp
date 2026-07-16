@@ -54,7 +54,7 @@ static char C_state_decl[] =
 
 /* indent to the current level */
 
-void do_indent()
+void do_indent(void)
 
     {
     register int i = indent_level * 4;
@@ -75,7 +75,7 @@ void do_indent()
 
 /* generate the code to keep backtracking information */
 
-void gen_backtracking()
+void gen_backtracking(void)
 
     {
     if ( reject || num_backtracking == 0 )
@@ -97,7 +97,7 @@ void gen_backtracking()
 
 /* generate the code to perform the backtrack */
 
-void gen_bt_action()
+void gen_bt_action(void)
 
     {
     if ( reject || num_backtracking == 0 )
@@ -131,7 +131,7 @@ void gen_bt_action()
  *     genctbl();
  */
 
-void genctbl()
+void genctbl(void)
 
     {
     register int i;
@@ -216,7 +216,7 @@ void genctbl()
 
 /* generate equivalence-class tables */
 
-void genecs()
+void genecs(void)
 
     {
     register int i, j;
@@ -265,7 +265,7 @@ void genecs()
 
 /* generate the code to find the action number */
 
-void gen_find_action()
+void gen_find_action(void)
 
     {
     if ( fullspd )
@@ -386,7 +386,7 @@ void gen_find_action()
  *     genftbl();
  */
 
-void genftbl()
+void genftbl(void)
 
     {
     register int i;
@@ -420,8 +420,7 @@ void genftbl()
 
 /* generate the code to find the next compressed-table state */
 
-void gen_next_compressed_state( char_map )
-char *char_map;
+void gen_next_compressed_state(char *char_map)
 
     {
     indent_put2s( "YY_CHAR yy_c = %s;", char_map );
@@ -466,7 +465,7 @@ char *char_map;
 
 /* generate the code to find the next match */
 
-void gen_next_match()
+void gen_next_match(void)
 
     {
     /* NOTE - changes in here should be reflected in gen_next_state() and
@@ -562,8 +561,7 @@ void gen_next_match()
 
 /* generate the code to find the next state */
 
-void gen_next_state( worry_about_NULs )
-int worry_about_NULs;
+void gen_next_state(int worry_about_NULs)
 
     { /* NOTE - changes in here should be reflected in get_next_match() */
     char char_map[256];
@@ -621,7 +619,7 @@ int worry_about_NULs;
 
 /* generate the code to make a NUL transition */
 
-void gen_NUL_trans()
+void gen_NUL_trans(void)
 
     { /* NOTE - changes in here should be reflected in get_next_match() */
     int need_backtracking = (num_backtracking > 0 && ! reject);
@@ -693,7 +691,7 @@ void gen_NUL_trans()
 
 /* generate the code to find the start state */
 
-void gen_start_state()
+void gen_start_state(void)
 
     {
     if ( fullspd )
@@ -728,7 +726,7 @@ void gen_start_state()
  *    gentabs();
  */
 
-void gentabs()
+void gentabs(void)
 
     {
     int i, j, k, *accset, nacc, *acc_array, total_states;
@@ -967,8 +965,7 @@ void gentabs()
  * current indentation level, adding a final newline
  */
 
-void indent_put2s( fmt, arg )
-char fmt[], arg[];
+void indent_put2s(char fmt[], char arg[])
 
     {
     do_indent();
@@ -981,8 +978,7 @@ char fmt[], arg[];
  * newline
  */
 
-void indent_puts( str )
-char str[];
+void indent_puts(char str[])
 
     {
     do_indent();
@@ -998,7 +994,7 @@ char str[];
  * Generates transition tables and finishes generating output file
  */
 
-void make_tables()
+void make_tables(void)
 
     {
     register int i;

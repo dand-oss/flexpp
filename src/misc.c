@@ -46,8 +46,7 @@ int otoi(Char []);
 
 /* allocate_array - allocate memory for an integer array of the given size */
 
-void *allocate_array( size, element_size )
-int size, element_size;
+void *allocate_array(int size, int element_size)
 
     {
     register void *mem;
@@ -76,8 +75,7 @@ int size, element_size;
  *    true/false = all_lower( str );
  */
 
-int all_lower( str )
-register Char *str;
+int all_lower(register Char *str)
 
     {
     while ( *str )
@@ -99,8 +97,7 @@ register Char *str;
  *    true/false = all_upper( str );
  */
 
-int all_upper( str )
-register Char *str;
+int all_upper(register Char *str)
 
     {
     while ( *str )
@@ -128,8 +125,7 @@ register Char *str;
  *   v - the array to be sorted
  *   n - the number of elements of 'v' to be sorted */
 
-void bubble( v, n )
-int v[], n;
+void bubble(int v[], int n)
 
     {
     register int i, j, k;
@@ -153,8 +149,7 @@ int v[], n;
  *    c = clower( c );
  */
 
-Char clower( c )
-register int c;
+Char clower(register int c)
 
     {
     return ( (isascii( c ) && isupper( c )) ? tolower( c ) : c );
@@ -168,8 +163,7 @@ register int c;
  *    copy = copy_string( str );
  */
 
-char *copy_string( str )
-register char *str;
+char *copy_string(register char *str)
 
     {
     register char *c;
@@ -199,8 +193,7 @@ register char *str;
  *    copy = copy_unsigned_string( str );
  */
 
-Char *copy_unsigned_string( str )
-register Char *str;
+Char *copy_unsigned_string(register Char *str)
 
     {
     register Char *c;
@@ -240,9 +233,7 @@ register Char *str;
  *   n - number of elements of v to be sorted
  */
 
-void cshell( v, n, special_case_0 )
-Char v[];
-int n, special_case_0;
+void cshell(Char v[], int n, int special_case_0)
 
     {
     int gap, i, j, jg;
@@ -279,7 +270,7 @@ int n, special_case_0;
  *    dataend();
  */
 
-void dataend()
+void dataend(void)
 
     {
     if ( datapos > 0 )
@@ -300,7 +291,7 @@ void dataend()
  *    dataflush();
  */
 
-void dataflush()
+void dataflush(void)
 
     {
     putchar( '\n' );
@@ -326,8 +317,7 @@ void dataflush()
  *    flexerror( msg );
  */
 
-void flexerror( msg )
-char msg[];
+void flexerror(char msg[])
 
     {
     fprintf( stderr, "%s: %s\n", program_name, msg );
@@ -343,8 +333,7 @@ char msg[];
  *    flexfatal( msg );
  */
 
-void flexfatal( msg )
-char msg[];
+void flexfatal(char msg[])
 
     {
     fprintf( stderr, "%s: fatal internal error, %s\n", program_name, msg );
@@ -377,7 +366,7 @@ char msg[];
 #include <time.h>
 #endif
 
-char *flex_gettime()
+char *flex_gettime(void)
 
     {
     time_t t, time(time_t *);
@@ -402,9 +391,7 @@ char *flex_gettime()
  *    lerrif( msg, arg );
  */
 
-void lerrif( msg, arg )
-char msg[];
-int arg;
+void lerrif(char msg[], int arg)
 
     {
     char errmsg[MAXLINE];
@@ -420,8 +407,7 @@ int arg;
  *    lerrsf( msg, arg );
  */
 
-void lerrsf( msg, arg )
-char msg[], arg[];
+void lerrsf(char msg[], char arg[])
 
     {
     char errmsg[MAXLINE];
@@ -439,8 +425,7 @@ char msg[], arg[];
  *    val = htoi( str );
  */
 
-int htoi( str )
-Char str[];
+int htoi(Char str[])
 
     {
     int result;
@@ -460,8 +445,7 @@ Char str[];
  *    val = is_hex_digit( ch );
  */
 
-int is_hex_digit( ch )
-int ch;
+int is_hex_digit(int ch)
 
     {
     if ( isdigit( ch ) )
@@ -485,8 +469,7 @@ int ch;
 
 /* line_directive_out - spit out a "#line" statement */
 
-void line_directive_out( output_file_name )
-FILE *output_file_name;
+void line_directive_out(FILE *output_file_name)
 
     {
     if ( infilename && gen_line_dirs )
@@ -509,8 +492,7 @@ FILE *output_file_name;
  *
  *  generates a data statement initializing the current 2-D array to "value"
  */
-void mk2data( value )
-int value;
+void mk2data(int value)
 
     {
     if ( datapos >= NUMDATAITEMS )
@@ -541,8 +523,7 @@ int value;
  *  generates a data statement initializing the current array element to
  *  "value"
  */
-void mkdata( value )
-int value;
+void mkdata(int value)
 
     {
     if ( datapos >= NUMDATAITEMS )
@@ -573,8 +554,7 @@ int value;
  *
  */
 
-int myctoi( array )
-Char array[];
+int myctoi(Char array[])
 
     {
     int val = 0;
@@ -593,8 +573,7 @@ Char array[];
  *
  */
 
-Char myesc( array )
-Char array[];
+Char myesc(Char array[])
 
     {
     Char c, esc_char;
@@ -677,8 +656,7 @@ Char array[];
  *    val = otoi( str );
  */
 
-int otoi( str )
-Char str[];
+int otoi(Char str[])
 
     {
     int result;
@@ -699,8 +677,7 @@ Char str[];
  * The returned string is in static storage.
  */
 
-char *readable_form( c )
-register int c;
+char *readable_form(register int c)
 
     {
     static char rform[10];
@@ -736,9 +713,7 @@ register int c;
 
 /* reallocate_array - increase the size of a dynamic array */
 
-void *reallocate_array( array, size, element_size )
-void *array;
-int size, element_size;
+void *reallocate_array(void *array, int size, int element_size)
 
     {
     register void *new_array;
@@ -770,12 +745,7 @@ int size, element_size;
  * and it forbide #line because #line are not accepted in macro defs
  * do nothing if thefile==NULL
  */
-void any_skelout(theskel,thefile,thecounter,thename,use_name,back_lf)
-FILE *theskel,*thefile;
-int *thecounter;
-char *thename;
-int use_name;
-int *back_lf;
+void any_skelout(FILE *theskel, FILE *thefile, int *thecounter, char *thename, int use_name, int *back_lf)
 {int ch;
  int col=0;
  if(thefile==0 )
@@ -829,7 +799,7 @@ int *back_lf;
  *     Copies the action file up to % (or end-of-file) to lex.yy.c
  */
 
-void action_out()
+void action_out(void)
 
 {static int bklf=0;
  any_skelout(temp_action_file,stdout,(int *)0,(char *)0,0,&bklf);
@@ -845,7 +815,7 @@ void action_out()
  *    Copies from skelfile to stdout until a line beginning with "%" or
  *    EOF is found....
  */
-void skelout()
+void skelout(void)
 {static int skel_line=1,bklf=0;
  any_skelout(skelfile,stdout,&skel_line,skelname,1,&bklf);
 }
@@ -860,7 +830,7 @@ void skelout()
  * convert ...
  */
 
-void header_skeleton_out()
+void header_skeleton_out(void)
 {static int hskel_line=1,bklf=0;
      any_skelout(skelheaderfile,headerfile,&hskel_line,skelheaderfilename,1,&bklf);
     }
@@ -875,8 +845,7 @@ void header_skeleton_out()
  * element_n.  Formats the output with spaces and carriage returns.
  */
 
-void transition_struct_out( element_v, element_n )
-int element_v, element_n;
+void transition_struct_out(int element_v, int element_n)
 
     {
     printf( "%7d, %5d,", element_v, element_n );
@@ -897,8 +866,7 @@ int element_v, element_n;
 /* set lexer name. check redefinition. */
 /* if name==NULL and not yet defined use default value as if defined */
 /* include section of sheader skeleton if definition made */
-void set_lexer_name(name)
-char *name;
+void set_lexer_name(char *name)
 {if(name==NULL)
    {
     if(name_defined==0)
