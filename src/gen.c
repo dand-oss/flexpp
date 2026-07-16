@@ -958,6 +958,8 @@ void gentabs(void)
 	}
 
     dataend();
+
+    free( acc_array );
     }
 
 

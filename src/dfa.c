@@ -744,6 +744,9 @@ void ntod(void)
 
 	mkdeftbl();
 	}
+
+    free( accset );
+    free( nset );
     }
 
 
